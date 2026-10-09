@@ -1,0 +1,21 @@
+/* Une surface : filet, rayon 14, jamais d'ombre. */
+.carte {
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  min-width: 0;
+}
+
+.normal {
+  padding: 16px;
+}
+
+.large {
+  padding: 20px;
+}
+
+.entete {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--filet);
+  color: var(--ardoise);
+}

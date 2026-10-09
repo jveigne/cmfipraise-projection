@@ -1,0 +1,426 @@
+/*
+ * Écran des musiciens (design 05), maquette à 1440 × 900. Les tailles suivent la largeur
+ * (clamp en vw) : un moniteur de scène 1920 ou une télé 4K garde les proportions de la
+ * maquette, un petit écran garde des minimums lisibles.
+ */
+.ecran {
+  --m-titre: clamp(26px, 2.36vw, 56px);
+  --m-paroles: clamp(24px, 2.36vw, 60px);
+  --m-accord: clamp(15px, 1.39vw, 36px);
+  --m-hauteur-accord: calc(var(--m-accord) * 1.3);
+  --m-paroles-suivantes: clamp(17px, 1.53vw, 40px);
+  --m-accord-suivant: clamp(12px, 1.04vw, 27px);
+  --m-hauteur-accord-suivant: calc(var(--m-accord-suivant) * 1.33);
+  --m-libelle: clamp(20px, 1.8vw, 44px);
+
+  min-height: 100dvh;
+  background: var(--nuit);
+  color: var(--ivoire-projection);
+  font-family: var(--police-sans);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── En-tête ─── */
+
+.entete {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 32px;
+  border-bottom: 1px solid var(--filet-nuit);
+}
+
+.titreBloc {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.sousTitre,
+.caseLibelle,
+.ordreMeta,
+.reference,
+.ensuite {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--brume-projection);
+}
+
+.titre {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--m-titre);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.espace {
+  flex: 1;
+}
+
+.etatSalle {
+  font-size: var(--taille-meta);
+  font-weight: 600;
+  color: var(--brume-projection);
+  border: 1px solid var(--filet-nuit);
+  border-radius: var(--rayon-vignette);
+  padding: 4px 8px;
+}
+
+.cases {
+  display: flex;
+  gap: 12px;
+}
+
+.case {
+  border: 1px solid var(--filet-nuit);
+  border-radius: var(--rayon-bouton);
+  padding: 10px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.caseValeur {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.caseAccord {
+  color: var(--accord-nuit);
+}
+
+.caseDiscrete {
+  color: var(--brume-projection);
+}
+
+.boutonPleinEcran {
+  width: var(--cible-minimale);
+  height: var(--cible-minimale);
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--filet-nuit);
+  background: transparent;
+  color: var(--brume-projection);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boutonPleinEcran:hover {
+  color: var(--ivoire-projection);
+}
+
+/* Sur fond nuit, l'anneau bleu CMFI manque de contraste : on prend le bleu de nuit. */
+.ecran :focus-visible {
+  outline-color: var(--accord-nuit);
+}
+
+/* ─── Corps ─── */
+
+.corps {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.principal {
+  flex: 1;
+  min-width: 0;
+  padding: 28px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.partieCourante {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.partieSuivante {
+  border-top: 1px solid var(--filet-nuit);
+  padding-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.partieEntete {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* L'or : la partie en cours, et rien d'autre sur cet écran (avec le point de l'ordre). */
+.badgeEnCours {
+  font-size: var(--taille-etiquette);
+  font-weight: 600;
+  letter-spacing: var(--interlettrage-etiquette);
+  text-transform: uppercase;
+  background: var(--or);
+  color: var(--encre);
+  border-radius: var(--rayon-vignette);
+  padding: 4px 8px;
+}
+
+.badgeSuivante {
+  font-size: var(--taille-etiquette);
+  font-weight: 600;
+  letter-spacing: var(--interlettrage-etiquette);
+  text-transform: uppercase;
+  color: var(--accord-nuit);
+  border: 1px solid var(--accord-nuit);
+  border-radius: var(--rayon-vignette);
+  padding: 3px 7px;
+}
+
+.libelleCourant {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--m-libelle);
+  color: var(--ivoire-projection);
+}
+
+.libelleSuivant {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--brume-projection);
+}
+
+/* ─── Lignes et accords ─── */
+
+.lignesCourantes,
+.lignesSuivantes {
+  display: flex;
+  flex-direction: column;
+}
+
+.lignesCourantes {
+  gap: 6px;
+}
+
+.lignesSuivantes {
+  gap: 2px;
+}
+
+.ligne {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.segment {
+  display: inline-flex;
+  flex-direction: column;
+  white-space: pre;
+}
+
+.accord {
+  font-weight: 600;
+  color: var(--accord-nuit);
+}
+
+.texte {
+  font-family: var(--police-serif);
+  line-height: 1.3;
+}
+
+.lignesCourantes .accord {
+  font-size: var(--m-accord);
+  height: var(--m-hauteur-accord);
+  line-height: var(--m-hauteur-accord);
+}
+
+.lignesCourantes .texte {
+  font-size: var(--m-paroles);
+  color: var(--ivoire-projection);
+}
+
+.lignesSuivantes .accord {
+  font-size: var(--m-accord-suivant);
+  height: var(--m-hauteur-accord-suivant);
+  line-height: var(--m-hauteur-accord-suivant);
+}
+
+.lignesSuivantes .texte {
+  font-size: var(--m-paroles-suivantes);
+  color: var(--brume-projection);
+}
+
+.italique {
+  font-style: italic;
+}
+
+/* ─── Colonne : structure et ordre du culte ─── */
+
+.cote {
+  width: 360px;
+  flex: 0 0 auto;
+  border-left: 1px solid var(--filet-nuit);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.bloc {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.blocTitre {
+  font-size: var(--taille-etiquette);
+  font-weight: 600;
+  letter-spacing: var(--interlettrage-etiquette);
+  text-transform: uppercase;
+  color: var(--brume-projection);
+}
+
+.structure {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pilule {
+  min-width: 40px;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: var(--rayon-bouton);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: 18px;
+  border: 1px solid var(--filet-nuit);
+}
+
+.pilule_courante {
+  background: var(--or);
+  border-color: var(--or);
+  color: var(--encre);
+}
+
+.pilule_suivante {
+  border-color: var(--accord-nuit);
+  color: var(--accord-nuit);
+}
+
+.pilule_passee {
+  color: var(--brume-projection);
+}
+
+.pilule_avenir {
+  color: var(--ivoire-projection);
+}
+
+.ordre {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.ordreLigne {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--filet-nuit);
+}
+
+.ordreNumero {
+  width: 22px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--brume-projection);
+}
+
+.ordreCorps {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ordreTitre {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ivoire-projection);
+}
+
+.ordrePasse {
+  color: var(--brume-projection);
+}
+
+.pointEnCours {
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background: var(--or);
+  flex: 0 0 auto;
+}
+
+/* ─── En attente de la régie ─── */
+
+.attente {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 14px;
+  padding: 40px 16px;
+}
+
+.iconeAttente {
+  color: var(--accord-nuit);
+}
+
+.titreAttente {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-titre-ecran);
+  letter-spacing: -0.5px;
+}
+
+.texteAttente {
+  color: var(--brume-projection);
+  max-width: 460px;
+  line-height: 1.55;
+}
+
+/* Écran étroit (tablette au pupitre) : la colonne passe dessous. */
+@media (max-width: 900px) {
+  .corps {
+    flex-direction: column;
+  }
+
+  .cote {
+    width: auto;
+    border-left: none;
+    border-top: 1px solid var(--filet-nuit);
+    padding: 20px 16px;
+  }
+
+  .principal {
+    padding: 20px 16px;
+  }
+
+  .entete {
+    padding: 16px;
+    gap: 16px;
+  }
+}

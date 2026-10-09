@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Web et bureau — ce qui change</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F3F5F7}
+</style>
+</helmet>
+<div style="min-height: 900px; background: #F3F5F7; font-family: 'Instrument Sans', sans-serif; font-size: 15px; color: #12171C">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: flex; flex-direction: column; gap: 24px">
+    <header style="display: flex; flex-direction: column; gap: 8px">
+      <h1 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 600; font-size: 28px; letter-spacing: -0.5px">Une maquette, deux plateformes</h1>
+      <p style="margin: 0; color: #5C6873; max-width: 820px; line-height: 1.55">Même base de code, mêmes écrans. Le web sert à découvrir et à dépanner : rien à installer. Le bureau sert au culte : il possède les écrans et les fichiers de l’ordinateur, donc il n’a besoin de personne d’autre. Seuls trois éléments visibles changent.</p>
+    </header>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5C6873">Web</span>
+        <div style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; padding: 12px; display: flex; align-items: center; gap: 10px">
+          <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 17px">CMFIPraise</span>
+          <span style="flex: 1; height: 36px; border-radius: 8px; background: #F3F5F7; border: 1px solid #E4E9ED"></span>
+          <span style="height: 36px; padding: 0 10px; border-radius: 8px; border: 1px solid #E4E9ED; display: flex; align-items: center; font-size: 13px; font-weight: 500">Fenêtre de sortie</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5C6873">Bureau</span>
+        <div style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; overflow: hidden">
+          <div style="height: 28px; border-bottom: 1px solid #E4E9ED; display: flex; align-items: center; padding: 0 10px; gap: 6px">
+            <span style="width: 10px; height: 10px; border-radius: 5px; background: #D3D9DF"></span><span style="width: 10px; height: 10px; border-radius: 5px; background: #D3D9DF"></span><span style="width: 10px; height: 10px; border-radius: 5px; background: #D3D9DF"></span>
+            <span style="flex: 1"></span>
+            <span style="font-size: 12px; font-weight: 500; color: #5C6873">Hors-ligne prêt</span>
+          </div>
+          <div style="padding: 12px; display: flex; align-items: center; gap: 10px">
+            <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 17px">CMFIPraise</span>
+            <span style="flex: 1; height: 36px; border-radius: 8px; background: #F3F5F7; border: 1px solid #E4E9ED"></span>
+            <span style="height: 36px; padding: 0 10px; border-radius: 8px; border: 1px solid #E4E9ED; display: flex; align-items: center; font-size: 13px; font-weight: 500">Sortie : écran 2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; overflow-x: auto">
+      <table style="width: 100%; border-collapse: collapse; min-width: 820px">
+        <thead>
+          <tr style="text-align: left; font-size: 13px; font-weight: 500; color: #5C6873">
+            <th style="padding: 12px 20px; font-weight: 500; width: 170px"></th>
+            <th style="padding: 12px; font-weight: 500">Web</th>
+            <th style="padding: 12px; font-weight: 500">Bureau</th>
+            <th style="padding: 12px 20px; font-weight: 500">Pourquoi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{ rows }}" as="r" hint-placeholder-count="7">
+            <tr style="border-top: 1px solid #E4E9ED; vertical-align: top">
+              <td style="padding: 14px 20px; font-weight: 600">{{ r.k }}</td>
+              <td style="padding: 14px 12px; line-height: 1.45">{{ r.w }}</td>
+              <td style="padding: 14px 12px; line-height: 1.45">{{ r.d }}</td>
+              <td style="padding: 14px 20px; line-height: 1.45; font-size: 13px; font-weight: 500; color: #5C6873">{{ r.y }}</td>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { rows: [
+      { k: 'Barre de titre', w: 'Celle du navigateur ; rien n’est dessiné.', d: 'Barre native, avec l’état hors-ligne à droite.', y: 'Le bureau est une fenêtre à part entière : l’état du réseau y est toujours visible, sans gêner la régie.' },
+      { k: 'Écran de sortie', w: 'Une fenêtre à glisser sur le projecteur, puis plein écran.', d: 'Choisi dans la liste des écrans, retenu d’un culte à l’autre.', y: 'Un navigateur ne peut pas choisir un écran lui-même. Le bureau le peut : zéro manipulation le dimanche.' },
+      { k: 'Musiciens', w: 'Un lien à ouvrir sur une tablette.', d: 'Un troisième écran, ou le même lien.', y: 'Même écran dans les deux cas ; seule la façon de l’afficher change.' },
+      { k: 'Hors-ligne', w: 'La setlist et les Bibles déjà ouvertes restent projetables.', d: 'Tout : recueils, Bibles, fonds, setlists.', y: 'Le web garde ce qu’il a chargé ; le bureau a tout copié d’avance. D’où la recommandation : le bureau pour le culte.' },
+      { k: 'Télécommande', w: 'Par Internet.', d: 'Par Internet ou par le Wi-Fi de la salle, sans Internet.', y: 'Le bureau peut ouvrir un service sur le réseau local ; un onglet de navigateur non.' },
+      { k: 'Compte', w: 'Facultatif : visiteur en lecture et projection.', d: 'Facultatif, identique.', y: 'Essayer en un clic d’abord ; le compte sert à garder favoris et setlists.' },
+      { k: 'Le reste', w: 'Identique.', d: 'Identique.', y: 'Un seul apprentissage pour les bénévoles, une seule maquette à maintenir.' }
+    ] };
+  }
+}
+</script>
+</body>
+</html>

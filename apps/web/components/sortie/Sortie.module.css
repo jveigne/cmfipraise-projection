@@ -1,0 +1,30 @@
+.sortie {
+  position: fixed;
+  inset: 0;
+  background: var(--ecran-noir);
+  overflow: hidden;
+}
+
+.sansCurseur,
+.sansCurseur * {
+  cursor: none;
+}
+
+/* Astuce discrète, en haut : elle ne doit pas se confondre avec ce qui est projeté. */
+.astuce {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 8px 14px;
+  border: 1px solid var(--filet-nuit);
+  border-radius: var(--rayon-bouton);
+  background: var(--nuit);
+  color: var(--brume-projection);
+  font-family: var(--police-sans);
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+}

@@ -1,0 +1,96 @@
+.panneau {
+  background: var(--surface);
+  border-left: 1px solid var(--filet);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+
+.intro {
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+.encadre {
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.encadre :global(.meta) {
+  line-height: 1.5;
+}
+
+.fort {
+  font-weight: 600;
+}
+
+.debut {
+  align-self: flex-start;
+}
+
+.code {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.codeTexte {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.valeurCode {
+  font-size: var(--taille-titre-ecran);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  overflow-wrap: anywhere;
+}
+
+.lien {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ligneLien {
+  display: flex;
+  gap: 8px;
+}
+
+.champLien {
+  flex: 1;
+  min-width: 0;
+  height: var(--cible-minimale);
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--filet);
+  background: var(--page);
+  padding: 0 12px;
+  color: var(--encre);
+}
+
+.note {
+  line-height: 1.5;
+}
+
+.musiciens {
+  border-top: 1px solid var(--filet);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media (max-width: 1099px) {
+  .panneau {
+    border-left: none;
+    border-top: 1px solid var(--filet);
+  }
+}

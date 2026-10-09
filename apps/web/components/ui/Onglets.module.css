@@ -1,0 +1,55 @@
+.liste {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Soulignés (appairage) : 48 px, trait bleu de 2 px sous l'onglet actif. */
+.souligne {
+  gap: 4px;
+  border-bottom: 1px solid var(--filet);
+}
+
+.souligne .onglet {
+  min-height: 48px;
+  padding: 0 12px;
+  border: none;
+  background: transparent;
+  font-weight: 500;
+  color: var(--ardoise);
+}
+
+/* Pas une ombre : un filet intérieur, pour ne pas décaler le texte. */
+.souligne .onglet[aria-selected='true'] {
+  font-weight: 600;
+  color: var(--bleu-cmfi);
+  box-shadow: inset 0 -2px 0 var(--bleu-cmfi);
+}
+
+/* Pastilles (filtres de la bibliothèque) : 36 px de haut, 44 px de cible grâce à la marge. */
+.pastilles {
+  gap: 6px;
+}
+
+.pastilles .onglet {
+  min-height: 36px;
+  margin-block: 4px;
+  padding: 0 12px;
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--filet);
+  background: var(--surface);
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--encre);
+}
+
+.pastilles .onglet[aria-selected='true'] {
+  border-color: var(--bleu-cmfi);
+  color: var(--bleu-cmfi);
+  font-weight: 600;
+}
+
+.onglet {
+  font: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}

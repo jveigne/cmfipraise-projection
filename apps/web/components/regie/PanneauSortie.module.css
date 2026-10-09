@@ -1,0 +1,140 @@
+.colonne {
+  flex: 1 1 360px;
+  max-width: 460px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gouttiere);
+}
+
+.carte {
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.enteteSortie {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.espace {
+  flex: 1;
+}
+
+.etiquetteDirect {
+  font-size: var(--taille-etiquette-petite);
+  font-weight: 600;
+  letter-spacing: var(--interlettrage-etiquette);
+  text-transform: uppercase;
+  background: var(--or);
+  color: var(--encre);
+  border-radius: var(--rayon-vignette);
+  padding: 3px 7px;
+  white-space: nowrap;
+}
+
+/* Une fenêtre bloquée n'est pas une suppression : encre, jamais alerte. */
+.erreur {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--encre);
+}
+
+.carteSuivante {
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+}
+
+.miniature {
+  flex: 0 0 auto;
+  width: 44%;
+}
+
+.suivanteTextes {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.aSuivre {
+  font-size: var(--taille-etiquette);
+  font-weight: 600;
+  letter-spacing: var(--interlettrage-etiquette);
+  text-transform: uppercase;
+  color: var(--bleu-cmfi);
+}
+
+.navigation {
+  display: flex;
+  gap: 10px;
+}
+
+.precedent {
+  flex: 1;
+  font-weight: 600;
+}
+
+.suivant {
+  flex: 2;
+}
+
+.bascules {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+/* Bascule 96 px : contour encre 2 px quand elle est activée — ni or (réservé au direct),
+   ni alerte (rien n'est détruit). */
+.bascule {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: var(--cible-bascule);
+  padding: 8px;
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-bouton);
+  background: var(--surface);
+  font: inherit;
+  font-size: var(--taille-meta);
+  font-weight: 600;
+  color: var(--encre);
+  text-align: center;
+}
+
+.bascule:hover {
+  background: var(--page);
+}
+
+.basculeActive {
+  border: 2px solid var(--encre);
+  padding: 7px;
+}
+
+.basculeAide {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ardoise);
+}
+
+.bilingue {
+  min-height: 52px;
+}
+
+/* Sur un écran étroit, les colonnes s'empilent : chacune prend toute la largeur. */
+@media (max-width: 720px) {
+  .colonne {
+    max-width: none;
+  }
+}

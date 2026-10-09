@@ -1,0 +1,167 @@
+/* Boîte d'appairage (design 06) : la boîte elle-même est `Dialogue` (components/ui). */
+.onglets {
+  padding: 0 24px;
+  border-bottom: 1px solid var(--filet);
+}
+
+/* La liste porte déjà un filet bas ; celui du conteneur suffit, pleine largeur. */
+.onglets > [role='tablist'] {
+  border-bottom: none;
+}
+
+.corps {
+  padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.colonneQr {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-inline: auto;
+}
+
+.codeSalle {
+  font-size: var(--taille-meta);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--ardoise);
+}
+
+.colonneTexte {
+  flex: 1 1 320px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.etapes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.etape {
+  display: flex;
+  gap: 12px;
+}
+
+.numero {
+  flex: 0 0 20px;
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-titre-oeuvre-liste);
+  color: var(--bleu-cmfi);
+}
+
+.demande {
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  padding: 14px 16px;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.codeVerification {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  font-variant-numeric: tabular-nums;
+}
+
+.demandeTexte {
+  flex: 1;
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+}
+
+.decision {
+  display: flex;
+  gap: 10px;
+}
+
+.accepter {
+  flex: 1;
+}
+
+.appairees {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--ardoise);
+}
+
+.listeAppairees {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.appareil {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--filet);
+  color: var(--encre);
+}
+
+.appareilNom {
+  flex: 1;
+  font-weight: 600;
+}
+
+.appareilCode {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+  font-variant-numeric: tabular-nums;
+}
+
+.pied {
+  padding: 16px 24px 20px;
+  border-top: 1px solid var(--filet);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.note {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+  line-height: 1.5;
+}
+
+.indisponible {
+  color: var(--ardoise);
+}
+
+@media (max-width: 560px) {
+  .entete,
+  .corps {
+    padding-inline: 16px;
+  }
+
+  .onglets {
+    padding-inline: 8px;
+  }
+
+  .pied {
+    padding-inline: 16px;
+  }
+}

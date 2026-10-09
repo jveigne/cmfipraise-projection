@@ -1,0 +1,100 @@
+.entete {
+  padding: 20px 32px;
+  border-bottom: 1px solid var(--filet);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  align-items: center;
+}
+
+.titres {
+  flex: 1 1 260px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Bleu : ce qui vient du recueil officiel. Violet : ce que l'utilisateur a écrit. */
+.origine,
+.originePerso {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--bleu-cmfi);
+}
+
+.originePerso {
+  color: var(--violet);
+}
+
+.sousTitre {
+  margin-top: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.outils {
+  padding: 12px 32px;
+  border-bottom: 1px solid var(--filet);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  align-items: center;
+}
+
+.groupe {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 40 px dans le design ; 44 px ici pour la cible minimale. */
+.pas {
+  width: var(--cible-minimale);
+  height: var(--cible-minimale);
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--filet);
+  background: var(--surface);
+  font-size: 18px;
+  color: var(--encre);
+}
+
+.pas:hover:not(:disabled) {
+  background: var(--page);
+}
+
+.pas:disabled {
+  opacity: 0.45;
+}
+
+.petitA {
+  font-size: var(--taille-meta);
+  font-weight: 600;
+}
+
+.grandA {
+  font-size: var(--taille-titre-oeuvre-liste);
+  font-weight: 600;
+}
+
+.tonalite {
+  min-width: 72px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.corps {
+  padding: 28px 32px 48px;
+}
+
+@media (max-width: 640px) {
+  .entete,
+  .outils,
+  .corps {
+    padding-inline: var(--marge);
+  }
+}

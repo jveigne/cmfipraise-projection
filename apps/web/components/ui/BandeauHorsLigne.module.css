@@ -1,0 +1,32 @@
+.bandeau {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  background: var(--page);
+}
+
+.icone {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: var(--encre);
+}
+
+.corps {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.titre {
+  font-weight: 600;
+}
+
+.texte {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+  line-height: 1.5;
+}

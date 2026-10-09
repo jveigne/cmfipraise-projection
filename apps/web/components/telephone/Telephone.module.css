@@ -1,0 +1,482 @@
+/*
+ * Vues téléphone (design 06) : télécommande et paroles en direct. Pensées pour 390 px ;
+ * sur un écran plus large, une colonne de 480 px centrée, bordée d'un filet.
+ */
+.telephone {
+  min-height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--page);
+}
+
+.surface {
+  background: var(--surface);
+}
+
+@media (min-width: 520px) {
+  .telephone {
+    border-inline: 1px solid var(--filet);
+  }
+}
+
+/* ─── En-têtes ─── */
+
+.entete {
+  padding: 20px 18px 12px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--filet);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.enteteColonne {
+  padding: 20px 18px 12px;
+  border-bottom: 1px solid var(--filet);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.enteteTexte {
+  flex: 1;
+  min-width: 0;
+}
+
+.titreTelecommande {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-titre-oeuvre);
+}
+
+.liaison {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.point {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--bleu-cmfi);
+  flex: 0 0 auto;
+}
+
+.pointAttente {
+  background: var(--filet-fort);
+}
+
+.pointOr {
+  background: var(--or);
+}
+
+/* ─── Télécommande ─── */
+
+.contenu {
+  flex: 1;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.carteDirect {
+  background: var(--surface);
+  border: var(--bordure-direct) solid var(--or);
+  border-radius: var(--rayon-surface);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.carteNeutre {
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.extrait {
+  font-family: var(--police-serif);
+  font-size: var(--taille-corps);
+  line-height: 1.5;
+}
+
+.carteSuivante {
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  padding: 10px 14px;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.motSuivante {
+  font-size: var(--taille-meta);
+  font-weight: 600;
+  color: var(--bleu-cmfi);
+  white-space: nowrap;
+}
+
+.extraitSuivant {
+  font-family: var(--police-serif);
+  font-style: italic;
+  font-size: var(--taille-corps);
+  color: var(--ardoise);
+  min-width: 0;
+}
+
+.grilleNavigation {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+}
+
+.boutonPrecedent,
+.boutonSuivant {
+  height: 112px;
+  border-radius: var(--rayon-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font: inherit;
+}
+
+.boutonPrecedent {
+  border: 1px solid var(--filet);
+  background: var(--surface);
+  color: var(--encre);
+}
+
+.boutonPrecedent:hover:not(:disabled) {
+  background: var(--page);
+}
+
+.boutonSuivant {
+  border: none;
+  background: var(--bleu-cmfi);
+  color: var(--surface);
+  font-weight: 600;
+  font-size: var(--taille-bouton-suivant);
+}
+
+.boutonSuivant:hover:not(:disabled) {
+  background: var(--bleu-appuye);
+}
+
+.boutonPrecedent:disabled,
+.boutonSuivant:disabled,
+.boutonNoir:disabled {
+  opacity: 0.5;
+}
+
+.boutonNoir {
+  height: 52px;
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--filet);
+  background: var(--surface);
+  font: inherit;
+  font-weight: 600;
+  color: var(--encre);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.boutonNoir:hover:not(:disabled) {
+  background: var(--page);
+}
+
+/* Bascule enfoncée (écran noir en cours) : contour encre, comme les bascules de la régie. */
+.boutonNoir[aria-pressed='true'] {
+  border: 2px solid var(--encre);
+}
+
+.carteVerset {
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.libelleVerset {
+  font-weight: 600;
+}
+
+.saisieVerset {
+  height: var(--cible-minimale);
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--filet);
+  padding: 0 12px;
+  background: var(--surface);
+}
+
+.saisieVerset:focus {
+  border: 2px solid var(--bleu-cmfi);
+  padding: 0 11px;
+  outline: none;
+}
+
+.texteVerset {
+  font-family: var(--police-serif);
+  font-size: var(--taille-corps);
+  line-height: 1.5;
+}
+
+.boutonsVerset {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.boutonsVerset > * {
+  min-height: 48px;
+  font-size: var(--taille-meta);
+  white-space: normal;
+}
+
+/* ─── Paroles en direct ─── */
+
+.ligneDirect {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.titreChant {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-titre-ecran);
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+
+.reglagesLecture {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.langues {
+  display: flex;
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-bouton);
+  overflow: hidden;
+}
+
+.langue {
+  min-height: var(--cible-minimale);
+  padding: 0 14px;
+  border: none;
+  background: var(--surface);
+  font-weight: 500;
+  color: var(--encre);
+}
+
+.langue + .langue {
+  border-left: 1px solid var(--filet);
+}
+
+.langue[aria-checked='true'] {
+  background: var(--page);
+  font-weight: 600;
+  color: var(--bleu-cmfi);
+}
+
+.taille {
+  width: var(--cible-minimale);
+  height: var(--cible-minimale);
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--filet);
+  background: var(--surface);
+  font-weight: 600;
+  color: var(--encre);
+}
+
+.taille:disabled {
+  opacity: 0.5;
+}
+
+.taillePetite {
+  font-size: var(--taille-meta);
+}
+
+.tailleGrande {
+  font-size: var(--taille-bouton-suivant);
+}
+
+.paroles {
+  --echelle: 1;
+
+  flex: 1;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.partie {
+  display: flex;
+  gap: 12px;
+}
+
+.partieContexte {
+  color: var(--ardoise);
+}
+
+.libellePartie {
+  flex: 0 0 auto;
+  min-width: 22px;
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: calc(17px * var(--echelle));
+}
+
+.texteContexte {
+  font-family: var(--police-serif);
+  font-size: calc(19px * var(--echelle));
+  line-height: 1.62;
+}
+
+.maintenant {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.motMaintenant {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--taille-meta);
+  font-weight: 600;
+}
+
+.libelleMaintenant {
+  flex: 0 0 auto;
+  min-width: 22px;
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: calc(22px * var(--echelle));
+}
+
+.texteMaintenant {
+  font-family: var(--police-serif);
+  font-size: calc(23px * var(--echelle));
+  line-height: 1.62;
+  display: flex;
+  flex-direction: column;
+}
+
+.secondeLangue {
+  color: var(--ardoise);
+  font-size: 0.82em;
+  margin-top: 6px;
+}
+
+.italique {
+  font-style: italic;
+}
+
+.reference {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+}
+
+.pied {
+  padding: 12px 16px 22px;
+  border-top: 1px solid var(--filet);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pied > span {
+  flex: 1;
+}
+
+.lienApp {
+  min-height: var(--cible-minimale);
+  padding: 0 12px;
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--filet);
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--taille-meta);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* ─── Rejoindre, attente, fin ─── */
+
+.panneau {
+  flex: 1;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formulaire {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.centre {
+  flex: 1;
+  padding: 32px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.grandCode {
+  font-size: 56px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  font-variant-numeric: tabular-nums;
+}
+
+.texteCentre {
+  color: var(--ardoise);
+  max-width: 340px;
+  line-height: 1.55;
+}
+
+.iconeBleue {
+  color: var(--bleu-cmfi);
+}
+
+.iconeArdoise {
+  color: var(--ardoise);
+}
+
+.noteDemo {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+  line-height: 1.5;
+  padding: 0 18px 18px;
+}

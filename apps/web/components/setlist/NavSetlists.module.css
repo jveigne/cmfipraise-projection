@@ -1,0 +1,149 @@
+.nav {
+  background: var(--surface);
+  border-right: 1px solid var(--filet);
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.entete {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 0 10px;
+}
+
+.retour {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--cible-minimale);
+  height: var(--cible-minimale);
+  margin-left: -6px;
+  border-radius: var(--rayon-bouton);
+  color: var(--ardoise);
+}
+
+.retour:hover {
+  background: var(--page);
+  color: var(--encre);
+}
+
+.titre {
+  flex: 1;
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-titre-oeuvre);
+}
+
+/* Créer une setlist : c'est l'utilisateur qui crée, d'où le plus violet. */
+.nouvelle {
+  width: var(--cible-minimale);
+  height: var(--cible-minimale);
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--filet);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--violet);
+}
+
+.nouvelle:hover {
+  background: var(--page);
+}
+
+.liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.setlist {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  min-height: var(--cible-minimale);
+  padding: 10px 12px;
+  border-radius: var(--rayon-bouton);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--encre);
+  text-align: left;
+  text-decoration: none;
+}
+
+.setlist:hover {
+  background: var(--page);
+  color: var(--encre);
+}
+
+.setlist[aria-current='page'] {
+  border-color: var(--violet);
+}
+
+.section {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sousTitre {
+  font-size: var(--taille-etiquette-petite);
+  color: var(--ardoise);
+  padding: 0 12px;
+}
+
+.note {
+  padding: 0 12px;
+  line-height: 1.5;
+}
+
+.invitation {
+  margin-top: 16px;
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.invitation p {
+  line-height: 1.5;
+}
+
+.lienConnexion {
+  align-self: flex-start;
+  margin-left: -8px;
+}
+
+.code {
+  margin-top: auto;
+  padding-top: 16px;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.champCode {
+  flex: 1;
+}
+
+@media (max-width: 1099px) {
+  .nav {
+    border-right: none;
+    border-bottom: 1px solid var(--filet);
+  }
+
+  .code {
+    margin-top: 12px;
+  }
+}

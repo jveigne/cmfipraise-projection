@@ -1,0 +1,120 @@
+.barre {
+  background: var(--surface);
+  border-right: 1px solid var(--filet);
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.marque {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 6px 16px;
+  min-height: var(--cible-minimale);
+  color: var(--encre);
+  text-decoration: none;
+}
+
+.marque:hover {
+  color: var(--encre);
+}
+
+.nom {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-titre-oeuvre);
+}
+
+.entrees {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.entree {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--cible-minimale);
+  padding: 0 10px;
+  border: none;
+  border-radius: var(--rayon-bouton);
+  background: transparent;
+  color: var(--encre);
+  text-align: left;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.entree:hover {
+  background: var(--page);
+  color: var(--encre);
+}
+
+/* Navigation : bleu, sur fond page. */
+.entree[aria-current='page'] {
+  background: var(--page);
+  color: var(--bleu-cmfi);
+  font-weight: 600;
+}
+
+.ardoise {
+  color: var(--ardoise);
+}
+
+.violet {
+  color: var(--violet);
+}
+
+.separateur {
+  border-top: 1px solid var(--filet);
+  margin: 12px 0;
+}
+
+.ressort {
+  flex: 1;
+}
+
+.compte {
+  margin-top: 12px;
+}
+
+/* Tablette et téléphone : la barre devient une rangée défilante au-dessus des listes. */
+@media (max-width: 1099px) {
+  .barre {
+    flex-direction: row;
+    align-items: center;
+    border-right: none;
+    border-bottom: 1px solid var(--filet);
+    padding: 8px var(--marge);
+    gap: 8px;
+    overflow-x: auto;
+  }
+
+  .marque {
+    padding: 0 6px 0 0;
+  }
+
+  .nom {
+    display: none;
+  }
+
+  .entrees {
+    flex-direction: row;
+  }
+
+  .separateur {
+    border-top: none;
+    border-left: 1px solid var(--filet);
+    margin: 8px 4px;
+    align-self: stretch;
+  }
+
+  .ressort,
+  .compte {
+    display: none;
+  }
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Sortie — fond personnalisé, verset en deux versions</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1280px; height: 720px; position: relative; background: {{ fond }}; overflow: hidden; font-family: 'Newsreader', serif; color: #F4F1EA; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 64px 72px 96px; box-sizing: border-box">
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 72px; width: 100%; align-items: start">
+    <div style="display: flex; flex-direction: column; gap: 18px">
+      <div style="font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; color: #C9BFAF">Louis Segond 1910</div>
+      <div style="font-size: 34px; line-height: 1.45">Car Dieu a tant aimé le monde qu’il a donné son Fils unique, afin que quiconque croit en lui ne périsse point, mais qu’il ait la vie éternelle.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 18px; border-left: 1px solid rgba(244, 241, 234, 0.22); padding-left: 72px; margin-left: -36px">
+      <div style="font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; color: #C9BFAF">King James</div>
+      <div style="font-size: 34px; line-height: 1.45">For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.</div>
+    </div>
+  </div>
+
+  <div style="position: absolute; left: 0; right: 0; bottom: 40px; text-align: center; font-size: 19px; letter-spacing: 0.04em; color: #C9BFAF">Jean 3:16 · John 3:16</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"fond":{"editor":"color","options":["#2B211A","#1C2B23","#2A2034","#0B2438"],"default":"#2B211A"},"$preview":{"width":1280,"height":720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { fond: this.props.fond ?? '#2B211A' };
+  }
+}
+</script>
+</body>
+</html>

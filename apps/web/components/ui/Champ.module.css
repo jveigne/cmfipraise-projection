@@ -1,0 +1,73 @@
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.libelle {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+}
+
+.cadre {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.saisie {
+  width: 100%;
+  min-height: var(--cible-minimale);
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--filet);
+  padding: 0 12px;
+  font: inherit;
+  color: var(--encre);
+}
+
+.saisie::placeholder {
+  color: var(--ardoise);
+  opacity: 1;
+}
+
+.fondPage {
+  background: var(--page);
+}
+
+.fondSurface {
+  background: var(--surface);
+}
+
+.avecIcone {
+  padding-left: 42px;
+}
+
+.avecRaccourci {
+  padding-right: 52px;
+}
+
+.icone {
+  position: absolute;
+  left: 14px;
+  color: var(--ardoise);
+  pointer-events: none;
+}
+
+.raccourci {
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
+}
+
+.aide {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+}
+
+/* Une saisie invalide n'est pas une suppression : pas d'alerte, un filet encre. */
+.invalide {
+  border-color: var(--encre);
+}

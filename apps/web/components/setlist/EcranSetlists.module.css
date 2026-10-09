@@ -1,0 +1,38 @@
+/* Trois colonnes du design : 280 · le reste · 380. */
+.ecran {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: minmax(240px, 280px) minmax(0, 1fr);
+  background: var(--page);
+}
+
+.ecran[data-partage] {
+  grid-template-columns: minmax(240px, 280px) minmax(0, 1fr) minmax(300px, 380px);
+}
+
+.centre {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.centre > :last-child {
+  flex: 1;
+}
+
+.horsLigne:has(> *) {
+  padding: 16px 24px 0;
+}
+
+/* En dessous, une seule colonne : liste, éditeur, partage, l'un sous l'autre. */
+@media (max-width: 1099px) {
+  .ecran,
+  .ecran[data-partage] {
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+  }
+
+  .horsLigne:has(> *) {
+    padding: 12px var(--marge) 0;
+  }
+}

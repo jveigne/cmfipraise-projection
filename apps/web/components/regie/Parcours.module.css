@@ -1,0 +1,184 @@
+.panneau {
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  min-width: 0;
+}
+
+.texte {
+  margin-top: 6px;
+  color: var(--ardoise);
+  line-height: 1.55;
+}
+
+/* ─── Prêt ─────────────────────────────────────────────────────────────── */
+
+.pret {
+  flex: none;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.verifications {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+}
+
+.verification {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--filet);
+}
+
+.verification:last-child {
+  border-bottom: none;
+}
+
+/* Vérification faite : pastille bleue cochée. À faire : cercle filetFort. */
+.pastille {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  border: 2px solid var(--filet-fort);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pastilleOk {
+  border: none;
+  background: var(--bleu-cmfi);
+  color: var(--surface);
+}
+
+.verificationTextes {
+  flex: 1 1 220px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.verificationTitre {
+  font-weight: 600;
+}
+
+.actionBleue {
+  color: var(--bleu-cmfi);
+}
+
+.actionBleue:hover:not(:disabled) {
+  color: var(--bleu-appuye);
+}
+
+.lancer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.boutonLancer {
+  padding-inline: 28px;
+  gap: 12px;
+}
+
+/* ─── Fin ──────────────────────────────────────────────────────────────── */
+
+.colonneFin {
+  flex: none;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gouttiere);
+}
+
+.fin {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.actionsFin {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.carteAction {
+  min-height: var(--cible-bascule);
+  padding: 16px;
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  background: var(--surface);
+  font: inherit;
+  color: var(--encre);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.carteAction:hover:not(:disabled) {
+  background: var(--page);
+}
+
+.carteAction:disabled {
+  opacity: 1;
+}
+
+.carteAction:disabled .carteActionTitre {
+  color: var(--ardoise);
+}
+
+.carteActionTitre {
+  font-weight: 600;
+}
+
+.carteActionEtat {
+  font-size: var(--taille-meta);
+  font-weight: 600;
+  color: var(--encre);
+}
+
+.shephr {
+  padding: 24px 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.shephrTextes {
+  flex: 1 1 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.shephrTextes .texte {
+  margin-top: 0;
+}
+
+.shephrActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.plusTard {
+  color: var(--ardoise);
+  font-weight: 500;
+}

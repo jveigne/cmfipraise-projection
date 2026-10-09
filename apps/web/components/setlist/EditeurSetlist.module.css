@@ -1,0 +1,136 @@
+.editeur {
+  min-width: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.entete {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px 20px;
+}
+
+.titres {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+/* « Ma setlist » : ce que l'utilisateur a créé, en violet. */
+.marque {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--violet);
+}
+
+.nom {
+  margin-top: 6px;
+  width: 100%;
+  min-height: var(--cible-minimale);
+  border: 1px solid transparent;
+  border-radius: var(--rayon-bouton);
+  padding: 4px 8px 4px 0;
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-titre-ecran);
+  letter-spacing: -0.5px;
+  color: var(--encre);
+  background: transparent;
+}
+
+.nom:hover {
+  border-color: var(--filet);
+  padding-left: 8px;
+  margin-left: -8px;
+  width: calc(100% + 8px);
+}
+
+.nom:focus {
+  border-color: var(--filet);
+  background: var(--surface);
+  padding-left: 8px;
+  margin-left: -8px;
+  width: calc(100% + 8px);
+}
+
+.liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vide {
+  border: 1px dashed var(--filet-fort);
+  border-radius: var(--rayon-surface);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.iconeVide {
+  color: var(--violet);
+}
+
+.ajout {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.iconeAjout {
+  position: absolute;
+  left: 14px;
+  color: var(--ardoise);
+  pointer-events: none;
+}
+
+.saisie {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  border-radius: var(--rayon-bouton);
+  border: 1px dashed var(--filet-fort);
+  background: var(--surface);
+  padding: 0 12px 0 42px;
+  color: var(--encre);
+}
+
+.saisie::placeholder {
+  color: var(--ardoise);
+  opacity: 1;
+}
+
+.boutonAjout {
+  min-height: 48px;
+}
+
+.ressort {
+  flex: 1;
+}
+
+.pied {
+  border-top: 1px solid var(--filet);
+  padding-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .editeur {
+    padding: 16px var(--marge);
+  }
+}

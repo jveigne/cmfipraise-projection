@@ -1,0 +1,113 @@
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--cible-minimale);
+  padding: 0 16px;
+  border-radius: var(--rayon-bouton);
+  border: 1px solid transparent;
+  background: transparent;
+  font: inherit;
+  font-size: var(--taille-bouton);
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.bouton:disabled,
+.bouton[aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Plein : ce qui vient du mouvement, l'action principale. */
+.plein {
+  background: var(--bleu-cmfi);
+  color: var(--surface);
+  font-weight: 600;
+}
+
+.plein:hover:not(:disabled) {
+  background: var(--bleu-appuye);
+  color: var(--surface);
+}
+
+/* Secondaire : filet, surface blanche. */
+.secondaire {
+  background: var(--surface);
+  border-color: var(--filet);
+  color: var(--encre);
+  font-weight: 500;
+  padding: 0 14px;
+}
+
+.secondaire:hover:not(:disabled) {
+  background: var(--page);
+  color: var(--encre);
+}
+
+/* Discret : un lien qui a la taille d'un bouton. */
+.discret {
+  color: var(--bleu-cmfi);
+  font-weight: 600;
+  padding: 0 8px;
+}
+
+.discret:hover:not(:disabled) {
+  color: var(--bleu-appuye);
+  background: var(--page);
+}
+
+/* Pointillés : « Ajouter un chant ou un passage ». */
+.pointilles {
+  border: 1px dashed var(--filet-fort);
+  color: var(--ardoise);
+  font-weight: 500;
+}
+
+.pointilles:hover:not(:disabled) {
+  background: var(--page);
+  color: var(--encre);
+}
+
+/* Alerte : suppression définitive et déconnexion, rien d'autre. */
+.alerte {
+  color: var(--alerte);
+  font-weight: 500;
+  padding: 0 14px;
+}
+
+.alerte:hover:not(:disabled) {
+  background: var(--page);
+  color: var(--alerte);
+}
+
+.grande {
+  min-height: 48px;
+  padding-inline: 18px;
+}
+
+.suivant {
+  min-height: var(--cible-suivant);
+  font-size: var(--taille-bouton-suivant);
+  gap: 10px;
+}
+
+.compacte {
+  min-height: var(--cible-minimale);
+  padding-inline: 12px;
+  font-size: var(--taille-meta);
+}
+
+.icone {
+  min-width: var(--cible-minimale);
+  padding: 0;
+}
+
+.pleineLargeur {
+  display: flex;
+  width: 100%;
+}

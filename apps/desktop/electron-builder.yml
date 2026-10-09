@@ -1,0 +1,102 @@
+# Paquets de CMFIPraise Projection (bureau). Lancé par scripts/paquet.mjs, qui coupe la
+# signature et la notarisation sauf CMFI_SIGNER=1 — voir docs/bureau.md.
+
+appId: org.cmfi.cmfipraise.projection
+productName: CMFIPraise Projection
+copyright: Copyright © CMFI
+
+directories:
+  output: release
+  buildResources: build
+
+# Le code de l'app : main et preload compilés par esbuild (un fichier chacun, tout incorporé).
+# Aucun node_modules n'est nécessaire à l'exécution ; @cmfi/plateforme (TypeScript source,
+# lien de workspace) est exclu explicitement.
+files:
+  - dist/main.js
+  - dist/main.js.map
+  - dist/preload.js
+  - package.json
+  - "!node_modules/@cmfi{,/**/*}"
+
+# Hors de l'asar : l'export web et l'instantané sont lus par le protocole app:// depuis
+# process.resourcesPath, et restent inspectables dans le paquet.
+extraResources:
+  - from: dist/web
+    to: web
+  - from: dist/donnees
+    to: donnees
+
+asar: true
+
+# Interface en français et en anglais seulement : une cinquantaine de langues Chromium en moins.
+electronLanguages: [fr, en]
+
+# Fusibles Electron : l'exécutable installé ne peut pas servir de Node générique ni être
+# piloté par NODE_OPTIONS / --inspect.
+electronFuses:
+  runAsNode: false
+  enableCookieEncryption: true
+  enableNodeOptionsEnvironmentVariable: false
+  enableNodeCliInspectArguments: false
+  onlyLoadAppFromAsar: true
+
+mac:
+  category: public.app-category.productivity
+  target:
+    - target: dmg
+      arch: universal
+  icon: build/icon.png
+  hardenedRuntime: true
+  # Signature : CSC_LINK / CSC_KEY_PASSWORD (Developer ID Application). Notarisation :
+  # APPLE_API_KEY, APPLE_API_KEY_ID, APPLE_API_ISSUER. Les deux restent coupées par défaut
+  # (paquet.mjs passe identity=null et notarize=false sans CMFI_SIGNER=1).
+  notarize: false
+  # Aucun binaire natif : l'asar et les ressources sont identiques en x64 et en arm64.
+  mergeASARs: true
+  extendInfo:
+    NSHumanReadableCopyright: Copyright © CMFI
+    LSApplicationCategoryType: public.app-category.productivity
+
+dmg:
+  title: CMFIPraise Projection
+  artifactName: CMFIPraise-Projection-${version}-mac.${ext}
+
+win:
+  target:
+    - target: nsis
+      arch: [x64, arm64]
+  icon: build/icon.png
+  # Signature : CSC_LINK / CSC_KEY_PASSWORD (certificat Authenticode), ou azureSignOptions.
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: CMFIPraise Projection
+  installerLanguages: [fr_FR, en_US]
+  language: "1036"
+  artifactName: CMFIPraise-Projection-${version}-windows-${arch}.${ext}
+
+linux:
+  target:
+    - target: AppImage
+      arch: [x64, arm64]
+  icon: build/icon.png
+  category: Office
+  executableName: cmfipraise-projection
+  synopsis: Projection des chants et de la Bible pour le culte
+
+appImage:
+  artifactName: CMFIPraise-Projection-${version}-linux-${arch}.${ext}
+
+# GitHub Releases : sert aux installeurs et à electron-updater (latest*.yml). Publication en
+# brouillon, et seulement avec CMFI_PUBLIER=1 (paquet.mjs passe --publish never sinon).
+# Les mises à jour automatiques ne s'activent que dans un build signé (CMFI_MISES_A_JOUR=1).
+publish:
+  provider: github
+  owner: jveigne
+  repo: cmfipraise-projection
+  releaseType: draft

@@ -1,0 +1,293 @@
+/*
+ * Surface de projection. Les positions viennent des maquettes Sortie-*.dc.html (1280 × 720),
+ * rapportées à la taille du conteneur : 48 px sur 1280 → 3,75cqw, 40 px sur 720 → 5,556cqh.
+ * Les tailles de texte viennent de l'échelle de projection (variables posées par le composant).
+ */
+.surface {
+  position: relative;
+  overflow: hidden;
+  container-type: size;
+  font-family: var(--police-serif);
+  font-weight: 400;
+  color: var(--ivoire-projection);
+  isolation: isolate;
+}
+
+.sortie {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.apercu {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--rayon-bouton);
+}
+
+.miniature {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--rayon-vignette);
+}
+
+/* ─── Fonds ─────────────────────────────────────────────────────────────── */
+
+.fondNuit {
+  background: var(--nuit);
+}
+
+.fondNoir,
+.noir {
+  background: var(--ecran-noir);
+}
+
+.fondImage {
+  background: var(--nuit) var(--image-fond) center / cover no-repeat;
+}
+
+.voile {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--ecran-noir);
+  opacity: var(--voile, 0.45);
+}
+
+.messageNoir {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--police-sans);
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--brume-projection);
+  text-align: center;
+  padding: 0 8%;
+}
+
+/* Police « grasse » des réglages (salle très éclairée, projecteur faible) : Newsreader 600
+   pour les paroles et les versets ; l'étiquette et la référence restent discrètes. */
+.grasse .paroles,
+.grasse .seconde,
+.grasse .texteVerset,
+.grasse .texteDouble {
+  font-weight: 600;
+}
+
+/* ─── Logo ──────────────────────────────────────────────────────────────── */
+
+.logo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-weight: 600;
+  font-size: 12.5cqh;
+  letter-spacing: 0.08em;
+  color: var(--ivoire-projection);
+}
+
+/* ─── Zone de texte ─────────────────────────────────────────────────────── */
+
+/* Zone centrée, marges symétriques : le texte reste au centre optique de l'écran, et le
+   bas garde la place de l'étiquette et du QR. `overflow: hidden` permet de mesurer le débordement. */
+.zone {
+  position: absolute;
+  inset: 15cqh 9.375cqw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.miniature .zone {
+  inset: 7cqh 6cqw;
+}
+
+.ligne {
+  display: block;
+}
+
+.paroles {
+  margin: 0;
+  font-size: calc(var(--t-paroles) * var(--ajustement, 1));
+  line-height: var(--interligne-paroles);
+  text-wrap: balance;
+}
+
+.refrain {
+  font-style: italic;
+}
+
+/* Bilingue : principale 66 px, filet court, seconde langue 44 px en brume. */
+.bilingue {
+  gap: calc(4.167cqh * var(--ajustement, 1));
+}
+
+.paroles.principale {
+  font-size: calc(var(--t-paroles-bilingue) * var(--ajustement, 1));
+}
+
+.separateur {
+  flex: none;
+  width: 5cqw;
+  height: 1px;
+  background: var(--filet-nuit);
+}
+
+.seconde {
+  margin: 0;
+  font-size: calc(var(--t-seconde) * var(--ajustement, 1));
+  line-height: var(--interligne-seconde);
+  color: var(--brume-projection);
+  text-wrap: balance;
+}
+
+/* Verset seul : taille des paroles, référence centrée en bas. */
+.verset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(2.5cqh * var(--ajustement, 1));
+}
+
+.texteVerset {
+  margin: 0;
+  font-size: calc(var(--t-paroles) * var(--ajustement, 1));
+  line-height: var(--interligne-paroles);
+  text-wrap: pretty;
+}
+
+.suscription {
+  margin: 0;
+  font-size: calc(var(--t-reference) * var(--ajustement, 1));
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: var(--brume-projection);
+}
+
+/* Verset en deux versions côte à côte (Sortie-Fond.dc.html). */
+.zone.double {
+  inset: 8.889cqh 5.625cqw 13.333cqh;
+  align-items: stretch;
+  text-align: left;
+}
+
+.colonnes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 5.625cqw;
+  align-items: start;
+  width: 100%;
+}
+
+.colonne {
+  display: flex;
+  flex-direction: column;
+  gap: calc(2.5cqh * var(--ajustement, 1));
+  min-width: 0;
+}
+
+.colonneSeconde {
+  border-left: 1px solid color-mix(in srgb, var(--ivoire-projection) 22%, transparent);
+  padding-left: 5.625cqw;
+  margin-left: -2.8125cqw;
+}
+
+.version {
+  margin: 0;
+  font-size: calc(2.361cqh * var(--ajustement, 1));
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brume-projection);
+}
+
+.texteDouble {
+  margin: 0;
+  font-size: calc(var(--t-verset-double) * var(--ajustement, 1));
+  line-height: var(--interligne-verset);
+}
+
+/* ─── Étiquette, référence, QR ──────────────────────────────────────────── */
+
+.etiquette,
+.reference {
+  position: absolute;
+  bottom: 5.556cqh;
+  margin: 0;
+  font-size: var(--t-reference);
+  letter-spacing: 0.04em;
+  color: var(--brume-projection);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.etiquette {
+  left: 3.75cqw;
+  max-width: 62cqw;
+}
+
+.reference {
+  left: 0;
+  right: 0;
+  padding: 0 20cqw;
+  text-align: center;
+}
+
+.qr {
+  position: absolute;
+  right: 3.125cqw;
+  bottom: 4.444cqh;
+  display: flex;
+  align-items: center;
+  gap: 1.944cqh;
+}
+
+.qrTexte {
+  margin: 0;
+  text-align: right;
+  font-size: 2.361cqh;
+  line-height: 1.3;
+  color: var(--brume-projection);
+}
+
+.qrCadre {
+  display: block;
+  width: 12.222cqh;
+  height: 12.222cqh;
+  padding: 0.833cqh;
+  border-radius: 0.556cqh;
+  background: var(--ivoire-projection);
+  color: var(--nuit);
+}
+
+.qrCompact .qrCadre {
+  width: 10cqh;
+  height: 10cqh;
+  padding: 0.694cqh;
+}
+
+.qrCode {
+  width: 100%;
+  height: 100%;
+}
+
+/* Sur un fond personnalisé chaud, la brume froide jure : brume chaude (Sortie-Fond). */
+.fondImage .seconde,
+.fondImage .etiquette,
+.fondImage .reference,
+.fondImage .version,
+.fondImage .suscription,
+.fondImage .qrTexte {
+  color: var(--brume-chaude);
+}

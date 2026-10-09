@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Fin du culte</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F3F5F7}
+a{color:#1668B8}a:hover{color:#0F4F8F}
+</style>
+</helmet>
+<div style="min-height: 900px; background: #F3F5F7; font-family: 'Instrument Sans', sans-serif; font-size: 15px; color: #12171C; display: flex; flex-direction: column">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #E4E9ED; padding: 10px 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+    <div style="display: flex; align-items: center; gap: 10px">
+      <div style="width: 34px; height: 34px; border-radius: 8px; background: #1668B8; display: flex; align-items: center; justify-content: center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px; line-height: 1.1">CMFIPraise</span>
+        <span style="font-size: 13px; font-weight: 500; color: #5C6873">Régie de projection</span>
+      </div>
+    </div>
+    <span style="flex: 1"></span>
+    <div style="display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px; border-radius: 8px; border: 1px solid #E4E9ED; font-size: 13px; font-weight: 500; color: #5C6873">Projection terminée · la sortie affiche le logo</div>
+  </header>
+
+  <div style="flex: 1; display: flex; flex-wrap: wrap; gap: 12px; padding: 12px; align-items: flex-start">
+    <section aria-label="Setlist" style="flex: 1 1 280px; max-width: 340px; background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; box-sizing: border-box">
+      <div style="padding: 16px; border-bottom: 1px solid #E4E9ED">
+        <div style="font-size: 13px; font-weight: 500; color: #6B3FD4">Setlist</div>
+        <div style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 17px">Culte du dimanche 11 oct.</div>
+        <div style="font-size: 13px; font-weight: 500; color: #5C6873">5 éléments projetés</div>
+      </div>
+      <ol style="list-style: none; margin: 0; padding: 8px; display: flex; flex-direction: column; gap: 4px">
+        <sc-for list="{{ items }}" as="it" hint-placeholder-count="5">
+          <li style="display: flex; align-items: center; gap: 10px; padding: 10px; min-height: 52px; box-sizing: border-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C6873" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>
+            <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 17px; color: #5C6873">{{ it }}</span>
+          </li>
+        </sc-for>
+      </ol>
+    </section>
+
+    <div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+      <section style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; padding: 32px; display: flex; flex-direction: column; gap: 20px">
+        <div>
+          <h1 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 600; font-size: 28px; letter-spacing: -0.5px">Le culte est terminé. Merci pour votre service.</h1>
+          <p style="margin: 8px 0 0; color: #5C6873">18 diapositives projetées, sans interruption. 38 téléphones ont suivi les paroles.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px">
+          <button type="button" style="text-align: left; min-height: 96px; padding: 16px; border-radius: 14px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; color: #12171C; cursor: pointer; display: flex; flex-direction: column; gap: 6px">
+            <span style="width: 30px; height: 30px; border-radius: 8px; background: #F0EAFC; color: #6B3FD4; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/></svg></span>
+            <span style="font-weight: 600">Garder cette setlist</span>
+            <span style="font-size: 13px; font-weight: 500; color: #5C6873">La retrouver dans Mes setlists, la réutiliser plus tard</span>
+          </button>
+          <button type="button" style="text-align: left; min-height: 96px; padding: 16px; border-radius: 14px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; color: #12171C; cursor: pointer; display: flex; flex-direction: column; gap: 6px">
+            <span style="width: 30px; height: 30px; border-radius: 8px; background: #E7F0F9; color: #1668B8; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 13v6a2 2 0 002 2h10a2 2 0 002-2v-6"/></svg></span>
+            <span style="font-weight: 600">Envoyer les chants aux fidèles</span>
+            <span style="font-size: 13px; font-weight: 500; color: #5C6873">Un lien qui ouvre la setlist dans l’app mobile</span>
+          </button>
+          <button type="button" style="text-align: left; min-height: 96px; padding: 16px; border-radius: 14px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; color: #12171C; cursor: pointer; display: flex; flex-direction: column; gap: 6px">
+            <span style="width: 30px; height: 30px; border-radius: 8px; background: #E7F0F9; color: #1668B8; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
+            <span style="font-weight: 600">Préparer le prochain culte</span>
+            <span style="font-size: 13px; font-weight: 500; color: #5C6873">Repartir de la barre unique</span>
+          </button>
+        </div>
+      </section>
+
+      <section aria-label="Shephr" style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; padding: 24px 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
+        <div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; font-weight: 500; color: #5C6873">De la même équipe · Shephr</span>
+          <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px; line-height: 1.3">Les 38 fidèles qui ont suivi aujourd’hui, vous les connaissez tous par leur nom ?</span>
+          <span style="color: #5C6873">Shephr tient la liste des membres, les présences et les équipes de service de l’assemblée. Vos setlists y sont déjà, sans rien ressaisir.</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+          <a href="#" style="height: 44px; padding: 0 16px; border-radius: 8px; border: 1px solid #E4E9ED; display: inline-flex; align-items: center; font-weight: 600; text-decoration: none">Découvrir Shephr</a>
+          <button type="button" style="height: 44px; padding: 0 12px; border: none; background: transparent; font: inherit; font-weight: 500; color: #5C6873; cursor: pointer">Plus tard</button>
+        </div>
+      </section>
+    </div>
+
+    <section aria-label="Sortie" style="flex: 1 1 360px; max-width: 460px; min-width: 0; background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; padding: 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; align-items: center; gap: 8px">
+        <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase">Sortie</span>
+        <span style="font-size: 13px; font-weight: 500; color: #5C6873">· logo</span>
+      </div>
+      <div style="width: 100%; aspect-ratio: 16 / 9; background: #0B2438; border-radius: 8px; display: flex; align-items: center; justify-content: center">
+        <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 30px; letter-spacing: 0.08em; color: #F4F1EA">CMFI</span>
+      </div>
+      <button type="button" style="height: 48px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-weight: 600; color: #12171C; cursor: pointer">Fermer la sortie</button>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { items: ['À toi la gloire', 'Grâce infinie', 'Psaume 23', 'Jean 3:16-17', 'Saint, saint, saint'] };
+  }
+}
+</script>
+</body>
+</html>

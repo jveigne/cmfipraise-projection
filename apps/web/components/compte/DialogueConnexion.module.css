@@ -1,0 +1,12 @@
+.formulaire {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.note {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+  line-height: 1.5;
+}

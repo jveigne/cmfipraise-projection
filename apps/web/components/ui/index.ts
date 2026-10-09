@@ -1,0 +1,20 @@
+/** Primitives d'interface partagées, fidèles aux maquettes (design/*.dc.html). */
+export { Bouton } from './Bouton';
+export type { TailleBouton, VarianteBouton } from './Bouton';
+export { Carte } from './Carte';
+export type { PropsCarte } from './Carte';
+export { PastilleIcone } from './PastilleIcone';
+export type { TeintePastille } from './PastilleIcone';
+export { EtiquetteEtat } from './EtiquetteEtat';
+export { Champ } from './Champ';
+export { Dialogue } from './Dialogue';
+export type { PropsDialogue } from './Dialogue';
+export { Interrupteur } from './Interrupteur';
+export { Onglets, idOnglet, idPanneau } from './Onglets';
+export type { Onglet } from './Onglets';
+export { EtatCentre, Squelette } from './EtatCentre';
+export { BandeauHorsLigne } from './BandeauHorsLigne';
+export { CodeQr, TraceQr, tracerQr } from './CodeQr';
+export type { PropsCodeQr, PropsTraceQr } from './CodeQr';
+export { Icone, PoigneeGlisser, NOMS_ICONES } from './Icone';
+export type { NomIcone } from './Icone';

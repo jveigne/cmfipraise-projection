@@ -1,0 +1,75 @@
+/* Trois colonnes du design : 248 · 380 · le reste. */
+.ecran {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 248px minmax(300px, 380px) minmax(0, 1fr);
+  background: var(--page);
+}
+
+.colonne {
+  border-right: 1px solid var(--filet);
+  background: var(--page);
+  min-width: 0;
+}
+
+.lecture {
+  background: var(--surface);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.horsLigne:has(> *) {
+  padding: 16px 32px 0;
+}
+
+.retour {
+  display: none;
+}
+
+/* Tablette : la barre passe au-dessus, liste et lecture côte à côte. */
+@media (max-width: 1099px) {
+  .ecran {
+    grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    align-content: start;
+  }
+
+  .ecran > nav {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Téléphone : une colonne. La liste sur /chants/, le chant sur /chants/lecture/. */
+@media (max-width: 759px) {
+  .ecran {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .colonne {
+    border-right: none;
+  }
+
+  .ecran[data-vue='liste'] .lecture {
+    display: none;
+  }
+
+  .ecran[data-vue='lecture'] .colonne {
+    display: none;
+  }
+
+  /* Bible : la référence au-dessus, le passage dessous. */
+  .ecran[data-vue='bible'] .colonne {
+    border-bottom: 1px solid var(--filet);
+  }
+
+  .retour {
+    display: inline-flex;
+    align-self: flex-start;
+    margin: 8px 8px 0;
+  }
+
+  .horsLigne:has(> *) {
+    padding: 12px var(--marge) 0;
+  }
+}

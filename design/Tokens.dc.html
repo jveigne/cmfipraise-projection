@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Jetons du système visuel</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F3F5F7}
+a{color:#1668B8}
+</style>
+</helmet>
+<div style="min-height: 2140px; background: #F3F5F7; font-family: 'Instrument Sans', sans-serif; font-size: 15px; color: #12171C">
+  <div style="max-width: 1280px; margin: 0 auto; padding: 48px 24px; display: flex; flex-direction: column; gap: 28px">
+    <header style="display: flex; flex-direction: column; gap: 6px">
+      <h1 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 600; font-size: 28px; letter-spacing: -0.5px">Jetons — CMFIPraise web et bureau</h1>
+      <p style="margin: 0; color: #5C6873; max-width: 760px">Repris à l’identique du mobile, plus les jetons nouveaux qu’imposent la projection et la régie. Chaque couleur garde un seul emploi.</p>
+    </header>
+
+    <section style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; overflow: hidden">
+      <div style="padding: 16px 20px; border-bottom: 1px solid #E4E9ED; display: flex; align-items: baseline; gap: 12px">
+        <h2 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px">Couleurs reprises</h2>
+        <span style="font-size: 13px; font-weight: 500; color: #5C6873">identiques au mobile</span>
+      </div>
+      <div style="overflow-x: auto">
+        <table style="width: 100%; border-collapse: collapse; min-width: 760px">
+          <thead>
+            <tr style="text-align: left; font-size: 13px; font-weight: 500; color: #5C6873">
+              <th style="padding: 10px 20px; font-weight: 500; width: 64px"></th>
+              <th style="padding: 10px 12px; font-weight: 500; width: 160px">Jeton</th>
+              <th style="padding: 10px 12px; font-weight: 500; width: 110px">Valeur</th>
+              <th style="padding: 10px 12px; font-weight: 500">Emploi unique, ici</th>
+              <th style="padding: 10px 20px; font-weight: 500; width: 160px">Contraste</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ kept }}" as="c" hint-placeholder-count="12">
+              <tr style="border-top: 1px solid #E4E9ED">
+                <td style="padding: 12px 20px"><span style="{{ c.sw }}"></span></td>
+                <td style="padding: 12px; font-weight: 600">{{ c.n }}</td>
+                <td style="padding: 12px; font-size: 13px; font-weight: 500; color: #5C6873">{{ c.v }}</td>
+                <td style="padding: 12px; line-height: 1.45">{{ c.u }}</td>
+                <td style="padding: 12px 20px; font-size: 13px; font-weight: 500; color: #5C6873">{{ c.r }}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; overflow: hidden">
+      <div style="padding: 16px 20px; border-bottom: 1px solid #E4E9ED; display: flex; align-items: baseline; gap: 12px">
+        <h2 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px">Nouveaux jetons de couleur</h2>
+        <span style="font-size: 13px; font-weight: 500; color: #5C6873">chacun avec son emploi justifié</span>
+      </div>
+      <div style="overflow-x: auto">
+        <table style="width: 100%; border-collapse: collapse; min-width: 760px">
+          <tbody>
+            <sc-for list="{{ added }}" as="c" hint-placeholder-count="9">
+              <tr style="border-top: 1px solid #E4E9ED">
+                <td style="padding: 12px 20px; width: 64px"><span style="{{ c.sw }}"></span></td>
+                <td style="padding: 12px; font-weight: 600; width: 160px">{{ c.n }}</td>
+                <td style="padding: 12px; font-size: 13px; font-weight: 500; color: #5C6873; width: 150px">{{ c.v }}</td>
+                <td style="padding: 12px; line-height: 1.45">{{ c.u }}</td>
+                <td style="padding: 12px 20px; font-size: 13px; font-weight: 500; color: #5C6873; width: 160px">{{ c.r }}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: 16px">
+      <div style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; overflow: hidden">
+        <div style="padding: 16px 20px; border-bottom: 1px solid #E4E9ED">
+          <h2 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px">Typographie de l’interface</h2>
+        </div>
+        <div style="display: flex; flex-direction: column">
+          <sc-for list="{{ types }}" as="t" hint-placeholder-count="10">
+            <div style="padding: 14px 20px; border-top: 1px solid #E4E9ED; display: flex; flex-direction: column; gap: 4px">
+              <span style="{{ t.st }}">{{ t.sample }}</span>
+              <span style="font-size: 13px; font-weight: 500; color: #5C6873">{{ t.meta }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <div style="background: #0B2438; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+          <h2 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px; color: #F4F1EA">Échelle de projection — Newsreader seule</h2>
+          <span style="font-size: 13px; font-weight: 500; color: #9FB3C8">Valeurs pour une sortie 1920 × 1080 ; tout s’échelonne avec la hauteur de l’écran.</span>
+          <sc-for list="{{ proj }}" as="p" hint-placeholder-count="5">
+            <div style="display: flex; flex-direction: column; gap: 4px; border-top: 1px solid #1E3A52; padding-top: 14px">
+              <span style="{{ p.st }}">{{ p.sample }}</span>
+              <span style="font-size: 13px; font-weight: 500; color: #9FB3C8">{{ p.meta }}</span>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; overflow: hidden">
+          <div style="padding: 16px 20px; border-bottom: 1px solid #E4E9ED">
+            <h2 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px">Structure</h2>
+          </div>
+          <sc-for list="{{ structure }}" as="s" hint-placeholder-count="8">
+            <div style="padding: 12px 20px; border-top: 1px solid #E4E9ED; display: flex; gap: 16px; align-items: baseline">
+              <span style="font-weight: 600; width: 170px; flex: 0 0 auto">{{ s.n }}</span>
+              <span style="font-size: 13px; font-weight: 500; color: #5C6873; width: 110px; flex: 0 0 auto">{{ s.v }}</span>
+              <span style="line-height: 1.45">{{ s.u }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2140}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const sw = (v, border) => 'display:block;width:40px;height:40px;border-radius:8px;background:' + v + ';' + (border ? 'border:1px solid #E4E9ED;box-sizing:border-box;' : '');
+    const kept = [
+      { n: 'bleuCmfi', v: '#1668B8', u: 'Ce qui vient du mouvement : recueils officiels, Bible, navigation, boutons pleins, la diapositive « suivante ».', r: '5,7:1 sur surface' },
+      { n: 'violet', v: '#6B3FD4', u: 'Ce que l’utilisateur a créé : ses setlists (éditeur), ses chants et arrangements.', r: '6,4:1 sur surface' },
+      { n: 'encre', v: '#12171C', u: 'Texte principal. Contour des bascules activées (Écran noir, Masquer).', r: '17,8:1 sur surface' },
+      { n: 'ardoise', v: '#5C6873', u: 'Texte secondaire, métadonnées, raccourcis clavier.', r: '5,7:1 · 5,2:1 sur page' },
+      { n: 'page', v: '#F3F5F7', u: 'Fond de l’application ; fond des éléments sélectionnés dans une liste.', r: '—', b: true },
+      { n: 'surface', v: '#FFFFFF', u: 'Cartes et panneaux.', r: '—', b: true },
+      { n: 'filet', v: '#E4E9ED', u: 'Bordures et séparateurs. Délimite toute carte (aucune ombre).', r: '—' },
+      { n: 'nuit', v: '#0B2438', u: 'Le seul geste sombre : aperçus Sortie et Suivant, sortie de projection, écran des musiciens (troisième sortie).', r: 'fond' },
+      { n: 'or', v: '#B8862B', u: 'EN COURS, uniquement : la diapositive projetée, l’élément de setlist en direct, la partie en cours chez les musiciens.', r: 'encre sur or 5,6:1' },
+      { n: 'alerte', v: '#C4392E', u: 'Suppression définitive (d’une setlist) et déconnexion. Jamais pour une panne réseau.', r: '5,3:1 sur surface' },
+      { n: 'orDon · orDonVif · encreDon', v: '#F6E7B0 · #D4AF37 · #3B2F0B', u: 'Le bandeau de don, et lui seul (accueil, page Soutien).', r: '10,7:1' },
+      { n: 'bleuClair · violetClair', v: '#E7F0F9 · #F0EAFC', u: 'Pastilles d’icône uniquement : bleuClair pour le recueil et la Bible, violetClair pour ce qui est à l’utilisateur.', r: '—' }
+    ].map((c) => ({ ...c, sw: sw(c.v.split(' ')[0], c.b) }));
+    const added = [
+      { n: 'ivoireProjection', v: '#F4F1EA', u: 'Texte sur nuit et sur les fonds de projection. Un blanc cassé, moins éblouissant qu’un blanc pur dans une salle sombre.', r: '14,1:1 sur nuit · AAA' },
+      { n: 'brumeProjection', v: '#9FB3C8', u: 'Seconde langue, référence biblique, métadonnées sur nuit. Plus discret, toujours AAA.', r: '7,4:1 sur nuit · AAA' },
+      { n: 'brumeChaude', v: '#C9BFAF', u: 'Équivalent de brumeProjection sur un fond personnalisé chaud.', r: '8,7:1 · AAA' },
+      { n: 'accordNuit', v: '#7FB6EA', u: 'Accords sur l’écran des musiciens et la diapositive « suivante » sur nuit. Dérivé de bleuCmfi : les accords viennent du recueil officiel.', r: '7,4:1 sur nuit' },
+      { n: 'filetNuit', v: '#1E3A52', u: 'Séparateurs et contours à l’intérieur des surfaces nuit.', r: '—' },
+      { n: 'filetFort', v: '#C9D1D8', u: 'Interrupteur éteint, pointillés « ajouter » et zone de dépôt neutre. Le filet est trop pâle pour un contrôle (3:1 non atteint).', r: '—' },
+      { n: 'poignee', v: '#8B96A0', u: 'Points de la poignée de glisser-déposer et parties retirées d’un chant.', r: '3,0:1 (élément graphique)' },
+      { n: 'bleuAppuye', v: '#0F4F8F', u: 'Survol et appui des liens bleus. Même teinte, plus sombre.', r: '8,3:1' },
+      { n: 'ecranNoir', v: '#000000', u: 'Uniquement l’état « Écran noir » dans l’aperçu Sortie et le thème Noir des salles très lumineuses.', r: '18,6:1 avec ivoire' },
+      { n: 'voile', v: 'encre à 42 %', u: 'Derrière une fenêtre de dialogue (appairage). Pas une couleur : une mise en retrait.', r: '—' }
+    ].map((c) => ({ ...c, sw: c.v.startsWith('#') ? sw(c.v, c.v === '#F4F1EA') : sw('rgba(18,23,28,0.42)') }));
+    const types = [
+      { sample: 'Titre d’écran', st: "font-family:'Newsreader',serif;font-weight:600;font-size:28px;letter-spacing:-0.5px", meta: 'Newsreader 600 / 28 · -0,5 · repris' },
+      { sample: 'Grâce infinie', st: "font-family:'Newsreader',serif;font-weight:600;font-size:20px", meta: 'Titre de chant 600 / 20 · 17 en liste · 15 en vignette · repris' },
+      { sample: 'Grâce infinie, ô son si doux, qui vint me relever', st: "font-family:'Newsreader',serif;font-size:19px;line-height:1.62", meta: 'Paroles 400 / 19 · interligne 1,62 · repris' },
+      { sample: 'Gloire à l’Agneau, gloire à Jésus', st: "font-family:'Newsreader',serif;font-style:italic;font-size:19px;line-height:1.62", meta: 'Refrain : vraie italique Newsreader, « R. » · repris' },
+      { sample: 'Ajouter un chant ou un passage', st: 'font-size:15px', meta: 'Instrument Sans 400 / 15 · corps · repris' },
+      { sample: 'Recueil CMFI · n° 112 · Sol', st: 'font-size:13px;font-weight:500;color:#5C6873', meta: 'Métadonnées 500 / 13 ardoise · repris' },
+      { sample: 'Suivant', st: 'font-size:15px;font-weight:600;color:#1668B8', meta: 'Bouton plein 600 / 15 sur bleu · 17 pour « Suivant » dans la régie · repris' },
+      { sample: 'Les chants dans la poche de chacun', st: "font-family:'Newsreader',serif;font-weight:600;font-size:48px;line-height:1.12;letter-spacing:-1px", meta: 'NOUVEAU · Accroche 600 / 48 · accueil et page Soutien seulement : une page de découverte web doit se lire de loin' },
+      { sample: 'EN DIRECT · SUIVANTE', st: 'font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase', meta: 'NOUVEAU · Étiquette d’état 600 / 11–13, capitales, +0,06 em : états de la régie qu’on doit lire d’un coup d’œil' },
+      { sample: 'G   G7   C   D', st: 'font-size:13px;font-weight:600;color:#1668B8', meta: 'NOUVEAU · Accord 600 / 13 Instrument Sans, bleuCmfi · 20 sur l’écran des musiciens' }
+    ];
+    const proj = [
+      { sample: 'Grâce infinie, ô son si doux', st: "font-family:'Newsreader',serif;font-size:36px;line-height:1.42;color:#F4F1EA", meta: 'Paroles projetées 400 / 72 px · interligne 1,42 · centrées · ivoire' },
+      { sample: 'Gloire à l’Agneau, gloire à Jésus', st: "font-family:'Newsreader',serif;font-style:italic;font-size:36px;line-height:1.42;color:#F4F1EA", meta: 'Refrain projeté : même taille, italique' },
+      { sample: 'Amazing grace! how sweet the sound', st: "font-family:'Newsreader',serif;font-size:22px;line-height:1.38;color:#9FB3C8", meta: 'Seconde langue 400 / 44 px (≈ 0,62 ×) · brumeProjection · paroles principales réduites à 66 px' },
+      { sample: 'Car Dieu a tant aimé le monde', st: "font-family:'Newsreader',serif;font-size:26px;line-height:1.45;color:#F4F1EA", meta: 'Verset, deux versions côte à côte 400 / 52 px · interligne 1,45' },
+      { sample: 'Jean 3:16 · Louis Segond 1910', st: "font-family:'Newsreader',serif;font-size:14px;letter-spacing:0.04em;color:#9FB3C8", meta: 'Référence 400 / 28 px · +0,04 em · en bas, discrète' }
+    ];
+    const structure = [
+      { n: 'Rayon surface', v: '14', u: 'Cartes, panneaux, cartes de diapositive.' },
+      { n: 'Rayon bouton', v: '8', u: 'Boutons, champs, aperçus de sortie.' },
+      { n: 'Rayon vignette', v: '4', u: 'Mini-aperçus, étiquettes d’état, QR.' },
+      { n: 'Gouttière', v: '12', u: 'Entre panneaux de la régie et entre cartes.' },
+      { n: 'Ombre', v: 'une seule', u: 'La ligne saisie pendant un glisser-déposer. Tout le reste se délimite par un filet.' },
+      { n: 'Cible minimale', v: '44 px', u: 'NOUVEAU — tout contrôle. Régie : Suivant 64 px, bascules 96 px, pour un bénévole stressé.' },
+      { n: 'Bordure « en direct »', v: '3 px or', u: 'NOUVEAU — la diapositive projetée. « Suivante » : 2 px bleuCmfi. Les autres : 1 px filet.' },
+      { n: 'Anneau de focus', v: '2 px bleu', u: 'NOUVEAU — décalé de 2 px, visible au clavier seulement.' }
+    ];
+    return { kept, added, types, proj, structure };
+  }
+}
+</script>
+</body>
+</html>

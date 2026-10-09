@@ -1,0 +1,24 @@
+# Dépendances
+node_modules/
+
+# Next.js
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Electron
+dist/
+release/
+
+# Tests et couverture
+coverage/
+
+# Environnement local
+.env*.local
+.env
+
+# Système et éditeurs
+.DS_Store
+*.log
+npm-debug.log*

@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // Le processus principal et le preload tournent dans Node/Electron ; DOM reste nécessaire
+    // parce que le contrat de @cmfi/plateforme augmente `Window`.
+    "types": ["node"],
+    "noEmit": true
+  },
+  "include": ["src/**/*.ts", "scripts/**/*.ts"]
+}

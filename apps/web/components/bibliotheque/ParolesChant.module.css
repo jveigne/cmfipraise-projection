@@ -1,0 +1,83 @@
+.paroles {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  max-width: 760px;
+}
+
+.partie {
+  display: flex;
+  gap: 16px;
+}
+
+.libelle {
+  flex: 0 0 auto;
+  width: 28px;
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-titre-oeuvre-liste);
+  line-height: calc(var(--taille-lecture, 19px) * 1.62);
+  color: var(--ardoise);
+}
+
+.refrain .libelle,
+.refrain .ligne {
+  font-style: italic;
+}
+
+/* Rangée d'accords de 18 px au-dessus de chaque ligne, même sans accord : les lignes
+   gardent le même pas et le libellé reste aligné sur la première. */
+.avecAccords .libelle {
+  padding-top: 18px;
+}
+
+.lignes {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ligne {
+  font-family: var(--police-serif);
+  font-weight: 400;
+  font-size: var(--taille-lecture, 19px);
+  line-height: 1.62;
+  color: var(--encre);
+  overflow-wrap: anywhere;
+}
+
+.avecAccords .ligne {
+  padding-top: 18px;
+}
+
+.avecAccords .ligne:has(.segments) {
+  padding-top: 0;
+}
+
+.segments {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.segment {
+  display: inline-flex;
+  flex-direction: column;
+  white-space: pre-wrap;
+}
+
+.accord {
+  height: 18px;
+  line-height: 18px;
+  font-style: normal;
+  white-space: pre;
+  padding-right: 4px;
+}
+
+.texte {
+  white-space: pre-wrap;
+}
+
+.vide {
+  color: var(--ardoise);
+}

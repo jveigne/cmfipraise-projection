@@ -1,0 +1,206 @@
+/* États partagés (design 09). Une panne n'est jamais en alerte : ardoise et bleu seulement. */
+
+.panneau {
+  display: flex;
+  flex-direction: column;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* ─── Chargement · découpage des diapositives ─── */
+
+.chargement {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chargementEntete {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.grilleSquelettes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.carteSquelette {
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 140px;
+}
+
+/* ─── Hors-ligne · bureau et web ─── */
+
+.grilleHorsLigne {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 16px;
+}
+
+.carteHorsLigne {
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.carteTitre {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.iconeBleue {
+  color: var(--bleu-cmfi);
+}
+
+.iconeArdoise {
+  color: var(--ardoise);
+}
+
+.texte {
+  color: var(--ardoise);
+  line-height: 1.5;
+}
+
+.note {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+  border-top: 1px solid var(--filet);
+  padding-top: 10px;
+}
+
+.disponibilites {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.disponibilite {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.disponibiliteNom {
+  font-family: var(--police-serif);
+  font-weight: 600;
+}
+
+.indisponible .disponibiliteNom {
+  color: var(--ardoise);
+}
+
+.statut {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--bleu-cmfi);
+  white-space: nowrap;
+}
+
+.indisponible .statut {
+  color: var(--ardoise);
+}
+
+.lienBureau {
+  font-size: var(--taille-meta);
+  font-weight: 600;
+}
+
+/* ─── Réseau perdu en plein culte ─── */
+
+.reseauPerdu {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reseauPerduCorps {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.apercu {
+  flex: 1 1 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.apercuEntete {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.apercuEntete > :first-child {
+  flex: 1;
+}
+
+.services {
+  flex: 1 1 200px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: var(--taille-meta);
+  font-weight: 500;
+}
+
+.service {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.serviceLocal {
+  color: var(--bleu-cmfi);
+}
+
+.serviceAttente {
+  color: var(--ardoise);
+}
+
+/* ─── Pastille « Hors-ligne prêt » (barre de titre du bureau) ─── */
+
+.pastillePret {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+  white-space: nowrap;
+}
+
+.pastillePret svg {
+  color: var(--bleu-cmfi);
+}

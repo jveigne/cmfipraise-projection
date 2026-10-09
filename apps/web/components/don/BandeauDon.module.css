@@ -1,0 +1,47 @@
+.bandeau {
+  background: var(--or-don);
+  color: var(--encre-don);
+}
+
+.carte {
+  border-radius: var(--rayon-surface);
+}
+
+.contenu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px;
+}
+
+.bande .contenu {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 18px 24px;
+}
+
+.texte {
+  flex: 1 1 360px;
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--cible-minimale);
+  padding: 0 16px;
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--encre-don);
+  color: var(--encre-don);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.action:hover {
+  color: var(--encre-don);
+  background: color-mix(in srgb, var(--or-don-vif) 22%, transparent);
+}
+
+.action:focus-visible {
+  outline-color: var(--encre-don);
+}

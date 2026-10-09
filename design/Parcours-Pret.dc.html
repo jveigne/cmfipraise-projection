@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Prêt à projeter</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F3F5F7}
+a{color:#1668B8}a:hover{color:#0F4F8F}
+</style>
+</helmet>
+<div style="min-height: 900px; background: #F3F5F7; font-family: 'Instrument Sans', sans-serif; font-size: 15px; color: #12171C; display: flex; flex-direction: column">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #E4E9ED; padding: 10px 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+    <div style="display: flex; align-items: center; gap: 10px">
+      <div style="width: 34px; height: 34px; border-radius: 8px; background: #1668B8; display: flex; align-items: center; justify-content: center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px; line-height: 1.1">CMFIPraise</span>
+        <span style="font-size: 13px; font-weight: 500; color: #5C6873">Régie de projection</span>
+      </div>
+    </div>
+    <div style="flex: 999 1 420px; min-width: 0; position: relative">
+      <label for="omni2" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Ajouter à la setlist</label>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C6873" stroke-width="1.5" stroke-linecap="round" style="position: absolute; left: 14px; top: 13px" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="omni2" type="text" placeholder="Ajouter un chant, un n° ou un verset — ex. Grâce infinie, Ps 23, Jn 3:16" style="width: 100%; box-sizing: border-box; height: 44px; border-radius: 8px; border: 1px solid #E4E9ED; background: #F3F5F7; padding: 0 12px 0 42px; font: inherit; color: #12171C">
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px; border-radius: 8px; border: 1px solid #E4E9ED; font-size: 13px; font-weight: 500; color: #5C6873">Préparation · rien n’est projeté</div>
+  </header>
+
+  <div style="flex: 1; display: flex; flex-wrap: wrap; gap: 12px; padding: 12px; align-items: flex-start">
+    <section aria-label="Setlist" style="flex: 1 1 280px; max-width: 340px; background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; box-sizing: border-box">
+      <div style="padding: 16px; border-bottom: 1px solid #E4E9ED">
+        <div style="font-size: 13px; font-weight: 500; color: #6B3FD4">Setlist</div>
+        <div style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 17px">Culte du dimanche 11 oct.</div>
+        <div style="font-size: 13px; font-weight: 500; color: #5C6873">5 éléments · 18 diapositives</div>
+      </div>
+      <ol style="list-style: none; margin: 0; padding: 8px; display: flex; flex-direction: column; gap: 4px">
+        <sc-for list="{{ items }}" as="it" hint-placeholder-count="5">
+          <li style="display: flex; align-items: center; gap: 10px; padding: 10px; min-height: 60px; box-sizing: border-box; border-radius: 8px">
+            <span style="width: 18px; font-size: 13px; font-weight: 600; color: #5C6873">{{ it.n }}</span>
+            <span style="{{ it.past }}">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{ it.icon }}"/></svg>
+            </span>
+            <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
+              <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 17px; line-height: 1.2">{{ it.t }}</span>
+              <span style="font-size: 13px; font-weight: 500; color: #5C6873">{{ it.m }}</span>
+            </span>
+          </li>
+        </sc-for>
+      </ol>
+    </section>
+
+    <section style="flex: 999 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; padding: 28px 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
+      <div>
+        <h1 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 600; font-size: 28px; letter-spacing: -0.5px">Tout est prêt</h1>
+        <p style="margin: 6px 0 0; color: #5C6873">Vérifiez ces quatre points, puis lancez. Rien n’apparaît à l’écran avant votre clic.</p>
+      </div>
+      <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border: 1px solid #E4E9ED; border-radius: 14px">
+        <sc-for list="{{ checks }}" as="c" hint-placeholder-count="4">
+          <li style="{{ c.row }}">
+            <span style="{{ c.dot }}">
+              <sc-if value="{{ c.ok }}" hint-placeholder-val="{{ true }}">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>
+              </sc-if>
+            </span>
+            <span style="flex: 1; display: flex; flex-direction: column; gap: 2px">
+              <span style="font-weight: 600">{{ c.t }}</span>
+              <span style="font-size: 13px; font-weight: 500; color: #5C6873">{{ c.m }}</span>
+            </span>
+            <sc-if value="{{ c.hasAction }}" hint-placeholder-val="{{ false }}">
+              <button type="button" style="height: 44px; padding: 0 14px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-weight: 500; color: #1668B8; cursor: pointer; white-space: nowrap">{{ c.a }}</button>
+            </sc-if>
+          </li>
+        </sc-for>
+      </ul>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px">
+        <a href="Main.dc.html" style="height: 64px; padding: 0 28px; border-radius: 8px; background: #1668B8; color: #FFFFFF; font-weight: 600; font-size: 17px; display: inline-flex; align-items: center; gap: 12px; text-decoration: none">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+          Lancer la projection
+        </a>
+        <span style="font-size: 13px; font-weight: 500; color: #5C6873">La sortie affiche d’abord le logo. La première diapositive attend votre « Suivant ».</span>
+      </div>
+    </section>
+
+    <section aria-label="Sortie" style="flex: 1 1 360px; max-width: 460px; min-width: 0; background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; padding: 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; align-items: center; gap: 8px">
+        <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase">Sortie</span>
+        <span style="font-size: 13px; font-weight: 500; color: #5C6873">· en attente</span>
+      </div>
+      <div style="width: 100%; aspect-ratio: 16 / 9; background: #0B2438; border-radius: 8px; display: flex; align-items: center; justify-content: center">
+        <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 30px; letter-spacing: 0.08em; color: #F4F1EA">CMFI</span>
+      </div>
+      <div style="font-size: 13px; font-weight: 500; color: #5C6873">Le logo de l’assemblée s’affiche à l’ouverture. Personne ne voit la régie.</div>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"plateforme":{"editor":"enum","options":["bureau","web"],"default":"bureau"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const desk = (this.props.plateforme ?? 'bureau') === 'bureau';
+    const song = 'M9 18V5l11-2v13M9 18a3 3 0 11-6 0 3 3 0 016 0zM20 16a3 3 0 11-6 0 3 3 0 016 0z';
+    const bible = 'M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3zM5 17a3 3 0 013-3h11';
+    const pb = 'width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;';
+    const items = [
+      { t: 'À toi la gloire', m: 'Recueil CMFI · n° 4 · 4 diapos', icon: song, own: false },
+      { t: 'Grâce infinie', m: 'Recueil CMFI · n° 112 · 6 diapos', icon: song, own: false },
+      { t: 'Psaume 23', m: 'LSG + KJV · 4 diapos', icon: bible, own: false },
+      { t: 'Jean 3:16-17', m: 'LSG + KJV · 2 diapos', icon: bible, own: false },
+      { t: 'Saint, saint, saint', m: 'Mon arrangement · 2 diapos', icon: song, own: true }
+    ].map((it, i) => ({ ...it, n: i + 1, past: pb + (it.own ? 'background:#F0EAFC;color:#6B3FD4;' : 'background:#E7F0F9;color:#1668B8;') }));
+    const raw = [
+      { ok: true, t: desk ? 'Écran de sortie : écran 2 (projecteur)' : 'Fenêtre de sortie ouverte', m: desk ? '1920 × 1080 · détecté automatiquement' : 'Glissez-la sur le projecteur, puis appuyez sur F pour le plein écran', a: desk ? 'Changer' : 'Rouvrir', hasAction: true },
+      { ok: true, t: desk ? 'Tout est disponible hors-ligne' : 'Setlist gardée dans ce navigateur', m: desk ? 'Chants, Bibles et fonds enregistrés sur cet ordinateur' : 'Si le réseau tombe, la projection continue avec ce qui est chargé', a: '', hasAction: false },
+      { ok: false, t: 'Télécommande (facultatif)', m: 'Passez les diapositives depuis l’app CMFIPraise sur votre téléphone', a: 'Appairer un téléphone', hasAction: true },
+      { ok: true, t: 'Paroles pour l’assemblée et écran des musiciens', m: desk ? 'QR discret sur la sortie · musiciens sur l’écran 3' : 'QR discret sur la sortie · lien musiciens prêt à partager', a: desk ? 'Régler' : 'Copier le lien musiciens', hasAction: true }
+    ];
+    const checks = raw.map((c, i) => ({
+      ...c,
+      row: 'display:flex;align-items:center;gap:14px;padding:14px 16px;' + (i < raw.length - 1 ? 'border-bottom:1px solid #E4E9ED;' : ''),
+      dot: 'width:28px;height:28px;border-radius:14px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;' + (c.ok ? 'background:#1668B8;' : 'border:2px solid #C9D1D8;box-sizing:border-box;')
+    }));
+    return { items, checks };
+  }
+}
+</script>
+</body>
+</html>

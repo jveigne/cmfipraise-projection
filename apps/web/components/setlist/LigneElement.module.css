@@ -1,0 +1,125 @@
+.ligne,
+.depot,
+.soulevee {
+  display: flex;
+  align-items: center;
+  min-height: 72px;
+  padding: 8px 12px;
+  border-radius: var(--rayon-surface);
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.ligne {
+  background: var(--surface);
+  border: 1px solid var(--filet);
+}
+
+/* La place libérée par la ligne saisie : là où elle se posera. */
+.depot {
+  min-height: 56px;
+  border: 2px dashed var(--violet);
+  justify-content: center;
+}
+
+.texteDepot {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--violet);
+}
+
+.soulevee {
+  background: var(--surface);
+  border: 1px solid var(--violet);
+  box-shadow: var(--ombre-glisser);
+  transform: rotate(-0.6deg);
+  cursor: grabbing;
+}
+
+.contenu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.poignee {
+  width: 32px;
+  height: var(--cible-minimale);
+  border: none;
+  border-radius: var(--rayon-bouton);
+  background: transparent;
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+}
+
+.poignee:hover {
+  background: var(--page);
+}
+
+.rang {
+  width: 20px;
+  font-size: var(--taille-meta);
+  font-weight: 600;
+  color: var(--ardoise);
+}
+
+.corps {
+  flex: 1 1 220px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metaPerso {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--violet);
+}
+
+.puces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+
+.puce {
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  border-radius: var(--rayon-vignette);
+  border: 1px solid var(--filet);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-meta);
+  color: var(--encre);
+}
+
+.puceRefrain {
+  font-style: italic;
+}
+
+.retirer {
+  min-height: var(--cible-minimale);
+  padding: 0 12px;
+  border-radius: var(--rayon-bouton);
+  border: 1px solid transparent;
+  background: transparent;
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+}
+
+.retirer:hover {
+  background: var(--page);
+  color: var(--encre);
+}

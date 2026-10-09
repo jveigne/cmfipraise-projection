@@ -1,0 +1,308 @@
+.page {
+  min-height: 100dvh;
+  background: var(--page);
+}
+
+.contenu {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.presentation {
+  flex: 1 1 360px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.retour {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: var(--cible-minimale);
+  margin: -12px 0 0 -6px;
+  font-size: var(--taille-meta);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.chapeau {
+  font-size: var(--taille-titre-oeuvre-liste);
+  line-height: 1.55;
+  color: var(--ardoise);
+}
+
+.engagements {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.engagements li {
+  display: flex;
+  gap: 12px;
+}
+
+.coche {
+  flex: 0 0 auto;
+  color: var(--bleu-cmfi);
+}
+
+.formulaire {
+  flex: 1 1 460px;
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Radios natifs masqués : le libellé entier est la cible, l'état se lit par :has(:checked). */
+.formulaire label > input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.formulaire label:has(> input[type='radio']:focus-visible) {
+  outline: var(--focus-epaisseur) solid var(--bleu-cmfi);
+  outline-offset: var(--focus-decalage);
+}
+
+.formulaire fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.frequence {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-bouton);
+  overflow: hidden;
+}
+
+.optionFrequence {
+  position: relative;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  font-weight: 500;
+  color: var(--encre);
+  cursor: pointer;
+}
+
+.optionFrequence + .optionFrequence {
+  border-left: 1px solid var(--filet);
+}
+
+/* Filet intérieur sous l'option choisie (pas une ombre portée). */
+.optionFrequence:has(:checked) {
+  background: var(--page);
+  color: var(--bleu-cmfi);
+  font-weight: 600;
+  box-shadow: inset 0 -3px 0 var(--bleu-cmfi);
+}
+
+.groupe {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.legende {
+  font-weight: 600;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.montants {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.optionMontant,
+.optionMoyen {
+  position: relative;
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--filet);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--encre);
+  cursor: pointer;
+}
+
+.optionMontant {
+  min-height: 52px;
+  font-weight: 600;
+}
+
+.autre {
+  font-weight: 500;
+}
+
+.optionMoyen {
+  min-height: 64px;
+  gap: 10px;
+}
+
+/* Choisi : 2 px bleu, comme la diapositive « suivante » : c'est ce qui partira. */
+.optionMontant:has(:checked),
+.optionMoyen:has(:checked) {
+  border: 2px solid var(--bleu-cmfi);
+  color: var(--bleu-cmfi);
+  font-weight: 600;
+}
+
+.optionMontant:hover:not(:has(:checked)),
+.optionMoyen:hover:not(:has(:checked)) {
+  border-color: var(--filet-fort);
+}
+
+.moyens {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+}
+
+.saisie {
+  height: 48px;
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--filet);
+  background: var(--surface);
+  font-size: var(--taille-corps);
+  color: var(--encre);
+  padding: 0 12px;
+}
+
+.devise {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+}
+
+.select {
+  min-height: var(--cible-minimale);
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--filet);
+  background: var(--surface);
+  color: var(--encre);
+  padding: 0 8px;
+}
+
+.operateurs {
+  border-top: 1px solid var(--filet);
+  padding-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+
+/* Opérateurs : radios visibles, comme dans le design. */
+.optionOperateur {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--cible-minimale);
+  cursor: pointer;
+}
+
+.optionOperateur::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--filet-fort);
+  background: var(--surface);
+  box-sizing: border-box;
+}
+
+.optionOperateur:has(:checked)::before {
+  border: 5px solid var(--bleu-cmfi);
+}
+
+.coordonnees {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+  line-height: 1.5;
+}
+
+.donner {
+  min-height: 56px;
+  border-radius: var(--rayon-bouton);
+  border: none;
+  background: var(--bleu-cmfi);
+  font-weight: 600;
+  font-size: var(--taille-bouton-suivant);
+  color: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+a.donner:hover {
+  background: var(--bleu-appuye);
+  color: var(--surface);
+}
+
+.donner:disabled {
+  opacity: 0.5;
+}
+
+.indisponible {
+  margin-top: -10px;
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--encre);
+}
+
+@media (max-width: 640px) {
+  .contenu {
+    padding: 32px var(--marge);
+  }
+
+  .formulaire {
+    padding: 20px var(--marge);
+  }
+
+  .montants {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

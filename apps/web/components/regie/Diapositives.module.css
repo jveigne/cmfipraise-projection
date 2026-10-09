@@ -1,0 +1,168 @@
+.panneau {
+  flex: 1;
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  display: flex;
+  flex-direction: column;
+}
+
+.entete {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--filet);
+}
+
+.enteteTextes {
+  flex: 1 1 260px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.notes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+}
+
+.pointOr {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--or);
+}
+
+.grille {
+  list-style: none;
+  margin: 0;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 12px;
+  align-content: start;
+  padding: 16px 20px;
+}
+
+.cellule {
+  display: flex;
+}
+
+/* Bordures : 1 px filet, 2 px bleu (suivante), 3 px or (en direct). Le remplissage compense
+   l'épaisseur pour que le texte ne bouge pas d'un état à l'autre. */
+.carte {
+  width: 100%;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px 16px;
+  border: var(--bordure-normale) solid var(--filet);
+  border-radius: var(--rayon-surface);
+  background: var(--surface);
+  font: inherit;
+  color: var(--encre);
+  text-align: left;
+}
+
+.carte:hover {
+  border-color: var(--filet-fort);
+}
+
+.carteSuivante,
+.carteSuivante:hover {
+  border: var(--bordure-suivante) solid var(--bleu-cmfi);
+  padding: 13px 15px 15px;
+}
+
+.carteDirect,
+.carteDirect:hover {
+  border: var(--bordure-direct) solid var(--or);
+  padding: 12px 14px 14px;
+}
+
+.carteEntete {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.libelle {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-titre-oeuvre-vignette);
+  color: var(--ardoise);
+}
+
+.espace {
+  flex: 1;
+}
+
+.etiquetteDirect {
+  font-size: var(--taille-etiquette-petite);
+  font-weight: 600;
+  letter-spacing: var(--interlettrage-etiquette);
+  text-transform: uppercase;
+  background: var(--or);
+  color: var(--encre);
+  border-radius: var(--rayon-vignette);
+  padding: 3px 7px;
+}
+
+.etiquetteSuivante {
+  font-size: var(--taille-etiquette-petite);
+  font-weight: 600;
+  letter-spacing: var(--interlettrage-etiquette);
+  text-transform: uppercase;
+  color: var(--bleu-cmfi);
+  border: 1px solid var(--bleu-cmfi);
+  border-radius: var(--rayon-vignette);
+  padding: 2px 6px;
+}
+
+.texte {
+  font-family: var(--police-serif);
+  font-size: var(--taille-titre-oeuvre-vignette);
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.refrain {
+  font-style: italic;
+}
+
+.squelette {
+  min-height: 140px;
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.touches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  padding: 12px 20px;
+  border-top: 1px solid var(--filet);
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+}
+
+.touche {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}

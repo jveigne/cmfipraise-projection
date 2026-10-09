@@ -1,0 +1,34 @@
+{
+  "name": "cmfipraise-projection",
+  "version": "0.1.0",
+  "private": true,
+  "description": "CMFIPraise Projection — paroles et Bible projetées pendant le culte. Web (Next.js) et bureau (Electron), une seule base de code.",
+  "license": "UNLICENSED",
+  "workspaces": [
+    "packages/*",
+    "apps/web",
+    "apps/desktop"
+  ],
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "npm run dev -w @cmfi/web",
+    "dev:bureau": "npm run dev -w @cmfi/desktop",
+    "build": "npm run build -w @cmfi/web",
+    "build:bureau": "npm run build -w @cmfi/desktop",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "verifier": "npm run typecheck && npm run lint && npm run test && npm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@types/node": "^22.20.5",
+    "eslint": "^9.39.5",
+    "globals": "^17.13.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.71.1",
+    "vitest": "^4.1.11"
+  }
+}

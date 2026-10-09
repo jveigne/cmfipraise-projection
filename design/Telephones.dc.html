@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Télécommande et paroles en direct</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1668B8}
+</style>
+</helmet>
+<div style="width: 900px; height: 940px; background: #E4E9ED; display: flex; gap: 40px; padding: 48px 40px; box-sizing: border-box; font-family: 'Instrument Sans', sans-serif; font-size: 15px; color: #12171C">
+
+  <div style="width: 390px; height: 844px; border-radius: 44px; border: 10px solid #12171C; background: #F3F5F7; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column">
+    <div style="padding: 28px 18px 12px; background: #FFFFFF; border-bottom: 1px solid #E4E9ED; display: flex; align-items: center; gap: 10px">
+      <div style="flex: 1">
+        <div style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px">Télécommande</div>
+        <div style="font-size: 13px; font-weight: 500; color: #5C6873; display: flex; align-items: center; gap: 6px"><span style="width: 8px; height: 8px; border-radius: 4px; background: #1668B8"></span>Régie appairée · Wi-Fi de la salle</div>
+      </div>
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: #B8862B; color: #12171C; border-radius: 4px; padding: 3px 7px">En direct</span>
+    </div>
+    <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 12px; flex: 1">
+      <div style="background: #FFFFFF; border: 3px solid #B8862B; border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px">
+        <span style="font-size: 13px; font-weight: 500; color: #5C6873">À l’écran · Grâce infinie · 2.</span>
+        <span style="font-family: 'Newsreader', serif; font-size: 15px; line-height: 1.5">C’est elle qui m’apprit la crainte, C’est elle qui m’apaisa…</span>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; padding: 10px 14px; display: flex; gap: 8px; align-items: baseline">
+        <span style="font-size: 13px; font-weight: 600; color: #1668B8">Suivante</span>
+        <span style="font-family: 'Newsreader', serif; font-style: italic; font-size: 15px; color: #5C6873">R. Gloire à l’Agneau…</span>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 10px">
+        <button type="button" aria-label="Diapositive précédente" style="height: 112px; border-radius: 14px; border: 1px solid #E4E9ED; background: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#12171C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <button type="button" style="height: 112px; border-radius: 14px; border: none; background: #1668B8; color: #FFFFFF; font: inherit; font-weight: 600; font-size: 17px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px">Suivant
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <button type="button" style="height: 52px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-weight: 600; color: #12171C; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="5" width="18" height="13" rx="2"/></svg>Écran noir
+      </button>
+      <div style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+        <label for="vq" style="font-weight: 600">Verset demandé par le prédicateur</label>
+        <input id="vq" type="text" value="Rm 8.28" style="height: 44px; border-radius: 8px; border: 2px solid #1668B8; padding: 0 12px; font: inherit; color: #12171C">
+        <div style="font-family: 'Newsreader', serif; font-size: 15px; line-height: 1.5">Nous savons, du reste, que toutes choses concourent au bien de ceux qui aiment Dieu…</div>
+        <div style="font-size: 13px; font-weight: 500; color: #5C6873">Romains 8:28 · Louis Segond 1910</div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+          <button type="button" style="height: 48px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600; color: #12171C; cursor: pointer">Mettre en suivante</button>
+          <button type="button" style="height: 48px; border-radius: 8px; border: none; background: #1668B8; font: inherit; font-size: 13px; font-weight: 600; color: #FFFFFF; cursor: pointer">Projeter maintenant</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="width: 390px; height: 844px; border-radius: 44px; border: 10px solid #12171C; background: #FFFFFF; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column">
+    <div style="padding: 28px 18px 12px; border-bottom: 1px solid #E4E9ED; display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; align-items: center; gap: 8px">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: #B8862B; color: #12171C; border-radius: 4px; padding: 3px 7px">En direct</span>
+        <span style="font-size: 13px; font-weight: 500; color: #5C6873">Culte du dimanche · 2 / 5</span>
+      </div>
+      <div style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 28px; letter-spacing: -0.5px">Grâce infinie</div>
+      <div style="display: flex; gap: 8px; align-items: center">
+        <div role="radiogroup" aria-label="Langue" style="display: flex; border: 1px solid #E4E9ED; border-radius: 8px; overflow: hidden">
+          <button type="button" role="radio" aria-checked="true" style="height: 40px; padding: 0 14px; border: none; background: #F3F5F7; font: inherit; font-weight: 600; color: #1668B8; cursor: pointer">FR</button>
+          <button type="button" role="radio" aria-checked="false" style="height: 40px; padding: 0 14px; border: none; border-left: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-weight: 500; color: #12171C; cursor: pointer">EN</button>
+          <button type="button" role="radio" aria-checked="false" style="height: 40px; padding: 0 14px; border: none; border-left: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-weight: 500; color: #12171C; cursor: pointer">FR + EN</button>
+        </div>
+        <span style="flex: 1"></span>
+        <button type="button" aria-label="Texte plus petit" style="width: 40px; height: 40px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600; color: #12171C">A−</button>
+        <button type="button" aria-label="Texte plus grand" style="width: 40px; height: 40px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 17px; font-weight: 600; color: #12171C">A+</button>
+      </div>
+    </div>
+    <div style="flex: 1; padding: 18px 20px; display: flex; flex-direction: column; gap: 18px; overflow: hidden">
+      <div style="display: flex; gap: 12px; color: #5C6873">
+        <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 17px; width: 22px">R.</span>
+        <span style="font-family: 'Newsreader', serif; font-style: italic; font-size: 19px; line-height: 1.62">Gloire à l’Agneau, gloire à Jésus, Sa grâce est infinie…</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #12171C"><span style="width: 8px; height: 8px; border-radius: 4px; background: #B8862B"></span>Maintenant</span>
+        <div style="display: flex; gap: 12px">
+          <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 22px; width: 22px">2.</span>
+          <span style="font-family: 'Newsreader', serif; font-size: 23px; line-height: 1.62">C’est elle qui m’apprit la crainte,<br>C’est elle qui m’apaisa ;<br>Ô grâce précieuse et sainte,<br>Le jour où je crus en toi.</span>
+        </div>
+      </div>
+      <div style="display: flex; gap: 12px; color: #5C6873">
+        <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 17px; width: 22px">R.</span>
+        <span style="font-family: 'Newsreader', serif; font-style: italic; font-size: 19px; line-height: 1.62">Gloire à l’Agneau, gloire à Jésus, Sa grâce est infinie ; Gloire à l’Agneau, gloire à Jésus, Il m’a rendu la vie.</span>
+      </div>
+    </div>
+    <div style="padding: 12px 16px 22px; border-top: 1px solid #E4E9ED; display: flex; align-items: center; gap: 12px">
+      <span style="flex: 1; font-size: 13px; font-weight: 500; color: #5C6873">Tous les chants, même hors-ligne, dans l’app CMFIPraise.</span>
+      <a href="#" style="height: 40px; padding: 0 12px; border-radius: 8px; border: 1px solid #E4E9ED; display: inline-flex; align-items: center; font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap">Ouvrir l’app</a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":900,"height":940}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

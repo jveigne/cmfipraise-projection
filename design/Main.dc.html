@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Régie de projection</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F3F5F7}
+a{color:#1668B8}a:hover{color:#0F4F8F}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #1668B8;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height: 980px; background: #F3F5F7; font-family: 'Instrument Sans', sans-serif; font-size: 15px; color: #12171C; display: flex; flex-direction: column">
+
+  <sc-if value="{{ isDesk }}" hint-placeholder-val="{{ true }}">
+    <div style="height: 32px; background: #FFFFFF; border-bottom: 1px solid #E4E9ED; display: flex; align-items: center; padding: 0 12px; gap: 8px">
+      <div style="display: flex; gap: 8px">
+        <span style="width: 12px; height: 12px; border-radius: 6px; background: #D3D9DF"></span>
+        <span style="width: 12px; height: 12px; border-radius: 6px; background: #D3D9DF"></span>
+        <span style="width: 12px; height: 12px; border-radius: 6px; background: #D3D9DF"></span>
+      </div>
+      <div style="flex: 1; text-align: center; font-size: 13px; font-weight: 500; color: #5C6873">CMFIPraise — {{ t.serviceTitle }}</div>
+      <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: #5C6873">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1668B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4.5 4.5 0 01-.6-9A6 6 0 0118 8.5a4.5 4.5 0 01-1 9.5z"/><path d="M9.5 13l2 2 3.5-4"/></svg>
+        {{ t.offlineReady }}
+      </div>
+    </div>
+  </sc-if>
+
+  <header style="background: #FFFFFF; border-bottom: 1px solid #E4E9ED; padding: 10px 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+    <div style="display: flex; align-items: center; gap: 10px; flex: 0 0 auto">
+      <div style="width: 34px; height: 34px; border-radius: 8px; background: #1668B8; display: flex; align-items: center; justify-content: center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px; line-height: 1.1">CMFIPraise</span>
+        <span style="font-size: 13px; font-weight: 500; color: #5C6873">{{ t.regie }}</span>
+      </div>
+    </div>
+
+    <div style="flex: 999 1 420px; min-width: 0; position: relative">
+      <label for="omni" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">{{ t.omniLabel }}</label>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C6873" stroke-width="1.5" stroke-linecap="round" style="position: absolute; left: 14px; top: 13px" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="omni" type="text" placeholder="{{ t.omni }}" style="width: 100%; box-sizing: border-box; height: 44px; border-radius: 8px; border: 1px solid #E4E9ED; background: #F3F5F7; padding: 0 52px 0 42px; font: inherit; color: #12171C">
+      <span style="position: absolute; right: 10px; top: 11px; font-size: 12px; font-weight: 500; color: #5C6873; border: 1px solid #E4E9ED; background: #FFFFFF; border-radius: 4px; padding: 2px 7px">/</span>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; flex: 1 1 auto; justify-content: flex-end">
+      <button type="button" style="display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 12px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 500; color: #12171C; cursor: pointer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1668B8" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>
+        {{ t.remote }}
+      </button>
+      <button type="button" style="display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 12px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 500; color: #12171C; cursor: pointer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1668B8" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1"/><rect x="14" y="3.5" width="6.5" height="6.5" rx="1"/><rect x="3.5" y="14" width="6.5" height="6.5" rx="1"/><path d="M14 14h2.5v2.5H14zM18 18h2.5v2.5"/></svg>
+        {{ t.congregation }}
+      </button>
+      <button type="button" style="display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 12px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 500; color: #12171C; cursor: pointer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1668B8" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+        {{ outputLabel }}
+      </button>
+      <div role="status" style="display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px; border-radius: 8px; background: #B8862B; color: #12171C; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase">
+        <span style="width: 10px; height: 10px; border-radius: 5px; background: #12171C"></span>
+        {{ liveBadge }}
+      </div>
+    </div>
+  </header>
+
+  <main style="flex: 1; display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px; padding: 12px">
+
+    <section aria-label="{{ t.setlist }}" style="flex: 1 1 280px; max-width: 340px; min-width: 0; background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; display: flex; flex-direction: column">
+      <div style="padding: 16px 16px 12px; display: flex; align-items: flex-start; gap: 10px; border-bottom: 1px solid #E4E9ED">
+        <div style="width: 32px; height: 32px; border-radius: 8px; background: #F0EAFC; display: flex; align-items: center; justify-content: center; flex: 0 0 auto">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B3FD4" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/></svg>
+        </div>
+        <div style="flex: 1; min-width: 0">
+          <div style="font-size: 13px; font-weight: 500; color: #6B3FD4">{{ t.setlist }}</div>
+          <div style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 17px; line-height: 1.25">{{ t.serviceTitle }}</div>
+          <div style="font-size: 13px; font-weight: 500; color: #5C6873; margin-top: 2px">{{ t.setMeta }}</div>
+        </div>
+      </div>
+      <div style="padding: 8px; display: flex; flex-direction: column; gap: 4px; flex: 1">
+        <sc-for list="{{ items }}" as="it" hint-placeholder-count="5">
+          <button type="button" onClick="{{ it.pick }}" style="{{ it.rowStyle }}">
+            <svg width="14" height="18" viewBox="0 0 14 18" fill="#8B96A0" aria-hidden="true"><circle cx="4" cy="4" r="1.4"/><circle cx="10" cy="4" r="1.4"/><circle cx="4" cy="9" r="1.4"/><circle cx="10" cy="9" r="1.4"/><circle cx="4" cy="14" r="1.4"/><circle cx="10" cy="14" r="1.4"/></svg>
+            <span style="{{ it.pastille }}">
+              <sc-if value="{{ it.isBible }}" hint-placeholder-val="{{ false }}">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z"/><path d="M5 17a3 3 0 013-3h11"/><path d="M12 6.5v5M9.5 8.5h5"/></svg>
+              </sc-if>
+              <sc-if value="{{ it.isSong }}" hint-placeholder-val="{{ true }}">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+              </sc-if>
+            </span>
+            <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+              <span style="{{ it.titleStyle }}">{{ it.title }}</span>
+              <span style="font-size: 13px; font-weight: 500; color: #5C6873">{{ it.meta }}</span>
+            </span>
+            <sc-if value="{{ it.isLive }}" hint-placeholder-val="{{ false }}">
+              <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: #B8862B; color: #12171C; border-radius: 4px; padding: 3px 6px; white-space: nowrap">{{ t.live }}</span>
+            </sc-if>
+            <sc-if value="{{ it.isDone }}" hint-placeholder-val="{{ false }}">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C6873" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-label="{{ t.done }}"><path d="M5 12l5 5 9-10"/></svg>
+            </sc-if>
+          </button>
+        </sc-for>
+        <button type="button" style="margin-top: 6px; display: flex; align-items: center; justify-content: center; gap: 8px; height: 44px; border-radius: 8px; border: 1px dashed #C9D1D8; background: transparent; font: inherit; font-weight: 500; color: #5C6873; cursor: pointer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          {{ t.add }}
+        </button>
+      </div>
+      <div style="border-top: 1px solid #E4E9ED; padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: #1668B8">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z"/><path d="M5 17a3 3 0 013-3h11"/></svg>
+          {{ t.bible }}
+        </div>
+        <label for="ref" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">{{ t.bibleRef }}</label>
+        <input id="ref" type="text" placeholder="{{ t.refPh }}" style="height: 44px; border-radius: 8px; border: 1px solid #E4E9ED; background: #F3F5F7; padding: 0 12px; font: inherit; color: #12171C">
+        <div style="display: flex; gap: 8px">
+          <label style="flex: 1; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 500; color: #5C6873">{{ t.version }}
+            <select style="height: 40px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 15px; color: #12171C; padding: 0 8px"><option>Louis Segond 1910</option><option>King James</option></select>
+          </label>
+          <label style="flex: 1; display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 500; color: #5C6873">{{ t.secondVersion }}
+            <select style="height: 40px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 15px; color: #12171C; padding: 0 8px"><option>King James</option><option>{{ t.none }}</option></select>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="{{ t.slides }}" style="flex: 999 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; display: flex; flex-direction: column">
+      <div style="padding: 16px 20px; border-bottom: 1px solid #E4E9ED; display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+        <div style="flex: 1 1 260px; min-width: 0">
+          <div style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 28px; letter-spacing: -0.5px; line-height: 1.15">{{ view.title }}</div>
+          <div style="font-size: 13px; font-weight: 500; color: #5C6873; margin-top: 4px">{{ view.meta }} · {{ view.orderLabel }}</div>
+        </div>
+        <sc-if value="{{ viewNotLive }}" hint-placeholder-val="{{ false }}">
+          <button type="button" onClick="{{ backToLive }}" style="height: 44px; padding: 0 14px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-weight: 500; color: #12171C; cursor: pointer; display: flex; align-items: center; gap: 8px">
+            <span style="width: 8px; height: 8px; border-radius: 4px; background: #B8862B"></span>{{ t.backToLive }}
+          </button>
+        </sc-if>
+      </div>
+
+      <div style="padding: 16px 20px; flex: 1; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; align-content: start">
+        <sc-for list="{{ slides }}" as="sl" hint-placeholder-count="6">
+          <button type="button" onClick="{{ sl.go }}" aria-current="{{ sl.ariaCurrent }}" style="{{ sl.cardStyle }}">
+            <span style="display: flex; align-items: center; gap: 8px; width: 100%">
+              <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 15px; color: #5C6873">{{ sl.label }}</span>
+              <span style="flex: 1"></span>
+              <sc-if value="{{ sl.isLive }}" hint-placeholder-val="{{ false }}">
+                <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: #B8862B; color: #12171C; border-radius: 4px; padding: 3px 7px">{{ t.live }}</span>
+              </sc-if>
+              <sc-if value="{{ sl.isNext }}" hint-placeholder-val="{{ false }}">
+                <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #1668B8; border: 1px solid #1668B8; border-radius: 4px; padding: 2px 6px">{{ t.nextTag }}</span>
+              </sc-if>
+            </span>
+            <span style="font-family: 'Newsreader', serif; font-size: 15px; line-height: 1.5; color: #12171C; white-space: pre-line; font-style: {{ sl.fontStyle }}">{{ sl.fr }}</span>
+          </button>
+        </sc-for>
+      </div>
+
+      <div style="border-top: 1px solid #E4E9ED; padding: 12px 20px; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 13px; font-weight: 500; color: #5C6873">
+        <span style="display: flex; align-items: center; gap: 6px"><span style="border: 1px solid #E4E9ED; border-radius: 4px; padding: 1px 7px; color: #12171C">←</span><span style="border: 1px solid #E4E9ED; border-radius: 4px; padding: 1px 7px; color: #12171C">→</span> {{ t.kSlide }}</span>
+        <span style="display: flex; align-items: center; gap: 6px"><span style="border: 1px solid #E4E9ED; border-radius: 4px; padding: 1px 7px; color: #12171C">{{ t.space }}</span> {{ t.kNext }}</span>
+        <span style="display: flex; align-items: center; gap: 6px"><span style="border: 1px solid #E4E9ED; border-radius: 4px; padding: 1px 7px; color: #12171C">B</span> {{ t.black }}</span>
+        <span style="display: flex; align-items: center; gap: 6px"><span style="border: 1px solid #E4E9ED; border-radius: 4px; padding: 1px 7px; color: #12171C">T</span> {{ t.hide }}</span>
+        <span style="display: flex; align-items: center; gap: 6px"><span style="border: 1px solid #E4E9ED; border-radius: 4px; padding: 1px 7px; color: #12171C">{{ t.esc }}</span> {{ t.kEsc }}</span>
+      </div>
+    </section>
+
+    <section aria-label="{{ t.output }}" style="flex: 1 1 360px; max-width: 460px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+      <div style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; align-items: center; gap: 8px">
+          <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase">{{ t.output }}</span>
+          <span style="font-size: 13px; font-weight: 500; color: #5C6873">· {{ outputShort }}</span>
+          <span style="flex: 1"></span>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: #B8862B; color: #12171C; border-radius: 4px; padding: 3px 7px">{{ t.live }}</span>
+        </div>
+        <div style="{{ outBoxStyle }}">
+          <sc-if value="{{ showText }}" hint-placeholder-val="{{ true }}">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 0 9%">
+              <div style="font-family: 'Newsreader', serif; font-size: 17px; line-height: 1.42; color: #F4F1EA; text-align: center; white-space: pre-line; font-style: {{ live.fontStyle }}">{{ live.fr }}</div>
+              <sc-if value="{{ bilingual }}" hint-placeholder-val="{{ false }}">
+                <div style="font-family: 'Newsreader', serif; font-size: 12px; line-height: 1.4; color: #9FB3C8; text-align: center; white-space: pre-line; font-style: {{ live.fontStyle }}">{{ live.en }}</div>
+              </sc-if>
+            </div>
+          </sc-if>
+          <sc-if value="{{ showLogo }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 30px; letter-spacing: 0.08em; color: #F4F1EA">CMFI</div>
+          </sc-if>
+          <sc-if value="{{ blackout }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size: 13px; font-weight: 500; color: #9FB3C8">{{ t.blackActive }}</div>
+          </sc-if>
+          <sc-if value="{{ showRef }}" hint-placeholder-val="{{ false }}">
+            <div style="position: absolute; bottom: 8px; left: 0; right: 0; text-align: center; font-family: 'Newsreader', serif; font-size: 10px; letter-spacing: 0.04em; color: #9FB3C8">{{ live.ref }}</div>
+          </sc-if>
+          <sc-if value="{{ showText }}" hint-placeholder-val="{{ true }}">
+            <div style="position: absolute; right: 8px; bottom: 8px; width: 18px; height: 18px; border: 1px solid #1E3A52; border-radius: 3px; display: flex; align-items: center; justify-content: center">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9FB3C8" stroke-width="2" aria-hidden="true"><rect x="3.5" y="3.5" width="6.5" height="6.5"/><rect x="14" y="3.5" width="6.5" height="6.5"/><rect x="3.5" y="14" width="6.5" height="6.5"/><path d="M14 14h3v3h-3zM18 18h3v3"/></svg>
+            </div>
+          </sc-if>
+        </div>
+        <div style="font-size: 13px; font-weight: 500; color: #5C6873">{{ live.itemTitle }} · {{ live.label }}</div>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; padding: 16px; display: flex; gap: 14px; align-items: center">
+        <div style="width: 44%; aspect-ratio: 16 / 9; background: #0B2438; border-radius: 4px; display: flex; align-items: center; justify-content: center; padding: 6px; box-sizing: border-box; flex: 0 0 auto; overflow: hidden">
+          <div style="font-family: 'Newsreader', serif; font-size: 9px; line-height: 1.35; color: #F4F1EA; text-align: center; white-space: pre-line; font-style: {{ nxt.fontStyle }}">{{ nxt.fr }}</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+          <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #1668B8">{{ t.upcoming }}</span>
+          <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 17px; line-height: 1.25">{{ nxt.label }} — {{ nxt.itemTitle }}</span>
+          <span style="font-size: 13px; font-weight: 500; color: #5C6873">{{ nxt.hint }}</span>
+        </div>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; gap: 10px">
+          <button type="button" onClick="{{ prev }}" style="flex: 1; height: 64px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-weight: 600; color: #12171C; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>{{ t.prev }}
+          </button>
+          <button type="button" onClick="{{ next }}" style="flex: 2; height: 64px; border-radius: 8px; border: none; background: #1668B8; font: inherit; font-weight: 600; font-size: 17px; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px">
+            {{ t.nextBtn }}
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+          <button type="button" onClick="{{ toggleBlack }}" aria-pressed="{{ blackPressed }}" style="{{ blackBtn }}">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="5" width="18" height="13" rx="2"/></svg>
+            <span>{{ t.black }}</span>
+            <span style="font-size: 12px; font-weight: 500; color: #5C6873">{{ blackHint }}</span>
+          </button>
+          <button type="button" onClick="{{ toggleHide }}" aria-pressed="{{ hidePressed }}" style="{{ hideBtn }}">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 6.1A9.7 9.7 0 0112 6c5 0 9 6 9 6a17 17 0 01-2.6 3.2M6.3 7.6A17 17 0 003 12s4 6 9 6a9 9 0 004.1-1"/></svg>
+            <span>{{ t.hide }}</span>
+            <span style="font-size: 12px; font-weight: 500; color: #5C6873">{{ hideHint }}</span>
+          </button>
+          <button type="button" onClick="{{ toggleLogo }}" aria-pressed="{{ logoPressed }}" style="{{ logoBtn }}">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 17l-5-5-9 8"/></svg>
+            <span>{{ t.logo }}</span>
+            <span style="font-size: 12px; font-weight: 500; color: #5C6873">{{ logoHint }}</span>
+          </button>
+        </div>
+        <button type="button" onClick="{{ toggleBi }}" aria-pressed="{{ biPressed }}" style="display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 4px; border: none; background: transparent; font: inherit; color: #12171C; cursor: pointer; text-align: left">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1668B8" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg>
+          <span style="flex: 1">{{ t.bilingual }}</span>
+          <span style="{{ switchTrack }}"><span style="{{ switchKnob }}"></span></span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer style="padding: 0 24px 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; font-size: 13px; font-weight: 500; color: #5C6873">
+    <span style="display: flex; align-items: center; gap: 6px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5C6873" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4.5 4.5 0 01-.6-9A6 6 0 0118 8.5a4.5 4.5 0 01-1 9.5z"/><path d="M9.5 13l2 2 3.5-4"/></svg>
+      {{ t.safety }}
+    </span>
+    <span>{{ t.followers }}</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"langue":{"editor":"enum","options":["fr","en"],"default":"fr","section":"Démo"},"plateforme":{"editor":"enum","options":["bureau","web"],"default":"bureau","section":"Démo"},"$preview":{"width":1440,"height":980}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { liveItem: 1, liveSlide: 2, view: 1, blackout: false, hide: false, logo: false, bilingual: false };
+  }
+
+  strings(lang) {
+    const fr = {
+      regie: 'Régie de projection', serviceTitle: 'Culte du dimanche 11 oct.', offlineReady: 'Hors-ligne prêt',
+      omniLabel: 'Ajouter à la setlist', omni: 'Ajouter un chant, un n° ou un verset — ex. Grâce infinie, Ps 23, Jn 3:16',
+      remote: 'Téléphone appairé', congregation: 'Paroles partagées', outDesk: 'Sortie : écran 2', outWeb: 'Fenêtre de sortie',
+      outShortDesk: 'écran 2 · 1920 × 1080', outShortWeb: 'fenêtre ouverte', live: 'En direct', blackLive: 'Écran noir',
+      setlist: 'Setlist', setMeta: '5 éléments · glisser pour réordonner', add: 'Ajouter un chant ou un passage',
+      bible: 'Bible', bibleRef: 'Référence biblique', refPh: 'Jn 3:16, Ps 23, Romains 8.28…', version: 'Version', secondVersion: 'Seconde version', none: 'Aucune',
+      slides: 'Diapositives', backToLive: 'Revenir au direct', nextTag: 'Suivante', done: 'Projeté',
+      kSlide: 'diapositive', space: 'Espace', kNext: 'suivante', esc: 'Échap', kEsc: 'revenir à la diapo en direct',
+      output: 'Sortie', upcoming: 'À suivre', prev: 'Précédent', nextBtn: 'Suivant',
+      black: 'Écran noir', hide: 'Masquer le texte', logo: 'Logo', on: 'Activé — recliquez pour rétablir', off: 'Raccourci',
+      blackActive: 'Écran noir — B pour rétablir', bilingual: 'Bilingue FR + EN',
+      safety: 'Tout est en local : si le réseau tombe, la projection continue.', followers: 'Assemblée : 38 téléphones suivent les paroles',
+      verses: 'versets', order: 'Ordre', fromBible: 'Bible', fromSong: 'Recueil CMFI', mine: 'Mon arrangement'
+    };
+    const en = {
+      regie: 'Projection control room', serviceTitle: 'Sunday service, Oct 11', offlineReady: 'Ready to work offline',
+      omniLabel: 'Add to the setlist', omni: 'Add a song, a hymn number or a verse — e.g. Amazing Grace, Ps 23, John 3:16',
+      remote: 'Phone paired as remote', congregation: 'Lyrics shared with congregation', outDesk: 'Output: display 2', outWeb: 'Output window',
+      outShortDesk: 'display 2 · 1920 × 1080', outShortWeb: 'window open', live: 'Live', blackLive: 'Black screen',
+      setlist: 'Setlist', setMeta: '5 items · drag to change the order', add: 'Add a song or a Bible passage',
+      bible: 'Bible', bibleRef: 'Bible reference', refPh: 'John 3:16, Ps 23, Romans 8:28…', version: 'Version', secondVersion: 'Second version', none: 'None',
+      slides: 'Slides', backToLive: 'Back to the live slide', nextTag: 'Next up', done: 'Projected',
+      kSlide: 'slide', space: 'Space', kNext: 'next slide', esc: 'Esc', kEsc: 'back to the live slide',
+      output: 'Output', upcoming: 'Coming up', prev: 'Previous', nextBtn: 'Next slide',
+      black: 'Black screen', hide: 'Hide the text', logo: 'Logo', on: 'On — click again to restore', off: 'Shortcut',
+      blackActive: 'Black screen — press B to restore', bilingual: 'Bilingual FR + EN',
+      safety: 'Everything runs locally: if the network drops, projection keeps going.', followers: 'Congregation: 38 phones following the lyrics',
+      verses: 'verses', order: 'Order', fromBible: 'Bible', fromSong: 'CMFI hymnbook', mine: 'My arrangement'
+    };
+    return lang === 'en' ? en : fr;
+  }
+
+  data(t) {
+    return [
+      { kind: 'song', own: false, title: 'À toi la gloire', meta: t.fromSong + ' · n° 4 · Si♭', order: '1 R 2 R', slides: [
+        { label: '1.', type: 'c', fr: 'Brillant de lumière,\nl’ange est descendu,\nIl roule la pierre\ndu tombeau vaincu.', en: 'Angels in bright raiment\nrolled the stone away,\nKept the folded grave-clothes\nwhere thy body lay.' },
+        { label: 'R.', type: 'r', fr: 'À toi la gloire,\nô Ressuscité !\nÀ toi la victoire\npour l’éternité !', en: 'Thine be the glory,\nrisen, conquering Son;\nEndless is the victory\nthou o’er death hast won.' },
+        { label: '2.', type: 'c', fr: 'Vois-le paraître :\nc’est lui, c’est Jésus,\nTon Sauveur, ton Maître !\nOh ! ne doute plus.', en: 'Lo! Jesus meets us,\nrisen from the tomb;\nLovingly he greets us,\nscatters fear and gloom.' },
+        { label: 'R.', type: 'r', fr: 'À toi la gloire,\nô Ressuscité !\nÀ toi la victoire\npour l’éternité !', en: 'Thine be the glory,\nrisen, conquering Son;\nEndless is the victory\nthou o’er death hast won.' }
+      ]},
+      { kind: 'song', own: false, title: 'Grâce infinie', meta: t.fromSong + ' · n° 112 · Sol', order: '1 R 2 R 3 R', slides: [
+        { label: '1.', type: 'c', fr: 'Grâce infinie, ô son si doux,\nQui vint me relever ;\nJ’étais perdu, Il m’a trouvé,\nAveugle, je peux voir.', en: 'Amazing grace! how sweet the sound\nThat saved a wretch like me!\nI once was lost, but now am found,\nWas blind, but now I see.' },
+        { label: 'R.', type: 'r', fr: 'Gloire à l’Agneau, gloire à Jésus,\nSa grâce est infinie ;\nGloire à l’Agneau, gloire à Jésus,\nIl m’a rendu la vie.', en: 'Glory to the Lamb, glory to Jesus,\nHis grace will never end;\nGlory to the Lamb, glory to Jesus,\nHe gave me life again.' },
+        { label: '2.', type: 'c', fr: 'C’est elle qui m’apprit la crainte,\nC’est elle qui m’apaisa ;\nÔ grâce précieuse et sainte,\nLe jour où je crus en toi.', en: '’Twas grace that taught my heart to fear,\nAnd grace my fears relieved;\nHow precious did that grace appear\nThe hour I first believed!' },
+        { label: 'R.', type: 'r', fr: 'Gloire à l’Agneau, gloire à Jésus,\nSa grâce est infinie ;\nGloire à l’Agneau, gloire à Jésus,\nIl m’a rendu la vie.', en: 'Glory to the Lamb, glory to Jesus,\nHis grace will never end;\nGlory to the Lamb, glory to Jesus,\nHe gave me life again.' },
+        { label: '3.', type: 'c', fr: 'Par tant de luttes et de pièges\nDéjà j’ai traversé ;\nSa grâce m’a gardé jusqu’ici,\nSa grâce me conduira.', en: 'Through many dangers, toils and snares,\nI have already come;\n’Tis grace hath brought me safe thus far,\nAnd grace will lead me home.' },
+        { label: 'R.', type: 'r', fr: 'Gloire à l’Agneau, gloire à Jésus,\nSa grâce est infinie ;\nGloire à l’Agneau, gloire à Jésus,\nIl m’a rendu la vie.', en: 'Glory to the Lamb, glory to Jesus,\nHis grace will never end;\nGlory to the Lamb, glory to Jesus,\nHe gave me life again.' }
+      ]},
+      { kind: 'bible', own: false, title: 'Psaume 23', meta: t.fromBible + ' · LSG + KJV · 4 ' + t.verses, order: '1–4', slides: [
+        { label: 'v. 1', type: 'v', ref: 'Psaume 23:1 · LSG', fr: 'L’Éternel est mon berger :\nje ne manquerai de rien.', en: 'The LORD is my shepherd;\nI shall not want.' },
+        { label: 'v. 2', type: 'v', ref: 'Psaume 23:2 · LSG', fr: 'Il me fait reposer dans de verts pâturages,\nIl me dirige près des eaux paisibles.', en: 'He maketh me to lie down in green pastures:\nhe leadeth me beside the still waters.' },
+        { label: 'v. 3', type: 'v', ref: 'Psaume 23:3 · LSG', fr: 'Il restaure mon âme,\nIl me conduit dans les sentiers de la justice,\nà cause de son nom.', en: 'He restoreth my soul:\nhe leadeth me in the paths of righteousness\nfor his name’s sake.' },
+        { label: 'v. 4', type: 'v', ref: 'Psaume 23:4 · LSG', fr: 'Quand je marche dans la vallée\nde l’ombre de la mort,\nje ne crains aucun mal, car tu es avec moi.', en: 'Yea, though I walk through the valley\nof the shadow of death,\nI will fear no evil: for thou art with me.' }
+      ]},
+      { kind: 'bible', own: false, title: 'Jean 3:16-17', meta: t.fromBible + ' · LSG + KJV · 2 ' + t.verses, order: '16–17', slides: [
+        { label: 'v. 16', type: 'v', ref: 'Jean 3:16 · LSG', fr: 'Car Dieu a tant aimé le monde\nqu’il a donné son Fils unique,\nafin que quiconque croit en lui ne périsse point,\nmais qu’il ait la vie éternelle.', en: 'For God so loved the world,\nthat he gave his only begotten Son,\nthat whosoever believeth in him should not perish,\nbut have everlasting life.' },
+        { label: 'v. 17', type: 'v', ref: 'Jean 3:17 · LSG', fr: 'Dieu, en effet, n’a pas envoyé son Fils\ndans le monde pour qu’il juge le monde,\nmais pour que le monde soit sauvé par lui.', en: 'For God sent not his Son into the world\nto condemn the world;\nbut that the world through him might be saved.' }
+      ]},
+      { kind: 'song', own: true, title: 'Saint, saint, saint', meta: t.mine + ' · Ré', order: '1 2', slides: [
+        { label: '1.', type: 'c', fr: 'Saint, saint, saint !\nSeigneur Dieu tout-puissant !\nDès l’aube matinale,\nnos chants montent vers toi.', en: 'Holy, holy, holy!\nLord God Almighty!\nEarly in the morning\nour song shall rise to thee.' },
+        { label: '2.', type: 'c', fr: 'Saint, saint, saint !\nPlein d’amour et de puissance,\nDieu en trois personnes,\nbéni sois-tu !', en: 'Holy, holy, holy!\nMerciful and mighty,\nGod in three persons,\nblessed Trinity!' }
+      ]}
+    ];
+  }
+
+  nextPos(items, i, j) {
+    if (j < items[i].slides.length - 1) return [i, j + 1];
+    if (i < items.length - 1) return [i + 1, 0];
+    return null;
+  }
+  prevPos(items, i, j) {
+    if (j > 0) return [i, j - 1];
+    if (i > 0) return [i - 1, items[i - 1].slides.length - 1];
+    return null;
+  }
+
+  renderVals() {
+    const lang = this.props.langue ?? 'fr';
+    const isDesk = (this.props.plateforme ?? 'bureau') === 'bureau';
+    const t = this.strings(lang);
+    const items = this.data(t);
+    const s = this.state;
+    const nx = this.nextPos(items, s.liveItem, s.liveSlide);
+    const pv = this.prevPos(items, s.liveItem, s.liveSlide);
+    const go = (i, j) => this.setState({ liveItem: i, liveSlide: j, view: i, blackout: false, hide: false, logo: false });
+
+    const rowBase = 'display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:10px;border-radius:8px;font:inherit;color:#12171C;cursor:pointer;min-height:60px;box-sizing:border-box;';
+    const listItems = items.map((it, i) => ({
+      title: it.title,
+      meta: it.meta,
+      isBible: it.kind === 'bible',
+      isSong: it.kind !== 'bible',
+      isLive: i === s.liveItem,
+      isDone: i < s.liveItem,
+      pick: () => this.setState({ view: i }),
+      rowStyle: rowBase + (i === s.view ? 'background:#F3F5F7;border:1px solid #E4E9ED;' : 'background:transparent;border:1px solid transparent;'),
+      pastille: 'width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;' + (it.own ? 'background:#F0EAFC;color:#6B3FD4;' : 'background:#E7F0F9;color:#1668B8;'),
+      titleStyle: "font-family:'Newsreader',serif;font-weight:600;font-size:17px;line-height:1.2;" + (i < s.liveItem ? 'color:#5C6873;' : 'color:#12171C;')
+    }));
+
+    const v = items[s.view];
+    const cardBase = 'text-align:left;cursor:pointer;background:#FFFFFF;border-radius:14px;display:flex;flex-direction:column;gap:8px;font:inherit;color:#12171C;width:100%;box-sizing:border-box;min-height:150px;';
+    const slides = v.slides.map((sl, j) => {
+      const isLive = s.view === s.liveItem && j === s.liveSlide;
+      const isNext = !!nx && nx[0] === s.view && nx[1] === j;
+      const border = isLive ? 'border:3px solid #B8862B;padding:12px 14px 14px;' : isNext ? 'border:2px solid #1668B8;padding:13px 15px 15px;' : 'border:1px solid #E4E9ED;padding:14px 16px 16px;';
+      return { ...sl, isLive, isNext, ariaCurrent: isLive ? 'true' : 'false', fontStyle: sl.type === 'r' ? 'italic' : 'normal', cardStyle: cardBase + border, go: () => go(s.view, j) };
+    });
+
+    const liveSl = items[s.liveItem].slides[s.liveSlide];
+    const live = { ...liveSl, itemTitle: items[s.liveItem].title, fontStyle: liveSl.type === 'r' ? 'italic' : 'normal', ref: liveSl.ref ?? '' };
+    let nxt = { fr: '—', label: '', itemTitle: lang === 'en' ? 'End of setlist' : 'Fin de la setlist', fontStyle: 'normal', hint: '' };
+    if (nx) {
+      const ns = items[nx[0]].slides[nx[1]];
+      const changes = nx[0] !== s.liveItem;
+      nxt = { ...ns, itemTitle: items[nx[0]].title, fontStyle: ns.type === 'r' ? 'italic' : 'normal', hint: changes ? (lang === 'en' ? 'Next item in the setlist' : 'Élément suivant de la setlist') : (lang === 'en' ? 'Press → or Space' : 'Appuyez sur → ou Espace') };
+    }
+
+    const showText = !s.blackout && !s.hide && !s.logo;
+    const btnBase = 'display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:96px;padding:8px;border-radius:8px;background:#FFFFFF;font:inherit;font-size:13px;font-weight:600;color:#12171C;cursor:pointer;text-align:center;box-sizing:border-box;';
+    const on = 'border:2px solid #12171C;';
+    const off = 'border:1px solid #E4E9ED;';
+
+    return {
+      t, isDesk,
+      outputLabel: isDesk ? t.outDesk : t.outWeb,
+      outputShort: isDesk ? t.outShortDesk : t.outShortWeb,
+      liveBadge: s.blackout ? t.live + ' · ' + t.blackLive : t.live,
+      items: listItems,
+      view: { title: v.title, meta: v.meta, orderLabel: t.order + ' : ' + v.order },
+      viewNotLive: s.view !== s.liveItem,
+      backToLive: () => this.setState({ view: s.liveItem }),
+      slides,
+      live, nxt,
+      showText,
+      showLogo: !s.blackout && s.logo,
+      blackout: s.blackout,
+      showRef: showText && !!live.ref,
+      bilingual: s.bilingual,
+      outBoxStyle: 'position:relative;width:100%;aspect-ratio:16/9;border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;' + (s.blackout ? 'background:#000000;' : 'background:#0B2438;'),
+      next: () => { if (nx) go(nx[0], nx[1]); },
+      prev: () => { if (pv) go(pv[0], pv[1]); },
+      toggleBlack: () => this.setState({ blackout: !s.blackout }),
+      toggleHide: () => this.setState({ hide: !s.hide, logo: false }),
+      toggleLogo: () => this.setState({ logo: !s.logo, hide: false }),
+      toggleBi: () => this.setState({ bilingual: !s.bilingual }),
+      blackPressed: s.blackout ? 'true' : 'false',
+      hidePressed: s.hide ? 'true' : 'false',
+      logoPressed: s.logo ? 'true' : 'false',
+      biPressed: s.bilingual ? 'true' : 'false',
+      blackBtn: btnBase + (s.blackout ? on : off),
+      hideBtn: btnBase + (s.hide ? on : off),
+      logoBtn: btnBase + (s.logo ? on : off),
+      blackHint: s.blackout ? t.on : t.off + ' B',
+      hideHint: s.hide ? t.on : t.off + ' T',
+      logoHint: s.logo ? t.on : t.off + ' L',
+      switchTrack: 'width:44px;height:26px;border-radius:13px;position:relative;flex:0 0 auto;' + (s.bilingual ? 'background:#1668B8;' : 'background:#C9D1D8;'),
+      switchKnob: 'position:absolute;top:3px;width:20px;height:20px;border-radius:10px;background:#FFFFFF;' + (s.bilingual ? 'left:21px;' : 'left:3px;')
+    };
+  }
+}
+</script>
+</body>
+</html>

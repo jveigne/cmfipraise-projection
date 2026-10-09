@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Personnalisation de la projection</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F3F5F7}
+a{color:#1668B8}a:hover{color:#0F4F8F}
+button:focus-visible,select:focus-visible{outline:2px solid #1668B8;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height: 980px; background: #F3F5F7; font-family: 'Instrument Sans', sans-serif; font-size: 15px; color: #12171C; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px; padding: 24px; box-sizing: border-box">
+
+  <div style="flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+    <h1 style="margin: 0 0 4px; font-family: 'Newsreader', serif; font-weight: 600; font-size: 28px; letter-spacing: -0.5px">Personnalisation</h1>
+
+    <section style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+      <h2 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px">Thème de projection</h2>
+      <div role="radiogroup" aria-label="Thème" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+        <sc-for list="{{ themes }}" as="th" hint-placeholder-count="3">
+          <button type="button" role="radio" aria-checked="{{ th.checked }}" onClick="{{ th.pick }}" style="{{ th.st }}">
+            <span style="{{ th.sw }}"><span style="font-family: 'Newsreader', serif; font-size: 14px; color: #F4F1EA">Grâce infinie</span></span>
+            <span style="font-weight: 600">{{ th.name }}</span>
+            <span style="font-size: 13px; font-weight: 500; color: #5C6873">{{ th.desc }}</span>
+          </button>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+      <h2 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px">Police et taille des paroles</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end">
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500; color: #5C6873; flex: 1 1 220px">Police
+          <select style="height: 44px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 15px; color: #12171C; padding: 0 10px"><option>Newsreader (recommandée)</option><option>Newsreader, plus grasse</option></select>
+        </label>
+        <div role="radiogroup" aria-label="Taille" style="display: flex; flex-direction: column; gap: 6px; flex: 2 1 360px">
+          <span style="font-size: 13px; font-weight: 500; color: #5C6873">Taille</span>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid #E4E9ED; border-radius: 8px; overflow: hidden">
+            <sc-for list="{{ sizes }}" as="sz" hint-placeholder-count="3">
+              <button type="button" role="radio" aria-checked="{{ sz.checked }}" onClick="{{ sz.pick }}" style="{{ sz.st }}">{{ sz.name }}<span style="font-size: 12px; font-weight: 500; color: #5C6873">{{ sz.desc }}</span></button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 4px">
+      <h2 style="margin: 0 0 8px; font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px">Langue et Bible</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500; color: #5C6873">Langue de l’interface
+          <select style="height: 44px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 15px; color: #12171C; padding: 0 10px"><option>Français</option><option>English</option></select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500; color: #5C6873">Langue principale des paroles
+          <select style="height: 44px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 15px; color: #12171C; padding: 0 10px"><option>Français</option><option>English</option></select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500; color: #5C6873">Version biblique principale
+          <select style="height: 44px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 15px; color: #12171C; padding: 0 10px"><option>Louis Segond 1910</option><option>King James</option></select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500; color: #5C6873">Seconde version (côte à côte)
+          <select style="height: 44px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 15px; color: #12171C; padding: 0 10px"><option>King James</option><option>Aucune</option></select>
+        </label>
+      </div>
+      <button type="button" onClick="{{ toggleBi }}" aria-pressed="{{ biPressed }}" style="margin-top: 12px; display: flex; align-items: center; gap: 12px; min-height: 56px; border: none; border-top: 1px solid #E4E9ED; background: transparent; font: inherit; color: #12171C; cursor: pointer; text-align: left; padding: 8px 0 0">
+        <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Affichage bilingue</span><span style="font-size: 13px; font-weight: 500; color: #5C6873">Seconde langue sous la première, plus petite et plus discrète</span></span>
+        <span style="{{ track }}"><span style="{{ knob }}"></span></span>
+      </button>
+    </section>
+
+    <section style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+      <div style="display: flex; align-items: center; gap: 10px">
+        <h2 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px">Écrans</h2>
+        <span style="font-size: 12px; font-weight: 600; border: 1px solid #E4E9ED; border-radius: 4px; padding: 2px 7px; color: #5C6873">App de bureau</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+        <div style="border: 1px solid #E4E9ED; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+          <div style="aspect-ratio: 16 / 10; border: 1px solid #E4E9ED; border-radius: 4px; background: #F3F5F7; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #5C6873">1</div>
+          <span style="font-weight: 600">Écran intégré</span>
+          <span style="font-size: 13px; font-weight: 500; color: #5C6873">Régie · 1440 × 900</span>
+        </div>
+        <div style="border: 2px solid #1668B8; border-radius: 14px; padding: 13px; display: flex; flex-direction: column; gap: 8px">
+          <div style="aspect-ratio: 16 / 10; border-radius: 4px; background: #0B2438; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #F4F1EA">2</div>
+          <span style="font-weight: 600">Projecteur HDMI</span>
+          <label style="font-size: 13px; font-weight: 500; color: #5C6873; display: flex; flex-direction: column; gap: 4px">Affiche
+            <select style="height: 36px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; color: #12171C"><option>Sortie (assemblée)</option><option>Musiciens</option><option>Rien</option></select>
+          </label>
+        </div>
+        <div style="border: 1px solid #E4E9ED; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+          <div style="aspect-ratio: 16 / 10; border-radius: 4px; background: #0B2438; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #7FB6EA">3</div>
+          <span style="font-weight: 600">Moniteur de scène</span>
+          <label style="font-size: 13px; font-weight: 500; color: #5C6873; display: flex; flex-direction: column; gap: 4px">Affiche
+            <select style="height: 36px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; color: #12171C"><option>Musiciens</option><option>Sortie (assemblée)</option><option>Rien</option></select>
+          </label>
+        </div>
+      </div>
+      <p style="margin: 0; font-size: 13px; font-weight: 500; color: #5C6873">Sur le web, la sortie s’ouvre dans une fenêtre à glisser sur le projecteur, et les musiciens reçoivent un lien.</p>
+    </section>
+  </div>
+
+  <aside aria-label="Aperçu" style="flex: 1 1 380px; max-width: 520px; min-width: 0; background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; padding: 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px">
+    <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase">Aperçu de la sortie</span>
+    <div style="{{ preview }}">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 0 8%">
+        <div style="{{ mainText }}">Grâce infinie, ô son si doux,<br>Qui vint me relever ;<br>J’étais perdu, Il m’a trouvé,<br>Aveugle, je peux voir.</div>
+        <sc-if value="{{ bilingual }}" hint-placeholder-val="{{ true }}">
+          <div style="{{ secondText }}">Amazing grace! how sweet the sound<br>That saved a wretch like me!</div>
+        </sc-if>
+      </div>
+    </div>
+    <span style="font-size: 13px; font-weight: 500; color: #5C6873">{{ contrastNote }}</span>
+  </aside>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":980}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { theme: 'nuit', size: 1, bilingual: true };
+  }
+  renderVals() {
+    const s = this.state;
+    const T = [
+      { id: 'nuit', name: 'Nuit', desc: 'Par défaut, reposant pour les yeux', bg: '#0B2438', ratio: '14,1:1' },
+      { id: 'fond', name: 'Fond personnalisé', desc: 'Couleur ou photo, voile ajouté automatiquement', bg: '#2B211A', ratio: '14,1:1' },
+      { id: 'noir', name: 'Noir', desc: 'Salles très lumineuses, écrans LED', bg: '#000000', ratio: '18,6:1' }
+    ];
+    const themes = T.map((t) => ({
+      ...t,
+      checked: s.theme === t.id ? 'true' : 'false',
+      pick: () => this.setState({ theme: t.id }),
+      st: 'text-align:left;padding:12px;border-radius:14px;background:#FFFFFF;font:inherit;color:#12171C;cursor:pointer;display:flex;flex-direction:column;gap:6px;' + (s.theme === t.id ? 'border:2px solid #1668B8;' : 'border:1px solid #E4E9ED;margin:1px;'),
+      sw: 'aspect-ratio:16/9;border-radius:4px;display:flex;align-items:center;justify-content:center;background:' + t.bg + ';'
+    }));
+    const S = [{ name: 'Normale', desc: 'petite salle', px: 15 }, { name: 'Grande', desc: 'salle moyenne', px: 18 }, { name: 'Très grande', desc: 'grande salle', px: 22 }];
+    const sizes = S.map((z, i) => ({
+      ...z,
+      checked: s.size === i ? 'true' : 'false',
+      pick: () => this.setState({ size: i }),
+      st: 'min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font:inherit;font-weight:600;cursor:pointer;border:none;' + (i > 0 ? 'border-left:1px solid #E4E9ED;' : '') + (s.size === i ? 'background:#F3F5F7;color:#1668B8;box-shadow:inset 0 -3px 0 #1668B8;' : 'background:#FFFFFF;color:#12171C;')
+    }));
+    const th = T.find((t) => t.id === s.theme);
+    const px = S[s.size].px;
+    return {
+      themes, sizes,
+      bilingual: s.bilingual,
+      biPressed: s.bilingual ? 'true' : 'false',
+      toggleBi: () => this.setState({ bilingual: !s.bilingual }),
+      track: 'width:44px;height:26px;border-radius:13px;position:relative;flex:0 0 auto;' + (s.bilingual ? 'background:#1668B8;' : 'background:#C9D1D8;'),
+      knob: 'position:absolute;top:3px;width:20px;height:20px;border-radius:10px;background:#FFFFFF;' + (s.bilingual ? 'left:21px;' : 'left:3px;'),
+      preview: 'width:100%;aspect-ratio:16/9;border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:' + th.bg + ';',
+      mainText: "font-family:'Newsreader',serif;color:#F4F1EA;text-align:center;line-height:1.42;font-size:" + px + 'px;',
+      secondText: "font-family:'Newsreader',serif;color:" + (s.theme === 'fond' ? '#C9BFAF' : '#9FB3C8') + ';text-align:center;line-height:1.4;font-size:' + Math.round(px * 0.62) + 'px;',
+      contrastNote: 'Contraste des paroles : ' + th.ratio + ' — AAA. Les photos reçoivent un voile pour rester au-dessus de 7:1.'
+    };
+  }
+}
+</script>
+</body>
+</html>

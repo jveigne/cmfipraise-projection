@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Écran des musiciens</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1440px; height: 900px; background: #0B2438; color: #F4F1EA; font-family: 'Instrument Sans', sans-serif; display: flex; flex-direction: column; box-sizing: border-box">
+  <div style="display: flex; align-items: center; gap: 24px; padding: 20px 32px; border-bottom: 1px solid #1E3A52">
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <span style="font-size: 13px; font-weight: 500; color: #9FB3C8">Musiciens · 2 / 5</span>
+      <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 34px; letter-spacing: -0.5px; line-height: 1.1">Grâce infinie</span>
+    </div>
+    <span style="flex: 1"></span>
+    <div style="display: flex; gap: 12px">
+      <div style="border: 1px solid #1E3A52; border-radius: 8px; padding: 10px 18px; display: flex; flex-direction: column; align-items: center">
+        <span style="font-size: 13px; font-weight: 500; color: #9FB3C8">Tonalité</span>
+        <span style="font-size: 30px; font-weight: 600; color: #7FB6EA; line-height: 1.1">Sol</span>
+      </div>
+      <div style="border: 1px solid #1E3A52; border-radius: 8px; padding: 10px 18px; display: flex; flex-direction: column; align-items: center">
+        <span style="font-size: 13px; font-weight: 500; color: #9FB3C8">Mesure</span>
+        <span style="font-size: 30px; font-weight: 600; line-height: 1.1">3/4</span>
+      </div>
+      <div style="border: 1px solid #1E3A52; border-radius: 8px; padding: 10px 18px; display: flex; flex-direction: column; align-items: center">
+        <span style="font-size: 13px; font-weight: 500; color: #9FB3C8">Original</span>
+        <span style="font-size: 30px; font-weight: 600; line-height: 1.1; color: #9FB3C8">Fa</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex: 1; display: flex; min-height: 0">
+    <div style="flex: 1; padding: 28px 40px; display: flex; flex-direction: column; gap: 28px; min-width: 0">
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: #B8862B; color: #12171C; border-radius: 4px; padding: 4px 8px">En cours</span>
+          <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 26px; color: #F4F1EA">2.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <sc-for list="{{ current }}" as="line" hint-placeholder-count="4">
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-end">
+              <sc-for list="{{ line.segs }}" as="sg" hint-placeholder-count="3">
+                <span style="display: inline-flex; flex-direction: column; white-space: pre">
+                  <span style="font-size: 20px; font-weight: 600; color: #7FB6EA; height: 26px; line-height: 26px">{{ sg.c }}</span>
+                  <span style="font-family: 'Newsreader', serif; font-size: 34px; line-height: 1.3; color: #F4F1EA">{{ sg.t }}</span>
+                </span>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid #1E3A52; padding-top: 22px; display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #7FB6EA; border: 1px solid #7FB6EA; border-radius: 4px; padding: 3px 7px">Partie suivante</span>
+          <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px; color: #9FB3C8">R.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 2px">
+          <sc-for list="{{ nextPart }}" as="line" hint-placeholder-count="4">
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-end">
+              <sc-for list="{{ line.segs }}" as="sg" hint-placeholder-count="3">
+                <span style="display: inline-flex; flex-direction: column; white-space: pre">
+                  <span style="font-size: 15px; font-weight: 600; color: #7FB6EA; height: 20px; line-height: 20px">{{ sg.c }}</span>
+                  <span style="font-family: 'Newsreader', serif; font-style: italic; font-size: 22px; line-height: 1.3; color: #9FB3C8">{{ sg.t }}</span>
+                </span>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <aside style="width: 360px; flex: 0 0 auto; border-left: 1px solid #1E3A52; padding: 28px 28px; display: flex; flex-direction: column; gap: 28px; box-sizing: border-box">
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #9FB3C8">Structure</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <sc-for list="{{ structure }}" as="p" hint-placeholder-count="6">
+            <span style="{{ p.st }}">{{ p.l }}</span>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #9FB3C8">Ordre du culte</span>
+        <div style="display: flex; flex-direction: column">
+          <sc-for list="{{ order }}" as="o" hint-placeholder-count="5">
+            <div style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #1E3A52">
+              <span style="width: 22px; font-size: 15px; font-weight: 600; color: #9FB3C8">{{ o.n }}</span>
+              <span style="flex: 1; display: flex; flex-direction: column">
+                <span style="{{ o.tst }}">{{ o.t }}</span>
+                <span style="font-size: 13px; font-weight: 500; color: #9FB3C8">{{ o.m }}</span>
+              </span>
+              <sc-if value="{{ o.cur }}" hint-placeholder-val="{{ false }}">
+                <span style="width: 12px; height: 12px; border-radius: 6px; background: #B8862B"></span>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  lines(rows) {
+    return rows.map((r) => ({ segs: r.map(([c, t]) => ({ c: c || ' ', t })) }));
+  }
+  renderVals() {
+    const current = this.lines([
+      [['G', 'C’est elle qui m’ap'], ['G7', 'prit la '], ['C', 'crain'], ['G', 'te,']],
+      [['', 'C’est elle qui m’a'], ['D', 'paisa ;']],
+      [['', 'Ô '], ['G', 'grâce pré'], ['G7', 'cieuse et '], ['C', 'sain'], ['G', 'te,']],
+      [['', 'Le '], ['Em', 'jour où '], ['D', 'je crus en '], ['G', 'toi.']]
+    ]);
+    const nextPart = this.lines([
+      [['G', 'Gloire à l’Agneau, '], ['C', 'gloire à Jé'], ['G', 'sus,']],
+      [['', 'Sa grâce est in'], ['D', 'finie ;']],
+      [['G', 'Gloire à l’Agneau, '], ['C', 'gloire à Jé'], ['G', 'sus,']],
+      [['', 'Il '], ['D', 'm’a rendu la '], ['G', 'vie.']]
+    ]);
+    const base = 'min-width:40px;height:40px;padding:0 10px;box-sizing:border-box;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-family:Newsreader,serif;font-weight:600;font-size:18px;';
+    const parts = ['1.', 'R.', '2.', 'R.', '3.', 'R.'];
+    const cur = 2;
+    const structure = parts.map((l, i) => ({
+      l,
+      st: base + (i === cur ? 'background:#B8862B;color:#12171C;' : i === cur + 1 ? 'border:1px solid #7FB6EA;color:#7FB6EA;' : i < cur ? 'border:1px solid #1E3A52;color:#9FB3C8;' : 'border:1px solid #1E3A52;color:#F4F1EA;') + (l === 'R.' ? 'font-style:italic;' : '')
+    }));
+    const tBase = "font-family:'Newsreader',serif;font-weight:600;font-size:17px;";
+    const order = [
+      { n: 1, t: 'À toi la gloire', m: 'Si♭ · fait', cur: false },
+      { n: 2, t: 'Grâce infinie', m: 'Sol · en cours', cur: true },
+      { n: 3, t: 'Psaume 23', m: 'Lecture · pas d’accords', cur: false },
+      { n: 4, t: 'Jean 3:16-17', m: 'Lecture · pas d’accords', cur: false },
+      { n: 5, t: 'Saint, saint, saint', m: 'Ré · arrangement de l’équipe', cur: false }
+    ].map((o) => ({ ...o, tst: tBase + (o.n < 2 ? 'color:#9FB3C8;' : 'color:#F4F1EA;') }));
+    return { current, nextPart, structure, order };
+  }
+}
+</script>
+</body>
+</html>

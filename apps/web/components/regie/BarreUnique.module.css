@@ -1,0 +1,332 @@
+/* ─── Champ (en-tête) ──────────────────────────────────────────────────── */
+
+.champ {
+  position: relative;
+  flex: 999 1 420px;
+  min-width: 0;
+}
+
+.loupe {
+  position: absolute;
+  left: 14px;
+  top: 13px;
+  color: var(--ardoise);
+  pointer-events: none;
+}
+
+.loupeActive {
+  color: var(--bleu-cmfi);
+}
+
+.saisie {
+  width: 100%;
+  height: var(--cible-minimale);
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--filet);
+  background: var(--page);
+  padding: 0 52px 0 42px;
+  font: inherit;
+  color: var(--encre);
+}
+
+.saisie::placeholder {
+  color: var(--ardoise);
+  opacity: 1;
+}
+
+/* Barre en cours de saisie : filet bleu 2 px, fond blanc (Parcours-Saisie). Le focus clavier
+   garde son anneau : la bordure seule ne suffit pas à le signaler. */
+.saisie:focus,
+.saisieOuverte {
+  border: 2px solid var(--bleu-cmfi);
+  background: var(--surface);
+  padding-left: 41px;
+  outline: none;
+}
+
+.saisie:focus-visible {
+  outline: var(--focus-epaisseur) solid var(--bleu-cmfi);
+  outline-offset: var(--focus-decalage);
+}
+
+.raccourci {
+  position: absolute;
+  right: 10px;
+  top: 11px;
+  pointer-events: none;
+  color: var(--ardoise);
+}
+
+/* ─── Panneau « compris » ──────────────────────────────────────────────── */
+
+.colonne {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gouttiere);
+  min-width: 0;
+}
+
+.panneau {
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  overflow: hidden;
+}
+
+.entete {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--filet);
+  color: var(--ardoise);
+}
+
+.espace {
+  flex: 1;
+}
+
+.options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--filet);
+}
+
+.option:last-child {
+  border-bottom: none;
+}
+
+/* Option active au clavier : fond page, comme l'élément consulté de la setlist. */
+.optionActive {
+  background: var(--page);
+}
+
+.optionExclue .corpsOption {
+  opacity: 0.6;
+}
+
+/* Case à cocher en forme de pastille : la teinte dit d'où vient l'élément. */
+.case {
+  position: relative;
+  flex: 0 0 auto;
+  width: var(--cible-minimale);
+  height: var(--cible-minimale);
+  margin: -4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--rayon-bouton);
+  background: var(--bleu-clair);
+  color: var(--bleu-cmfi);
+}
+
+.caseViolet {
+  background: var(--violet-clair);
+  color: var(--violet);
+}
+
+.case:disabled {
+  background: var(--page);
+  color: var(--ardoise);
+}
+
+.coche {
+  position: absolute;
+  right: -3px;
+  bottom: -3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  border: 2px solid var(--surface);
+  background: var(--bleu-cmfi);
+  color: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.caseViolet .coche {
+  background: var(--violet);
+}
+
+.corpsOption {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ligneCompris {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.fleche {
+  color: var(--ardoise);
+}
+
+.rien {
+  font-weight: 600;
+}
+
+.extrait {
+  font-family: var(--police-serif);
+  font-size: var(--taille-titre-oeuvre-vignette);
+  line-height: 1.5;
+  color: var(--ardoise);
+}
+
+.indisponible {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--encre);
+}
+
+.puces {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.puce {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-meta);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-vignette);
+  padding: 3px 8px;
+}
+
+.puceRefrain {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.puceTexte {
+  padding: 3px 4px;
+}
+
+.reglages {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 16px;
+}
+
+/* Lien d'ajustement : un vrai bouton, à la taille d'une cible. */
+.lien {
+  min-height: var(--cible-minimale);
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--bleu-cmfi);
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  text-align: left;
+}
+
+.lien:hover {
+  color: var(--bleu-appuye);
+  text-decoration: underline;
+}
+
+.autres {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.autre {
+  width: 100%;
+  min-height: var(--cible-minimale);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: var(--rayon-bouton);
+  background: transparent;
+  text-align: left;
+}
+
+.autre:hover {
+  background: var(--page);
+}
+
+.autre[aria-pressed='true'] {
+  border-color: var(--filet);
+  background: var(--page);
+}
+
+.autreTitre {
+  font-family: var(--police-serif);
+  font-weight: 600;
+}
+
+.pied {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-top: 1px solid var(--filet);
+  background: var(--page);
+}
+
+.toucheEntree {
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid color-mix(in srgb, var(--surface) 50%, transparent);
+  border-radius: var(--rayon-vignette);
+  padding: 1px 6px;
+}
+
+.aideComprend {
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ardoise {
+  color: var(--ardoise);
+}
+
+.exemples {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.exemple {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-bouton);
+  padding: 10px 12px;
+}
+
+.exempleTitre {
+  font-weight: 600;
+}

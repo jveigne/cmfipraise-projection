@@ -1,0 +1,44 @@
+.carte {
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.titre {
+  font-size: var(--taille-meta);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.texte {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+  overflow-wrap: anywhere;
+}
+
+/* Lien « Se connecter » : 32 px dans le design, 44 px de cible ici. */
+.lien {
+  align-self: flex-start;
+  min-height: var(--cible-minimale);
+  margin: -6px 0 -10px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-size: var(--taille-meta);
+  font-weight: 600;
+  color: var(--bleu-cmfi);
+}
+
+.lien:hover {
+  color: var(--bleu-appuye);
+}
+
+.action {
+  align-self: flex-start;
+  margin-left: -14px;
+}

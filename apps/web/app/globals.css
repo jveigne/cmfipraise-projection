@@ -1,0 +1,186 @@
+/*
+ * Base de l'interface. Les valeurs viennent toutes des jetons (@cmfi/design/jetons.css) :
+ * une couleur codée en dur ici ou dans un module CSS est une dette.
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--page);
+  color: var(--encre);
+  font-family: var(--police-sans);
+  font-size: var(--taille-corps);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote {
+  margin: 0;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+a {
+  color: var(--bleu-cmfi);
+}
+
+a:hover {
+  color: var(--bleu-appuye);
+}
+
+/* Anneau de focus : 2 px bleu, décalé de 2 px, au clavier seulement. */
+:focus-visible {
+  outline: var(--focus-epaisseur) solid var(--bleu-cmfi);
+  outline-offset: var(--focus-decalage);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Texte lu par les lecteurs d'écran, invisible à l'œil (libellés de champs du design). */
+.visuellement-masque {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ─── Rôles typographiques (Tokens.dc.html) ───────────────────────────────── */
+
+.titre-ecran {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-titre-ecran);
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.titre-oeuvre {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-titre-oeuvre);
+  line-height: 1.2;
+}
+
+.titre-oeuvre-liste {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-titre-oeuvre-liste);
+  line-height: 1.25;
+}
+
+.titre-oeuvre-vignette {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-titre-oeuvre-vignette);
+  line-height: 1.3;
+}
+
+.paroles {
+  font-family: var(--police-serif);
+  font-size: var(--taille-paroles);
+  line-height: var(--interligne-paroles);
+}
+
+.refrain {
+  font-family: var(--police-serif);
+  font-style: italic;
+  font-size: var(--taille-paroles);
+  line-height: var(--interligne-paroles);
+}
+
+.meta {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+}
+
+.accroche {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-accroche);
+  line-height: 1.12;
+  letter-spacing: -1px;
+}
+
+.etiquette-etat {
+  font-size: var(--taille-etiquette);
+  font-weight: 600;
+  letter-spacing: var(--interlettrage-etiquette);
+  text-transform: uppercase;
+}
+
+.accord {
+  font-size: var(--taille-accord);
+  font-weight: 600;
+  color: var(--bleu-cmfi);
+}
+
+/* Raccourci clavier affiché (« B », « Espace », « / »). */
+.touche {
+  display: inline-block;
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-vignette);
+  padding: 1px 7px;
+  color: var(--encre);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  background: var(--surface);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

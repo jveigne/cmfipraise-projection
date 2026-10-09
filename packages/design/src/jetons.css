@@ -1,0 +1,95 @@
+/*
+ * Jetons du système visuel en variables CSS — miroir exact de jetons.ts (un test vérifie
+ * qu'ils ne dérivent pas). Importé une fois par le layout racine de apps/web.
+ *
+ * Chaque couleur a UN emploi :
+ *   --or           uniquement ce qui est en cours / projeté
+ *   --nuit         uniquement aperçus et sorties de projection, écran des musiciens
+ *   --alerte       uniquement suppression définitive et déconnexion
+ *   --violet       ce que l'utilisateur a créé
+ *   --bleu-cmfi    officiel, navigation, « suivante »
+ * Aucune ombre : les surfaces se délimitent par un filet. Pas de mode sombre de l'interface.
+ */
+:root {
+  /* Couleurs reprises du mobile */
+  --bleu-cmfi: #1668B8;
+  --violet: #6B3FD4;
+  --encre: #12171C;
+  --ardoise: #5C6873;
+  --page: #F3F5F7;
+  --surface: #FFFFFF;
+  --filet: #E4E9ED;
+  --nuit: #0B2438;
+  --or: #B8862B;
+  --alerte: #C4392E;
+  --or-don: #F6E7B0;
+  --or-don-vif: #D4AF37;
+  --encre-don: #3B2F0B;
+
+  /* Teintes de pastille d'icône */
+  --bleu-clair: #E7F0F9;
+  --violet-clair: #F0EAFC;
+
+  /* Nouveaux jetons : projection et régie */
+  --ivoire-projection: #F4F1EA;
+  --brume-projection: #9FB3C8;
+  --brume-chaude: #C9BFAF;
+  --accord-nuit: #7FB6EA;
+  --filet-nuit: #1E3A52;
+  --filet-fort: #C9D1D8;
+  --poignee: #8B96A0;
+  --bleu-appuye: #0F4F8F;
+  --ecran-noir: #000000;
+  --voile: rgba(18, 23, 28, 0.42);
+
+  /* Polices (variables posées par next/font sur <html>) */
+  --police-serif: var(--font-newsreader), 'Newsreader', Georgia, serif;
+  --police-sans: var(--font-instrument-sans), 'Instrument Sans', system-ui, sans-serif;
+
+  /* Typographie de l'interface (px) */
+  --taille-titre-ecran: 28px;
+  --taille-titre-oeuvre: 20px;
+  --taille-titre-oeuvre-liste: 17px;
+  --taille-titre-oeuvre-vignette: 15px;
+  --taille-paroles: 19px;
+  --interligne-paroles: 1.62;
+  --taille-corps: 15px;
+  --taille-meta: 13px;
+  --taille-bouton: 15px;
+  --taille-bouton-suivant: 17px;
+  --taille-accroche: 48px;
+  --taille-etiquette: 13px;
+  --taille-etiquette-petite: 11px;
+  --interlettrage-etiquette: 0.06em;
+  --taille-accord: 13px;
+  --taille-accord-musiciens: 20px;
+
+  /* Échelle de projection : valeurs 1920 × 1080 rapportées à la hauteur (72 px → 6,667vh) */
+  --proj-paroles: 6.667vh;
+  --proj-paroles-bilingue: 6.111vh;
+  --proj-seconde-langue: 4.074vh;
+  --proj-verset-double: 4.815vh;
+  --proj-reference: 2.593vh;
+  --proj-interligne-paroles: 1.42;
+  --proj-interligne-seconde: 1.38;
+  --proj-interligne-verset: 1.45;
+  --proj-interlettrage-reference: 0.04em;
+
+  /* Structure */
+  --rayon-surface: 14px;
+  --rayon-bouton: 8px;
+  --rayon-vignette: 4px;
+  --gouttiere: 12px;
+  --marge: 16px;
+  --cible-minimale: 44px;
+  --cible-suivant: 64px;
+  --cible-bascule: 96px;
+  --bordure-direct: 3px;
+  --bordure-suivante: 2px;
+  --bordure-normale: 1px;
+  --focus-epaisseur: 2px;
+  --focus-decalage: 2px;
+
+  /* L'unique ombre : la ligne saisie pendant un glisser-déposer */
+  --ombre-glisser: 0 8px 24px rgba(11, 36, 56, 0.18);
+}

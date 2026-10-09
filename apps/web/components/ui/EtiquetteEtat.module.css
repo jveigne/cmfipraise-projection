@@ -1,0 +1,40 @@
+.etiquette {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: var(--rayon-vignette);
+  font-weight: 600;
+  letter-spacing: var(--interlettrage-etiquette);
+  text-transform: uppercase;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.petite {
+  font-size: var(--taille-etiquette-petite);
+}
+
+.normale {
+  font-size: var(--taille-etiquette);
+}
+
+/* L'or : uniquement ce qui est projeté. */
+.direct {
+  background: var(--or);
+  color: var(--encre);
+  padding: 3px 7px;
+}
+
+/* Bleu : la suivante. */
+.suivante {
+  color: var(--bleu-cmfi);
+  border: 1px solid var(--bleu-cmfi);
+  padding: 2px 6px;
+}
+
+.point {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}

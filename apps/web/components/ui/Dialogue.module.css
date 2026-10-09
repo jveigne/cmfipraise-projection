@@ -1,0 +1,89 @@
+.dialogue {
+  padding: 0;
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  background: var(--surface);
+  color: var(--encre);
+  width: calc(100% - 2 * var(--marge));
+  max-height: calc(100dvh - 2 * var(--marge));
+  overflow: auto;
+}
+
+.dialogue::backdrop {
+  background: var(--voile);
+}
+
+.etroite {
+  max-width: 440px;
+}
+
+.normale {
+  max-width: 560px;
+}
+
+.large {
+  max-width: 760px;
+}
+
+/* ─── Disposition compacte ─── */
+
+.boite {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 24px 24px;
+}
+
+.entete {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-right: -12px;
+}
+
+.titre {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-titre-oeuvre);
+  line-height: 1.25;
+  padding-top: 8px;
+}
+
+.description {
+  color: var(--ardoise);
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  line-height: 1.5;
+  margin-top: -8px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.actions:empty {
+  display: none;
+}
+
+/* ─── Disposition en sections (design 06) ─── */
+
+.boiteSections {
+  display: flex;
+  flex-direction: column;
+}
+
+.enteteSections {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--filet);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.titreSections {
+  flex: 1;
+}

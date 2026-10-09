@@ -1,0 +1,56 @@
+.ligne {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 64px;
+  padding: 12px;
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  background: var(--surface);
+  color: var(--encre);
+  text-decoration: none;
+}
+
+.ligne:hover {
+  color: var(--encre);
+  border-color: var(--filet-fort);
+}
+
+/* Sélection = navigation : filet bleu. L'or reste réservé à ce qui est projeté. */
+.ligne[aria-current='page'] {
+  border-color: var(--bleu-cmfi);
+}
+
+.numero {
+  flex: 0 0 auto;
+  width: 40px;
+  font-size: var(--taille-meta);
+  font-weight: 600;
+  color: var(--ardoise);
+  white-space: nowrap;
+}
+
+.corps {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.corps > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.metaPerso {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--violet);
+  white-space: nowrap;
+}
+
+.corps :global(.meta) {
+  white-space: nowrap;
+}

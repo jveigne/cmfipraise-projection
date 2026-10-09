@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Bibliothèque — lecture d'un chant</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F3F5F7}
+a{color:#1668B8}a:hover{color:#0F4F8F}
+button:focus-visible,input:focus-visible{outline:2px solid #1668B8;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height: 980px; background: #F3F5F7; font-family: 'Instrument Sans', sans-serif; font-size: 15px; color: #12171C; display: flex; flex-wrap: wrap; align-items: stretch">
+
+  <nav aria-label="Bibliothèque" style="flex: 1 1 220px; max-width: 248px; background: #FFFFFF; border-right: 1px solid #E4E9ED; padding: 16px 12px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 0 6px 16px">
+      <div style="width: 32px; height: 32px; border-radius: 8px; background: #1668B8; display: flex; align-items: center; justify-content: center">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+      </div>
+      <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px">CMFIPraise</span>
+    </div>
+    <a href="#" aria-current="page" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 10px; border-radius: 8px; background: #F3F5F7; color: #1668B8; font-weight: 600; text-decoration: none">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z"/><path d="M5 17a3 3 0 013-3h11"/></svg>Recueils
+    </a>
+    <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 10px; border-radius: 8px; color: #12171C; text-decoration: none">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C6873" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg>Favoris
+    </a>
+    <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 10px; border-radius: 8px; color: #12171C; text-decoration: none">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B3FD4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>Mes chants
+    </a>
+    <a href="Setlist.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 10px; border-radius: 8px; color: #12171C; text-decoration: none">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B3FD4" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/></svg>Setlists
+    </a>
+    <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 10px; border-radius: 8px; color: #12171C; text-decoration: none">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C6873" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z"/><path d="M5 17a3 3 0 013-3h11"/><path d="M12 6.5v5M9.5 8.5h5"/></svg>Bible
+    </a>
+    <div style="border-top: 1px solid #E4E9ED; margin: 12px 0; "></div>
+    <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 10px; border-radius: 8px; color: #12171C; text-decoration: none">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C6873" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Régie de projection
+    </a>
+    <span style="flex: 1"></span>
+    <div style="border: 1px solid #E4E9ED; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 13px; font-weight: 600">Mode visiteur</span>
+      <span style="font-size: 13px; font-weight: 500; color: #5C6873">Lecture et projection libres. Connectez-vous pour garder favoris et setlists.</span>
+      <a href="#" style="font-size: 13px; font-weight: 600; min-height: 32px; display: flex; align-items: center">Se connecter</a>
+    </div>
+  </nav>
+
+  <section aria-label="Chants" style="flex: 1 1 320px; max-width: 380px; border-right: 1px solid #E4E9ED; background: #F3F5F7; padding: 16px 12px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px">
+    <div style="position: relative">
+      <label for="q" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Rechercher un chant</label>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C6873" stroke-width="1.5" stroke-linecap="round" style="position: absolute; left: 14px; top: 13px" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" value="grace" style="width: 100%; box-sizing: border-box; height: 44px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; padding: 0 12px 0 42px; font: inherit; color: #12171C">
+    </div>
+    <div role="tablist" aria-label="Filtrer" style="display: flex; gap: 6px; flex-wrap: wrap">
+      <button type="button" role="tab" aria-selected="true" style="height: 36px; padding: 0 12px; border-radius: 8px; border: 1px solid #1668B8; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600; color: #1668B8; cursor: pointer">Langue : FR</button>
+      <button type="button" role="tab" aria-selected="false" style="height: 36px; padding: 0 12px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 500; color: #12171C; cursor: pointer">Catégorie</button>
+      <button type="button" role="tab" aria-selected="false" style="height: 36px; padding: 0 12px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 500; color: #12171C; cursor: pointer">Favoris</button>
+    </div>
+    <div style="font-size: 13px; font-weight: 500; color: #5C6873; padding: 0 4px">4 résultats · titre, n° ou premier vers</div>
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <sc-for list="{{ songs }}" as="s" hint-placeholder-count="4">
+        <button type="button" style="{{ s.st }}">
+          <span style="width: 40px; font-size: 13px; font-weight: 600; color: #5C6873">{{ s.n }}</span>
+          <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+            <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 17px; line-height: 1.25">{{ s.t }}</span>
+            <span style="font-size: 13px; font-weight: 500; color: #5C6873">{{ s.m }}</span>
+          </span>
+        </button>
+      </sc-for>
+    </div>
+  </section>
+
+  <article style="flex: 999 1 520px; min-width: 0; background: #FFFFFF; display: flex; flex-direction: column">
+    <div style="padding: 20px 32px; border-bottom: 1px solid #E4E9ED; display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center">
+      <div style="flex: 1 1 260px">
+        <div style="font-size: 13px; font-weight: 500; color: #1668B8">Recueil CMFI · n° 112</div>
+        <h1 style="margin: 2px 0 0; font-family: 'Newsreader', serif; font-weight: 600; font-size: 28px; letter-spacing: -0.5px">Grâce infinie</h1>
+        <div style="font-size: 13px; font-weight: 500; color: #5C6873; margin-top: 2px">Version anglaise : Amazing Grace · ordre 1 R 2 R 3 R</div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+        <button type="button" aria-label="Ajouter aux favoris" style="width: 44px; height: 44px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#12171C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg>
+        </button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-weight: 500; color: #12171C; cursor: pointer">Ajouter à une setlist</button>
+        <a href="Main.dc.html" style="height: 44px; padding: 0 16px; border-radius: 8px; background: #1668B8; color: #FFFFFF; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Projeter
+        </a>
+      </div>
+    </div>
+
+    <div style="padding: 12px 32px; border-bottom: 1px solid #E4E9ED; display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center">
+      <button type="button" onClick="{{ toggleChords }}" aria-pressed="{{ chordsPressed }}" style="display: flex; align-items: center; gap: 10px; min-height: 44px; border: none; background: transparent; font: inherit; color: #12171C; cursor: pointer; padding: 0">
+        <span style="{{ track }}"><span style="{{ knob }}"></span></span>Accords
+      </button>
+      <div role="group" aria-label="Transposition" style="display: flex; align-items: center; gap: 8px">
+        <span style="font-size: 13px; font-weight: 500; color: #5C6873">Tonalité</span>
+        <button type="button" onClick="{{ down }}" aria-label="Transposer d’un demi-ton plus bas" style="width: 40px; height: 40px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 18px; color: #12171C; cursor: pointer">−</button>
+        <span style="min-width: 72px; text-align: center; font-weight: 600">{{ keyLabel }}</span>
+        <button type="button" onClick="{{ up }}" aria-label="Transposer d’un demi-ton plus haut" style="width: 40px; height: 40px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 18px; color: #12171C; cursor: pointer">+</button>
+      </div>
+      <div role="group" aria-label="Taille du texte" style="display: flex; align-items: center; gap: 8px">
+        <span style="font-size: 13px; font-weight: 500; color: #5C6873">Taille</span>
+        <button type="button" onClick="{{ smaller }}" aria-label="Réduire" style="width: 40px; height: 40px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600; color: #12171C; cursor: pointer">A−</button>
+        <button type="button" onClick="{{ bigger }}" aria-label="Agrandir" style="width: 40px; height: 40px; border-radius: 8px; border: 1px solid #E4E9ED; background: #FFFFFF; font: inherit; font-size: 17px; font-weight: 600; color: #12171C; cursor: pointer">A+</button>
+      </div>
+    </div>
+
+    <div style="padding: 28px 32px 48px; display: flex; flex-direction: column; gap: 26px; max-width: 760px">
+      <sc-for list="{{ parts }}" as="p" hint-placeholder-count="3">
+        <section style="display: flex; gap: 16px">
+          <span style="{{ p.labelStyle }}">{{ p.label }}</span>
+          <div style="display: flex; flex-direction: column">
+            <sc-for list="{{ p.lines }}" as="line" hint-placeholder-count="4">
+              <div style="display: flex; flex-wrap: wrap; align-items: flex-end">
+                <sc-for list="{{ line.segs }}" as="sg" hint-placeholder-count="3">
+                  <span style="display: inline-flex; flex-direction: column; white-space: pre">
+                    <sc-if value="{{ showChords }}" hint-placeholder-val="{{ true }}">
+                      <span style="font-size: 13px; font-weight: 600; color: #1668B8; height: 18px; line-height: 18px">{{ sg.c }}</span>
+                    </sc-if>
+                    <span style="{{ sg.st }}">{{ sg.t }}</span>
+                  </span>
+                </sc-for>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+      </sc-for>
+    </div>
+  </article>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":980}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { chords: true, shift: 0, size: 19 };
+  }
+  tr(ch) {
+    if (!ch) return ' ';
+    const N = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B'];
+    const alias = { Db: 'C#', 'D#': 'Eb', Gb: 'F#', 'G#': 'Ab', 'A#': 'Bb' };
+    const m = ch.match(/^([A-G][#b]?)(.*)$/);
+    if (!m) return ch;
+    const root = alias[m[1]] || m[1];
+    const i = N.indexOf(root);
+    return N[(i + this.state.shift + 120) % 12] + m[2];
+  }
+  renderVals() {
+    const s = this.state;
+    const FR = { C: 'Do', 'C#': 'Do♯', D: 'Ré', Eb: 'Mi♭', E: 'Mi', F: 'Fa', 'F#': 'Fa♯', G: 'Sol', Ab: 'La♭', A: 'La', Bb: 'Si♭', B: 'Si' };
+    const key = this.tr('G');
+    const mk = (rows) => rows.map((r) => ({ segs: r.map(([c, t]) => ({ c: c ? this.tr(c) : ' ', t })) }));
+    const v1 = mk([
+      [['G', 'Grâce infi'], ['G7', 'nie, ô '], ['C', 'son si '], ['G', 'doux,']],
+      [['', 'Qui vint me rele'], ['D', 'ver ;']],
+      [['', 'J’étais '], ['G', 'perdu, Il '], ['G7', 'm’a trou'], ['C', 'vé, '], ['G', '']],
+      [['', 'A'], ['Em', 'veugle, '], ['D', 'je peux '], ['G', 'voir.']]
+    ]);
+    const r = mk([
+      [['G', 'Gloire à l’Agneau, '], ['C', 'gloire à Jé'], ['G', 'sus,']],
+      [['', 'Sa grâce est in'], ['D', 'finie ;']],
+      [['G', 'Gloire à l’Agneau, '], ['C', 'gloire à Jé'], ['G', 'sus,']],
+      [['', 'Il '], ['D', 'm’a rendu la '], ['G', 'vie.']]
+    ]);
+    const v2 = mk([
+      [['G', 'C’est elle qui m’ap'], ['G7', 'prit la '], ['C', 'crain'], ['G', 'te,']],
+      [['', 'C’est elle qui m’a'], ['D', 'paisa ;']],
+      [['', 'Ô '], ['G', 'grâce pré'], ['G7', 'cieuse et '], ['C', 'sain'], ['G', 'te,']],
+      [['', 'Le '], ['Em', 'jour où '], ['D', 'je crus en '], ['G', 'toi.']]
+    ]);
+    const ls = "font-family:'Newsreader',serif;font-weight:600;font-size:17px;color:#5C6873;width:24px;flex:0 0 auto;";
+    const lyricBase = "font-family:'Newsreader',serif;font-weight:400;color:#12171C;line-height:1.62;font-size:" + s.size + 'px;';
+    const parts = [
+      { label: '1.', lines: v1, labelStyle: ls + (s.chords ? 'padding-top:18px;' : ''), it: false },
+      { label: 'R.', lines: r, labelStyle: ls + 'font-style:italic;' + (s.chords ? 'padding-top:18px;' : ''), it: true },
+      { label: '2.', lines: v2, labelStyle: ls + (s.chords ? 'padding-top:18px;' : ''), it: false }
+    ];
+    // refrain lyrics are italic: handled by per-part style below
+    parts.forEach((p) => { p.lines.forEach((l) => l.segs.forEach((sg) => { sg.st = lyricBase + (p.it ? 'font-style:italic;' : ''); })); });
+    const songs = [
+      { n: '112', t: 'Grâce infinie', m: 'Qui vint me relever… · Sol', sel: true },
+      { n: '112 EN', t: 'Amazing Grace', m: 'Version anglaise · Sol', sel: false },
+      { n: '58', t: 'Par grâce, je suis sauvé', m: 'Titre · Ré', sel: false },
+      { n: '—', t: 'Grâce sur grâce', m: 'Mes chants · Mi', sel: false }
+    ].map((x) => ({ ...x, st: 'display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:12px;min-height:64px;box-sizing:border-box;border-radius:14px;font:inherit;color:#12171C;cursor:pointer;' + (x.sel ? 'background:#FFFFFF;border:1px solid #1668B8;' : 'background:#FFFFFF;border:1px solid #E4E9ED;') }));
+    return {
+      songs, parts,
+      showChords: s.chords,
+      lyricStyle: lyricBase,
+      keyLabel: FR[key] + ' (' + key + ')',
+      chordsPressed: s.chords ? 'true' : 'false',
+      track: 'width:44px;height:26px;border-radius:13px;position:relative;' + (s.chords ? 'background:#1668B8;' : 'background:#C9D1D8;'),
+      knob: 'position:absolute;top:3px;width:20px;height:20px;border-radius:10px;background:#FFFFFF;' + (s.chords ? 'left:21px;' : 'left:3px;'),
+      toggleChords: () => this.setState({ chords: !s.chords }),
+      up: () => this.setState({ shift: s.shift + 1 }),
+      down: () => this.setState({ shift: s.shift - 1 }),
+      bigger: () => this.setState({ size: Math.min(s.size + 2, 31) }),
+      smaller: () => this.setState({ size: Math.max(s.size - 2, 15) })
+    };
+  }
+}
+</script>
+</body>
+</html>

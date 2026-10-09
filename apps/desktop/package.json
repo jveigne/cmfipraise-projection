@@ -1,0 +1,32 @@
+{
+  "name": "@cmfi/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "productName": "CMFIPraise Projection",
+  "description": "App de bureau CMFIPraise Projection (Electron) : embarque l'export statique de apps/web.",
+  "author": "CMFI",
+  "homepage": "https://github.com/jveigne/cmfipraise-projection",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:export": "node scripts/construire.mjs && electron .",
+    "compiler": "node scripts/construire.mjs",
+    "paquet": "node scripts/construire.mjs && node scripts/paquet.mjs --dir",
+    "build": "npm run build -w @cmfi/web && npm run paquet",
+    "distribuer": "node scripts/construire.mjs && node scripts/paquet.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint src scripts"
+  },
+  "dependencies": {
+    "@cmfi/design": "0.1.0",
+    "@cmfi/plateforme": "0.1.0"
+  },
+  "devDependencies": {
+    "@cmfi/api": "0.1.0",
+    "@cmfi/projection": "0.1.0",
+    "electron": "44.7.0",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.28.2",
+    "typescript": "~5.9.3"
+  }
+}

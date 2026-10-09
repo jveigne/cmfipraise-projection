@@ -1,0 +1,142 @@
+.colonne {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px 12px;
+  min-width: 0;
+}
+
+.titre {
+  padding: 8px 4px 0;
+}
+
+.exemples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.versions {
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  background: var(--surface);
+  margin: 0;
+  padding: 8px 16px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.versions legend {
+  padding: 0 4px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--cible-minimale);
+}
+
+.option input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--bleu-cmfi);
+}
+
+.note {
+  padding: 0 4px;
+  line-height: 1.5;
+}
+
+.entete {
+  padding: 20px 32px;
+  border-bottom: 1px solid var(--filet);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  align-items: center;
+}
+
+.titres {
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.origine {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--bleu-cmfi);
+}
+
+.echantillon {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+  line-height: 1.5;
+}
+
+.marque {
+  font-size: var(--taille-etiquette-petite);
+  color: var(--encre);
+  border: 1px solid var(--filet-fort);
+  border-radius: var(--rayon-vignette);
+  padding: 2px 6px;
+}
+
+.corps {
+  padding: 28px 32px 24px;
+  display: grid;
+  gap: 32px;
+  max-width: 760px;
+}
+
+.deuxColonnes {
+  max-width: 1100px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+}
+
+.passage {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.verset {
+  font-family: var(--police-serif);
+  font-size: var(--taille-paroles);
+  line-height: var(--interligne-paroles);
+}
+
+.suscription {
+  display: block;
+  font-style: italic;
+  color: var(--ardoise);
+  font-size: var(--taille-corps);
+}
+
+.numero {
+  font-family: var(--police-sans);
+  font-size: var(--taille-etiquette-petite);
+  font-weight: 600;
+  color: var(--bleu-cmfi);
+  margin-right: 4px;
+}
+
+.incomplet {
+  padding: 0 32px 32px;
+}
+
+@media (max-width: 640px) {
+  .entete,
+  .corps,
+  .incomplet {
+    padding-inline: var(--marge);
+  }
+}

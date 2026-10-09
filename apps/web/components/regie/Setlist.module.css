@@ -1,0 +1,264 @@
+.panneau {
+  flex: 1 1 280px;
+  max-width: 340px;
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  display: flex;
+  flex-direction: column;
+}
+
+.entete {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 16px 16px 12px;
+  border-bottom: 1px solid var(--filet);
+}
+
+.enteteTextes {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Violet : la setlist est ce que le bénévole a composé. */
+.surtitre {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--violet);
+}
+
+.corps {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+}
+
+.liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ligne {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid transparent;
+  border-radius: var(--rayon-bouton);
+  background: var(--surface);
+}
+
+/* Élément consulté au centre : fond page et filet. */
+.consulte {
+  background: var(--page);
+  border-color: var(--filet);
+}
+
+/* La seule ombre du système : la ligne saisie pendant un glisser-déposer. */
+.saisie {
+  z-index: 2;
+  box-shadow: var(--ombre-glisser);
+  border-color: var(--filet);
+}
+
+.poignee {
+  flex: 0 0 auto;
+  width: 28px;
+  min-height: var(--cible-minimale);
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: var(--rayon-bouton);
+  background: transparent;
+  cursor: grab;
+  touch-action: none;
+}
+
+.poignee:active {
+  cursor: grabbing;
+}
+
+.choix {
+  flex: 1;
+  min-width: 0;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px 10px 4px;
+  border: none;
+  border-radius: var(--rayon-bouton);
+  background: transparent;
+  font: inherit;
+  color: var(--encre);
+  text-align: left;
+}
+
+.ligne:first-child .choix,
+.choix:only-child {
+  padding-left: 10px;
+}
+
+.poignee + .choix {
+  padding-left: 4px;
+}
+
+.textes {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.titre {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-titre-oeuvre-liste);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.titrePasse {
+  color: var(--ardoise);
+}
+
+/* L'or : l'élément projeté, et nulle part ailleurs. */
+.direct {
+  flex: 0 0 auto;
+  font-size: var(--taille-etiquette-petite);
+  font-weight: 600;
+  letter-spacing: var(--interlettrage-etiquette);
+  text-transform: uppercase;
+  background: var(--or);
+  color: var(--encre);
+  border-radius: var(--rayon-vignette);
+  padding: 3px 6px;
+  white-space: nowrap;
+}
+
+.passe {
+  flex: 0 0 auto;
+  color: var(--ardoise);
+}
+
+.reessayer {
+  flex: 0 0 auto;
+}
+
+.ajout {
+  margin-top: 6px;
+}
+
+.vide {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  padding: 24px;
+  min-height: 240px;
+}
+
+.videIcone {
+  color: var(--violet);
+}
+
+/* ─── Bible ────────────────────────────────────────────────────────────── */
+
+.bible {
+  border-top: 1px solid var(--filet);
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bibleTitre {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--bleu-cmfi);
+}
+
+.bibleSaisie {
+  display: flex;
+  gap: 8px;
+}
+
+.champ {
+  flex: 1;
+  min-width: 0;
+  height: var(--cible-minimale);
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--filet);
+  background: var(--page);
+  padding: 0 12px;
+  font: inherit;
+  color: var(--encre);
+}
+
+.champ::placeholder {
+  color: var(--ardoise);
+  opacity: 1;
+}
+
+.versions {
+  display: flex;
+  gap: 8px;
+}
+
+.selecteur {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+}
+
+.selecteur select {
+  height: var(--cible-minimale);
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--filet);
+  background: var(--surface);
+  font: inherit;
+  font-size: var(--taille-corps);
+  color: var(--encre);
+  padding: 0 8px;
+  min-width: 0;
+}
+
+/* Une saisie à corriger n'est pas une suppression : encre, jamais alerte. */
+.messageErreur {
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--encre);
+}
+
+/* Sur un écran étroit, les colonnes s'empilent : chacune prend toute la largeur. */
+@media (max-width: 720px) {
+  .panneau {
+    max-width: none;
+  }
+}

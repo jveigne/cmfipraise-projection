@@ -1,0 +1,288 @@
+.page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--page);
+}
+
+/* ─── En-tête ──────────────────────────────────────────────────────────── */
+
+.entete {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--filet);
+}
+
+.marque {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--rayon-bouton);
+  background: var(--bleu-cmfi);
+  color: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marqueTextes {
+  display: flex;
+  flex-direction: column;
+}
+
+.nomApp {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-titre-oeuvre);
+  line-height: 1.1;
+}
+
+.espace {
+  flex: 1;
+}
+
+.actions {
+  flex: 1 1 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Boutons de l'en-tête : 44 px, filet, texte 13/500, icône bleue (Main.dc.html). */
+.boutonEntete svg {
+  color: var(--bleu-cmfi);
+}
+
+.boutonBascule {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--cible-minimale);
+  padding: 0 12px;
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-bouton);
+  background: var(--surface);
+  font: inherit;
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--encre);
+  white-space: nowrap;
+}
+
+.boutonBascule svg {
+  color: var(--bleu-cmfi);
+}
+
+.boutonBascule:hover:not(:disabled) {
+  background: var(--page);
+}
+
+.boutonBascule:disabled {
+  opacity: 0.5;
+}
+
+/* Bascule active : contour encre, comme les bascules de la régie. */
+.boutonBascule[aria-pressed='true'] {
+  border: 2px solid var(--encre);
+  padding: 0 11px;
+}
+
+.boutonBascule[aria-pressed='false'] svg {
+  color: var(--ardoise);
+}
+
+.ancreMenu {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 10;
+  min-width: 280px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: var(--surface);
+  border: 1px solid var(--filet-fort);
+  border-radius: var(--rayon-bouton);
+}
+
+.menuGroupe {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 0;
+  border-block: 1px solid var(--filet);
+}
+
+.menuTitre {
+  padding: 4px 10px;
+  font-size: var(--taille-etiquette-petite);
+  font-weight: 600;
+  letter-spacing: var(--interlettrage-etiquette);
+  text-transform: uppercase;
+  color: var(--ardoise);
+}
+
+.menuEntree {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--cible-minimale);
+  padding: 6px 10px;
+  border: none;
+  border-radius: var(--rayon-bouton);
+  background: transparent;
+  font: inherit;
+  color: var(--encre);
+  text-align: left;
+  text-decoration: none;
+}
+
+.menuEntree svg {
+  color: var(--bleu-cmfi);
+  flex: 0 0 auto;
+}
+
+.menuEntree:hover {
+  background: var(--page);
+}
+
+.menuTextes {
+  display: flex;
+  flex-direction: column;
+}
+
+.menuRadio {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  border: 2px solid var(--filet-fort);
+}
+
+.menuEntree[aria-checked='true'] .menuRadio {
+  border: 5px solid var(--bleu-cmfi);
+}
+
+/* Statut : neutre en préparation et à la fin ; or seulement quand quelque chose est projeté. */
+.statut {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--cible-minimale);
+  padding: 0 14px;
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-bouton);
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+}
+
+.statutDirect {
+  border-color: var(--or);
+  background: var(--or);
+  color: var(--encre);
+  font-weight: 600;
+  letter-spacing: var(--interlettrage-etiquette);
+  text-transform: uppercase;
+}
+
+.statutPoint {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background: var(--encre);
+}
+
+.horsLigne {
+  margin: 12px 12px 0;
+}
+
+/* ─── Colonnes ─────────────────────────────────────────────────────────── */
+
+.colonnes {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--gouttiere);
+  padding: var(--gouttiere);
+}
+
+/* La colonne centrale prend toute la place disponible, quelle que soit la vue ; son
+   panneau s'étire à la hauteur des colonnes voisines. */
+.centre {
+  flex: 999 1 560px;
+  min-width: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+
+.panneauCentre {
+  flex: 1;
+  min-height: 560px;
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+}
+
+/* ─── Pied ─────────────────────────────────────────────────────────────── */
+
+.pied {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 24px;
+  padding: 0 24px 14px;
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+}
+
+.securite {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.langues {
+  display: flex;
+  gap: 4px;
+}
+
+.langue {
+  min-height: var(--cible-minimale);
+  min-width: var(--cible-minimale);
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: var(--rayon-bouton);
+  background: transparent;
+  font: inherit;
+  color: var(--ardoise);
+}
+
+.langue[aria-pressed='true'] {
+  border-color: var(--filet);
+  background: var(--surface);
+  color: var(--encre);
+}

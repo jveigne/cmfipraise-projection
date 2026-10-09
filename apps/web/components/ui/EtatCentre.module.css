@@ -1,0 +1,47 @@
+.etat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 14px;
+  padding: 40px;
+}
+
+.icone {
+  color: var(--bleu-cmfi);
+}
+
+/* Une erreur n'est pas une suppression : ardoise, jamais alerte. */
+.erreur .icone {
+  color: var(--ardoise);
+}
+
+.texte {
+  color: var(--ardoise);
+  max-width: 420px;
+  line-height: 1.55;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.squelette {
+  display: block;
+  height: 12px;
+  border-radius: var(--rayon-vignette);
+  background: var(--page);
+}
+
+.barres {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: min(320px, 100%);
+}

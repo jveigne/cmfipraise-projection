@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Sortie — diapositive bilingue</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1280px; height: 720px; position: relative; background: #0B2438; overflow: hidden; font-family: 'Newsreader', serif; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px">
+  <div lang="fr" style="text-align: center; font-size: 44px; line-height: 1.38; color: #F4F1EA">Grâce infinie, ô son si doux,<br>Qui vint me relever ;<br>J’étais perdu, Il m’a trouvé,<br>Aveugle, je peux voir.</div>
+  <div style="width: 64px; height: 1px; background: #1E3A52"></div>
+  <div lang="en" style="text-align: center; font-size: 28px; line-height: 1.38; color: #9FB3C8">Amazing grace! how sweet the sound<br>That saved a wretch like me!<br>I once was lost, but now am found,<br>Was blind, but now I see.</div>
+
+  <div style="position: absolute; left: 48px; bottom: 40px; font-size: 19px; letter-spacing: 0.04em; color: #9FB3C8">Grâce infinie · Amazing Grace · 1.</div>
+  <div style="position: absolute; right: 40px; bottom: 32px; width: 72px; height: 72px; background: #F4F1EA; border-radius: 4px; padding: 5px; box-sizing: border-box; display: grid; grid-template-columns: repeat(21, minmax(0, 1fr))">
+    <sc-for list="{{ qr }}" as="q" hint-placeholder-count="441">
+      <span style="{{ q.st }}"></span>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const n = 21, out = [];
+    let seed = 11;
+    const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+    const finder = (r, c, R, C) => {
+      const y = r - R, x = c - C;
+      if (y < 0 || y > 6 || x < 0 || x > 6) return null;
+      if (y === 0 || y === 6 || x === 0 || x === 6) return 1;
+      return (y >= 2 && y <= 4 && x >= 2 && x <= 4) ? 1 : 0;
+    };
+    for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) {
+      let v = finder(r, c, 0, 0);
+      if (v === null) v = finder(r, c, 0, 14);
+      if (v === null) v = finder(r, c, 14, 0);
+      if (v === null) {
+        const sep = (r === 7 && (c < 8 || c > 12)) || (c === 7 && (r < 8 || r > 12)) || (c === 13 && r < 8) || (r === 13 && c < 8);
+        v = sep ? 0 : (rnd() > 0.5 ? 1 : 0);
+      }
+      out.push({ st: 'display:block;aspect-ratio:1;background:' + (v ? '#0B2438' : 'transparent') });
+    }
+    return { qr: out };
+  }
+}
+</script>
+</body>
+</html>

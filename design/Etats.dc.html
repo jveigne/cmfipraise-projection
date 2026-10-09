@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>États de la régie</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F3F5F7}
+a{color:#1668B8}a:hover{color:#0F4F8F}
+</style>
+</helmet>
+<div style="min-height: 1240px; background: #F3F5F7; font-family: 'Instrument Sans', sans-serif; font-size: 15px; color: #12171C; padding: 24px; box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 560px), 1fr)); gap: 16px; align-content: start">
+
+  <section style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; display: flex; flex-direction: column; min-height: 560px">
+    <div style="padding: 14px 20px; border-bottom: 1px solid #E4E9ED; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5C6873">Vide · première ouverture</div>
+    <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 14px; padding: 40px">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1668B8" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+      <h2 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 600; font-size: 28px; letter-spacing: -0.5px">Rien à projeter pour l’instant</h2>
+      <p style="margin: 0; color: #5C6873; max-width: 420px; line-height: 1.55">Tapez dans la barre du haut ce que vous voulez chanter et lire, ou partez d’une setlist d’exemple pour découvrir la régie.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center">
+        <a href="Main.dc.html" style="height: 48px; padding: 0 18px; border-radius: 8px; background: #1668B8; color: #FFFFFF; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center">Essayer la setlist d’exemple</a>
+        <a href="Setlist.dc.html" style="height: 48px; padding: 0 18px; border-radius: 8px; border: 1px solid #E4E9ED; color: #12171C; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center">Ouvrir une de mes setlists</a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-busy="true" style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; display: flex; flex-direction: column; min-height: 560px">
+    <div style="padding: 14px 20px; border-bottom: 1px solid #E4E9ED; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5C6873">Chargement · découpage des diapositives</div>
+    <div style="padding: 20px; display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 28px; letter-spacing: -0.5px">Grâce infinie</span>
+        <span style="font-size: 13px; font-weight: 500; color: #5C6873">Préparation des 6 diapositives… le titre est déjà projetable.</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+        <sc-for list="{{ skeletons }}" as="k" hint-placeholder-count="4">
+          <div style="border: 1px solid #E4E9ED; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-height: 140px; box-sizing: border-box">
+            <span style="width: 22px; height: 14px; border-radius: 4px; background: #F3F5F7"></span>
+            <span style="width: 92%; height: 12px; border-radius: 4px; background: #F3F5F7"></span>
+            <span style="width: 74%; height: 12px; border-radius: 4px; background: #F3F5F7"></span>
+            <span style="width: 86%; height: 12px; border-radius: 4px; background: #F3F5F7"></span>
+            <span style="width: 58%; height: 12px; border-radius: 4px; background: #F3F5F7"></span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; display: flex; flex-direction: column; min-height: 520px">
+    <div style="padding: 14px 20px; border-bottom: 1px solid #E4E9ED; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5C6873">Hors-ligne · bureau et web</div>
+    <div style="padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+      <div style="border: 1px solid #E4E9ED; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; align-items: center; gap: 8px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1668B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4.5 4.5 0 01-.6-9A6 6 0 0118 8.5a4.5 4.5 0 01-1 9.5z"/><path d="M9.5 13l2 2 3.5-4"/></svg>
+          <span style="font-weight: 600">App de bureau</span>
+        </div>
+        <p style="margin: 0; color: #5C6873; line-height: 1.5">Hors-ligne, et rien ne manque : recueils, Bibles, fonds et setlists sont sur l’ordinateur.</p>
+        <div style="font-size: 13px; font-weight: 500; color: #5C6873; border-top: 1px solid #E4E9ED; padding-top: 10px">Barre de titre : « Hors-ligne prêt ». La synchronisation reprend seule au retour du réseau.</div>
+      </div>
+      <div style="border: 1px solid #E4E9ED; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; align-items: center; gap: 8px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5C6873" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4.5 4.5 0 01-.6-9A6 6 0 0118 8.5a4.5 4.5 0 01-1 9.5z"/><path d="M4 4l16 16"/></svg>
+          <span style="font-weight: 600">Version web</span>
+        </div>
+        <p style="margin: 0; color: #5C6873; line-height: 1.5">La setlist en cours reste projetable. Ce qui n’a jamais été ouvert ne l’est pas :</p>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px">
+          <li style="display: flex; justify-content: space-between; gap: 8px"><span style="font-family: 'Newsreader', serif; font-weight: 600">Setlist du culte</span><span style="font-size: 13px; font-weight: 500; color: #1668B8">disponible</span></li>
+          <li style="display: flex; justify-content: space-between; gap: 8px"><span style="font-family: 'Newsreader', serif; font-weight: 600">Louis Segond 1910</span><span style="font-size: 13px; font-weight: 500; color: #1668B8">disponible</span></li>
+          <li style="display: flex; justify-content: space-between; gap: 8px"><span style="font-family: 'Newsreader', serif; font-weight: 600; color: #5C6873">Recherche dans tout le recueil</span><span style="font-size: 13px; font-weight: 500; color: #5C6873">au retour du réseau</span></li>
+          <li style="display: flex; justify-content: space-between; gap: 8px"><span style="font-family: 'Newsreader', serif; font-weight: 600; color: #5C6873">King James</span><span style="font-size: 13px; font-weight: 500; color: #5C6873">pas encore téléchargée</span></li>
+        </ul>
+        <a href="WebBureau.dc.html" style="font-size: 13px; font-weight: 600">Pour le culte, installez l’app de bureau</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #FFFFFF; border: 1px solid #E4E9ED; border-radius: 14px; display: flex; flex-direction: column; min-height: 520px">
+    <div style="padding: 14px 20px; border-bottom: 1px solid #E4E9ED; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5C6873">Réseau perdu en plein culte</div>
+    <div style="padding: 20px; display: flex; flex-direction: column; gap: 16px">
+      <div role="status" style="border: 1px solid #E4E9ED; border-radius: 14px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; background: #F3F5F7">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#12171C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto; margin-top: 1px"><path d="M7 18a4.5 4.5 0 01-.6-9A6 6 0 0118 8.5a4.5 4.5 0 01-1 9.5z"/><path d="M4 4l16 16"/></svg>
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <span style="font-weight: 600">Réseau perdu à 10 h 42. La projection continue.</span>
+          <span style="font-size: 13px; font-weight: 500; color: #5C6873; line-height: 1.5">Rien n’a été coupé : diapositives, Bible et écrans fonctionnent en local. Le téléphone-télécommande et les paroles de l’assemblée reprendront seuls au retour du réseau.</span>
+        </div>
+      </div>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start">
+        <div style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 8px">
+          <div style="display: flex; align-items: center; gap: 8px">
+            <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase">Sortie</span>
+            <span style="flex: 1"></span>
+            <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: #B8862B; color: #12171C; border-radius: 4px; padding: 3px 7px">En direct</span>
+          </div>
+          <div style="aspect-ratio: 16 / 9; background: #0B2438; border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 0 8%">
+            <div style="font-family: 'Newsreader', serif; font-size: 16px; line-height: 1.42; color: #F4F1EA; text-align: center">L’Éternel est mon berger :<br>je ne manquerai de rien.</div>
+          </div>
+        </div>
+        <ul style="flex: 1 1 200px; margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 13px; font-weight: 500">
+          <li style="display: flex; justify-content: space-between; gap: 8px"><span>Sortie et Bible</span><span style="color: #1668B8">en local</span></li>
+          <li style="display: flex; justify-content: space-between; gap: 8px"><span>Écran des musiciens</span><span style="color: #1668B8">en local (bureau)</span></li>
+          <li style="display: flex; justify-content: space-between; gap: 8px"><span>Télécommande</span><span style="color: #5C6873">en attente</span></li>
+          <li style="display: flex; justify-content: space-between; gap: 8px"><span>Paroles de l’assemblée</span><span style="color: #5C6873">en attente</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1240}}'>
+class Component extends DCLogic {
+  renderVals() { return { skeletons: [1, 2, 3, 4] }; }
+}
+</script>
+</body>
+</html>

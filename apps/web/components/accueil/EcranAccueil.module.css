@@ -1,0 +1,427 @@
+.page {
+  min-height: 100dvh;
+  background: var(--page);
+}
+
+/* ─── Navigation ──────────────────────────────────────────────────────────── */
+
+.nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--filet);
+}
+
+.navContenu {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+}
+
+.marque {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--cible-minimale);
+  color: var(--encre);
+  text-decoration: none;
+}
+
+.marque:hover {
+  color: var(--encre);
+}
+
+.nomMarque {
+  font-family: var(--police-serif);
+  font-weight: 600;
+  font-size: var(--taille-titre-oeuvre);
+}
+
+.liens {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+}
+
+.lienNav {
+  display: flex;
+  align-items: center;
+  min-height: var(--cible-minimale);
+  color: var(--encre);
+  text-decoration: none;
+}
+
+.lienNav:hover {
+  color: var(--bleu-cmfi);
+}
+
+.outils {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.langue {
+  min-height: var(--cible-minimale);
+  padding: 0 12px;
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--filet);
+  background: var(--surface);
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+}
+
+.langue:hover {
+  background: var(--page);
+}
+
+.langueActive {
+  font-weight: 600;
+  color: var(--encre);
+}
+
+.utilisateur {
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ─── Accroche ────────────────────────────────────────────────────────────── */
+
+.hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 72px 24px 48px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  align-items: center;
+}
+
+.heroTexte {
+  flex: 1 1 440px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chapeau {
+  font-size: var(--taille-titre-oeuvre-liste);
+  line-height: 1.55;
+  color: var(--ardoise);
+  max-width: 520px;
+}
+
+.entrees {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 560px;
+}
+
+.entreeChanter,
+.entreeProjeter {
+  border-radius: var(--rayon-surface);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 160px;
+  text-decoration: none;
+}
+
+.entreeChanter {
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  color: var(--encre);
+}
+
+.entreeChanter:hover {
+  color: var(--encre);
+  border-color: var(--bleu-cmfi);
+}
+
+/* Bouton plein : l'action principale, en bleuCmfi. */
+.entreeProjeter {
+  background: var(--bleu-cmfi);
+  color: var(--surface);
+}
+
+.entreeProjeter:hover {
+  background: var(--bleu-appuye);
+  color: var(--surface);
+}
+
+.pastilleProjeter {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--rayon-bouton);
+  border: 1px solid color-mix(in srgb, var(--surface) 45%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.projeterTexte {
+  font-size: var(--taille-meta);
+  font-weight: 600;
+}
+
+.illustration {
+  flex: 1 1 520px;
+  position: relative;
+  min-height: 380px;
+  min-width: 0;
+}
+
+/* Une sortie de projection : le seul usage de nuit ici. */
+.ecranProjete {
+  width: 92%;
+  aspect-ratio: 16 / 9;
+  background: var(--nuit);
+  border-radius: var(--rayon-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.parolesProjetees {
+  font-family: var(--police-serif);
+  font-style: italic;
+  font-size: clamp(17px, 2.2vw, 26px);
+  line-height: 1.42;
+  color: var(--ivoire-projection);
+  text-align: center;
+}
+
+.telephone {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 168px;
+  height: 300px;
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  border-radius: 26px;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.encoche {
+  align-self: center;
+  width: 48px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--filet);
+}
+
+.debut {
+  align-self: flex-start;
+}
+
+.parolesTelephone {
+  font-family: var(--police-serif);
+  font-style: italic;
+  font-size: var(--taille-meta);
+  line-height: 1.62;
+}
+
+.secondeTelephone {
+  font-family: var(--police-serif);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ardoise);
+}
+
+/* ─── Sections ────────────────────────────────────────────────────────────── */
+
+.section,
+.sectionEtapes,
+.sectionAtouts,
+.sectionBureau {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.sectionEtapes {
+  padding-top: 64px;
+  padding-bottom: 24px;
+}
+
+.sectionAtouts {
+  padding-top: 40px;
+  padding-bottom: 24px;
+}
+
+.sectionBureau {
+  padding-top: 40px;
+  padding-bottom: 64px;
+}
+
+.titreSection {
+  margin-bottom: 24px;
+}
+
+.grille {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 12px;
+}
+
+.etape {
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.numeroEtape {
+  color: var(--bleu-cmfi);
+}
+
+.texteEtape,
+.ardoise {
+  color: var(--ardoise);
+  line-height: 1.55;
+}
+
+.atout {
+  padding: 8px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.atout :global(.meta) {
+  line-height: 1.5;
+}
+
+.titreAtout {
+  font-weight: 600;
+}
+
+.bureau {
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon-surface);
+  padding: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.bureauTexte {
+  flex: 1 1 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.telechargements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.telecharger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: var(--rayon-bouton);
+  border: 1px solid var(--filet);
+  font-weight: 600;
+  color: var(--encre);
+  text-decoration: none;
+}
+
+.telecharger:hover {
+  background: var(--page);
+  color: var(--encre);
+}
+
+.fort {
+  font-weight: 600;
+}
+
+.pleineLigne {
+  flex-basis: 100%;
+}
+
+/* ─── Pied ────────────────────────────────────────────────────────────────── */
+
+.pied {
+  border-top: 1px solid var(--filet);
+  background: var(--surface);
+}
+
+.piedContenu {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  align-items: center;
+  font-size: var(--taille-meta);
+  font-weight: 500;
+  color: var(--ardoise);
+}
+
+.ressort {
+  flex: 1;
+}
+
+.bientot {
+  color: var(--ardoise);
+}
+
+@media (max-width: 640px) {
+  .navContenu,
+  .hero,
+  .section,
+  .sectionEtapes,
+  .sectionAtouts,
+  .sectionBureau,
+  .piedContenu {
+    padding-left: var(--marge);
+    padding-right: var(--marge);
+  }
+
+  .hero {
+    padding-top: 40px;
+  }
+
+  .entrees {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .illustration {
+    min-height: 300px;
+  }
+
+  .telephone {
+    width: 140px;
+    height: 240px;
+  }
+}

@@ -1,0 +1,36 @@
+.pastille {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border-radius: var(--rayon-bouton);
+}
+
+/* Recueil, Bible : ce qui vient du mouvement. */
+.bleu {
+  background: var(--bleu-clair);
+  color: var(--bleu-cmfi);
+}
+
+/* Ce qui est à l'utilisateur. */
+.violet {
+  background: var(--violet-clair);
+  color: var(--violet);
+}
+
+/* Logo de l'app : aplat bleuCmfi, icône blanche. */
+.plein {
+  background: var(--bleu-cmfi);
+  color: var(--surface);
+}
+
+/* Cœur du bandeau de don, et lui seul. */
+.don {
+  background: var(--or-don-vif);
+  color: var(--encre-don);
+  border-radius: 50%;
+}
+
+.petite {
+  border-radius: 6px;
+}
